@@ -5,10 +5,6 @@ set cmdheight=3
 " Copy paste to system clipboard
 set clipboard=unnamedplus
 
-
-
-
-
 " ================PLUGINS================
 "Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 "https://github.com/junegunn/vim-plugg
@@ -18,6 +14,17 @@ Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdcommenter'
+"Plug 'lambdalisue/vim-gista'
+
+"Oscar
+"https://gist.github.com/patsancu/4d9e63539a4f335e168695e285a92f97
+"Plug 'junegunn/gv.vim'
+Plug 'mattn/gist-vim'
+"Plug 'mhinz/vim-signify'
+"Plug 'tpope/vim-fugitive'
+Plug 'mattn/webapi-vim' " needed for gist-vim
+
 
 " Initialize plugin system
 call plug#end()
@@ -34,12 +41,28 @@ let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
+" Gista
+"let g:gista#client#default_username = 'patsancu'
+"
+
+" Gist-vim
+" Gists will be private by default
+let g:gist_post_private = 1
+
+"--------
 "Mappings
+"--------
 "copy paste
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
 vnoremap <C-p> "+gP
+" Change buffers
+nnoremap <C-left> :bprev<CR>
+nnoremap <C-right> :bnext<CR>
+
+"Autocomplete with CTRL+space
+inoremap <Nul> <C-n>
 
 " Map caps to escape
 au VimEnter * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
