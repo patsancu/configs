@@ -16,6 +16,9 @@ Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 "Plug 'lambdalisue/vim-gista'
+"Plug 'mattn/emmet-vim' " HTML generation
+Plug 'alvan/vim-closetag'
+Plug 'tpope/vim-surround'
 
 "Oscar
 "https://gist.github.com/patsancu/4d9e63539a4f335e168695e285a92f97
@@ -24,13 +27,13 @@ Plug 'mattn/gist-vim'
 "Plug 'mhinz/vim-signify'
 "Plug 'tpope/vim-fugitive'
 Plug 'mattn/webapi-vim' " needed for gist-vim
-
+Plug 'terryma/vim-multiple-cursors'
 
 " Initialize plugin system
 call plug#end()
 " ================PLUGINS END================
 "color ron
-colorscheme Monokai
+colorscheme Molokai
 set tabstop=4
 set number
 " Show buffer 'tabs'
@@ -40,6 +43,13 @@ let g:NERDTreeBookmarksFile = $HOME ."/.vim/plugged/nerdtree/bookmarks" " existi
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+" Enable Emmetjust for html/css
+"let g:user_emmet_install_global = 0
+"autocmd FileType html,css EmmetInstall
+
+"vim-closetag only for suitable files
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Gista
 "let g:gista#client#default_username = 'patsancu'
@@ -60,6 +70,8 @@ vnoremap <C-p> "+gP
 " Change buffers
 nnoremap <C-left> :bprev<CR>
 nnoremap <C-right> :bnext<CR>
+nnoremap <A-j> :m .+1<CR>==
+
 
 "Autocomplete with CTRL+space
 inoremap <Nul> <C-n>
