@@ -16,23 +16,23 @@ set matchtime=3
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set ignorecase
 set smartcase
+set shellcmdflag=-ci
+
 "color solarized
-color Monokai
 " ================PLUGINS================
 "Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 "https://github.com/junegunn/vim-plugg
 call plug#begin('~/.vim/plugged')
-
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
+Plug 'artur-shaik/vim-javacomplete2'
 "Plug 'lambdalisue/vim-gista'
 "Plug 'mattn/emmet-vim' " HTML generation
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
-
 "Oscar
 "https://gist.github.com/patsancu/4d9e63539a4f335e168695e285a92f97
 "Plug 'junegunn/gv.vim'
