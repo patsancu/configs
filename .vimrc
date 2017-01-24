@@ -46,6 +46,8 @@ Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 " ================PLUGINS END===============
 "
+colorscheme Monokai
+"
 " -----------------------
 " Plugin configuration
 " ------------------------
@@ -70,6 +72,9 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " Gist-vim
 " Gists will be private by default
 let g:gist_post_private = 1
+" Vim-javacomplete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
 " -----------------
 " Undo configuration
 " ------------------
