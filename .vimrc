@@ -50,9 +50,9 @@ set tabstop=4
 set number
 
 "Shows end of lines and stuff
-":set unlist to disable
+":set nolist to disable
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-set list
+"set list
 
 " Show buffer 'tabs'
 let g:airline#extensions#tabline#enabled = 1
