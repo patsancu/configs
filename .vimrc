@@ -6,6 +6,11 @@ set cmdheight=3
 " Copy paste to system clipboard
 set clipboard=unnamedplus
 
+"Cursor briefly jumps to the matching brace when 
+"you insert one
+set showmatch
+set matchtime=3
+
 "Shows end of lines and stuff
 ":set nolist to disable
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
