@@ -105,7 +105,13 @@ vnoremap <C-p> "+gP
 nnoremap <C-left> :bprev<CR>
 nnoremap <C-right> :bnext<CR>
 nnoremap <A-j> :m .+1<CR>==
+" Highlight words when searching by 
+" hitting enter
+noremap <CR> :set hlsearch! hlsearch?<CR>
 
+"Javacomplete2
+nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 
 "Autocomplete with CTRL+space
 inoremap <Nul> <C-n>
