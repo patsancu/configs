@@ -48,6 +48,12 @@ color Monokai
 "color solarized
 set tabstop=4
 set number
+
+"Shows end of lines and stuff
+":set unlist to disable
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set list
+
 " Show buffer 'tabs'
 let g:airline#extensions#tabline#enabled = 1
 
