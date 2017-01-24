@@ -9,7 +9,8 @@ set clipboard=unnamedplus
 "Shows end of lines and stuff
 ":set nolist to disable
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-
+set ignorecase
+set smartcase
 "color solarized
 color Monokai
 " ================PLUGINS================
