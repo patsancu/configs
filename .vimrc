@@ -43,6 +43,9 @@ if has('persistent_undo')
     set undofile
 endif
 
+color Monokai
+"set background=dark
+"color solarized
 set tabstop=4
 set number
 " Show buffer 'tabs'
