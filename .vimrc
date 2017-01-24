@@ -88,6 +88,9 @@ endif
 "--------
 "Mappings
 "--------
+let mapleader=","
+
+"
 "copy paste
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
