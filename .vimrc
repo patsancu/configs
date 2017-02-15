@@ -17,22 +17,27 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set ignorecase
 set smartcase
 set shellcmdflag=-ci
+"set shell=bash\ --login
+"set shell=/bin/bash\ --rcfile\ ~/.bash_profile\ -i
+" When searching or *ing word, hit enter to highlight word
+"hi Search guibg=LightBlue.
 
 "color solarized
 " ================PLUGINS================
 "Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 "https://github.com/junegunn/vim-plugg
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'artur-shaik/vim-javacomplete2'
+Plug 'Valloric/YouCompleteMe'
 "Plug 'lambdalisue/vim-gista'
 "Plug 'mattn/emmet-vim' " HTML generation
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
+"Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 "Oscar
 "https://gist.github.com/patsancu/4d9e63539a4f335e168695e285a92f97
 "Plug 'junegunn/gv.vim'
@@ -111,8 +116,6 @@ vnoremap <C-p> "+gP
 nnoremap <C-left> :bprev<CR>
 nnoremap <C-right> :bnext<CR>
 nnoremap <A-j> :m .+1<CR>==
-" Highlight words when searching by 
-" hitting enter
 noremap <CR> :set hlsearch! hlsearch?<CR>
 
 "Javacomplete2
