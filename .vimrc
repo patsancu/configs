@@ -126,6 +126,6 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 inoremap <Nul> <C-n>
 
 " Map caps to escape
-au VimEnter * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "Unmap caps to escape
-au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
