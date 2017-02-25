@@ -6,7 +6,7 @@ set cmdheight=3
 " Copy paste to system clipboard
 set clipboard=unnamedplus
 
-"Cursor briefly jumps to the matching brace when 
+"Cursor briefly jumps to the matching brace when
 "you insert one
 set showmatch
 set matchtime=3
@@ -16,14 +16,19 @@ set matchtime=3
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set ignorecase
 set smartcase
-set shellcmdflag=-ci
+"set shellcmdflag=-ci
+"set shell=/bin/bash\ -li
+"if &diff == 'nodiff'
+"    set shellcmdflag=-ci
+"endif
+"set shell=bash\ --login
 
 "color solarized
 " ================PLUGINS================
 "Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 "https://github.com/junegunn/vim-plugg
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+"Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
@@ -31,10 +36,12 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'artur-shaik/vim-javacomplete2'
 "Plug 'lambdalisue/vim-gista'
 "Plug 'mattn/emmet-vim' " HTML generation
+Plug 'Valloric/YouCompleteMe'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 "Oscar
 "https://gist.github.com/patsancu/4d9e63539a4f335e168695e285a92f97
+Plug 'jiangmiao/auto-pairs'
 "Plug 'junegunn/gv.vim'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim' " needed for gist-vim
@@ -110,7 +117,7 @@ vnoremap <C-p> "+gP
 nnoremap <C-left> :bprev<CR>
 nnoremap <C-right> :bnext<CR>
 nnoremap <A-j> :m .+1<CR>==
-" Highlight words when searching by 
+" Highlight words when searching by
 " hitting enter
 noremap <CR> :set hlsearch! hlsearch?<CR>
 
@@ -122,6 +129,6 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 inoremap <Nul> <C-n>
 
 " Map caps to escape
-au VimEnter * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimEnter :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "Unmap caps to escape
-au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+au VimLeave :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
