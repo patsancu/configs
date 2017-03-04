@@ -197,10 +197,10 @@ if ! shopt -oq posix; then
 fi
 
 
-function contarArchivos() { 
-	#do things with parameters like $1 such as 
-	ls -l $1 | grep -v ^l | wc -l 
-} 
+function contarArchivos() {
+	#do things with parameters like $1 such as
+	ls -l $1 | grep -v ^l | wc -l
+}
 
 weather_short(){
   curl -s "http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=${@:-<YOURZIPORLOCATION>}"|perl -ne '/<title>([^<]+)/&&printf "%s: ",$1;/<fcttext>([^<]+)/&&print $1,"\n"';
@@ -229,7 +229,7 @@ weather(){
 
 
 shorten(){
-   export GOOGLE_SHORTEN_API_KEY=AIzaSyAak7yiGLaX-R2gcg0mtxEPlqPX5wUzopwpara bashrc shorten(){		curl "https://www.googleapis.com/urlshortener/v1/url?key=$GOOGLE_SHORTEN_API_KEY" -H 'Content-Type: application/json' -d "{'longUrl':      \"$1\"}"}
+   curl "https://www.googleapis.com/urlshortener/v1/url?key=$GOOGLE_SHORTEN_API_KEY" -H 'Content-Type: application/json' -d "{'longUrl':      \"$1\"}"}
 }
 
 fortune -s | cowsay

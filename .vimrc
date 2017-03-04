@@ -16,29 +16,31 @@ set matchtime=3
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set ignorecase
 set smartcase
+
 "set shellcmdflag=-ci
 "set shell=/bin/bash\ -li
 "if &diff == 'nodiff'
 "    set shellcmdflag=-ci
 "endif
 "set shell=bash\ --login
-
 "color solarized
 " ================PLUGINS================
 "Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 "https://github.com/junegunn/vim-plugg
 call plug#begin('~/.vim/plugged')
-"Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'artur-shaik/vim-javacomplete2'
+Plug 'Valloric/YouCompleteMe'
 "Plug 'lambdalisue/vim-gista'
 "Plug 'mattn/emmet-vim' " HTML generation
 Plug 'Valloric/YouCompleteMe'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
+"Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 "Oscar
 "https://gist.github.com/patsancu/4d9e63539a4f335e168695e285a92f97
 Plug 'jiangmiao/auto-pairs'
@@ -48,6 +50,7 @@ Plug 'mattn/webapi-vim' " needed for gist-vim
 "Plug 'mhinz/vim-signify'
 "Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'jiangmiao/auto-pairs'
 
 " Initialize plugin system
 call plug#end()
@@ -129,6 +132,7 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 inoremap <Nul> <C-n>
 
 " Map caps to escape
+
 au VimEnter :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "Unmap caps to escape
 au VimLeave :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
