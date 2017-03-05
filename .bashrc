@@ -185,6 +185,11 @@ if [ -f ~/.bash_rc_config ]; then
     . ~/.bash_rc_config
 fi
 
+### Config for machine
+if [ -f ~/.bash_other_stuff ]; then
+    . ~/.bash_other_stuff
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -229,7 +234,7 @@ weather(){
 
 
 shorten(){
-   curl "https://www.googleapis.com/urlshortener/v1/url?key=$GOOGLE_SHORTEN_API_KEY" -H 'Content-Type: application/json' -d "{'longUrl':      \"$1\"}"}
+   curl -s "https://www.googleapis.com/urlshortener/v1/url?key=$GOOGLE_SHORTEN_API_KEY" -H 'Content-Type: application/json' -d "{'longUrl':      \"$1\"}" | jq ".id"
 }
 
 fortune -s | cowsay
