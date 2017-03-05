@@ -1,5 +1,6 @@
 set tabstop=4
 set number
+set cursorline
 
 " just to avoid the freaking prompt at launch-time
 set cmdheight=3
