@@ -119,8 +119,8 @@ vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
 vnoremap <C-p> "+gP
 " Change buffers
-nnoremap <C-left> :bprev<CR>
-nnoremap <C-right> :bnext<CR>
+nnoremap <C-h> :bprev<CR>
+nnoremap <C-l> :bnext<CR>
 nnoremap <A-j> :m .+1<CR>==
 " Highlight words when searching by
 " hitting enter
