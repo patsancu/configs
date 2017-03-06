@@ -125,12 +125,12 @@ nnoremap <A-j> :m .+1<CR>==
 " hitting enter
 noremap <CR> :set hlsearch! hlsearch?<CR>
 
+
+nnoremap <Leader>n :NERDTreeToggle<CR>
+
 "Javacomplete2
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-
-"Autocomplete with CTRL+space
-inoremap <Nul> <C-n>
 
 " Map caps to escape
 
