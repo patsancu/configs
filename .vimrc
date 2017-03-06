@@ -86,6 +86,7 @@ let g:gist_post_private = 1
 " Vim-javacomplete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
+let NERDTreeQuitOnOpen = 1
 " -----------------
 " Undo configuration
 " ------------------
