@@ -17,7 +17,6 @@ set matchtime=3
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set ignorecase
 set smartcase
-
 "set shellcmdflag=-ci
 "set shell=/bin/bash\ -li
 "if &diff == 'nodiff'
@@ -69,6 +68,8 @@ let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 " Enable Emmetjust for html/css
 "let g:user_emmet_install_global = 0
 "autocmd FileType html,css EmmetInstall
