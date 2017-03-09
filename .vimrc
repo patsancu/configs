@@ -63,7 +63,7 @@ Plug 'mattn/webapi-vim' " needed for gist-vim
 "Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
-
+Plug 'tpope/vim-fireplace'
 " Initialize plugin system
 call plug#end()
 " ================PLUGINS END===============
