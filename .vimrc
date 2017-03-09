@@ -2,6 +2,18 @@ set tabstop=4
 set number
 set cursorline
 
+"Folding
+set foldenable
+set foldlevel=0
+set foldnestmax=1
+set foldmethod=indent
+set foldtext=FoldText()
+
+function FoldText()
+		    return '...'
+endfunction
+
+
 " just to avoid the freaking prompt at launch-time
 set cmdheight=3
 " Copy paste to system clipboard
@@ -129,6 +141,8 @@ noremap <CR> :set hlsearch! hlsearch?<CR>
 
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>f zA<CR>
+
 
 "Javacomplete2
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
