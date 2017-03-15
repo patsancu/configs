@@ -74,33 +74,51 @@ colorscheme Monokai
 " -----------------------
 " Plugin configuration
 " ------------------------
+"
+" Airline
+" ========
 let g:airline#extensions#tabline#enabled = 1
 
+" NERDTree
+" ========
 let g:NERDTreeBookmarksFile = $HOME ."/.vim/plugged/nerdtree/bookmarks" " existing path to bookmarg
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+
+" YouCompleteMe
+" ========
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
-" Enable Emmetjust for html/css
+" Emmejt
+" ========
+" Enable Emmet just for html/css
 "let g:user_emmet_install_global = 0
 "autocmd FileType html,css EmmetInstall
 
+" Closetag
+" ========
+" Enable Emmet just for html/css
 "vim-closetag only for suitable files
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " Gista
+" ========
 "let g:gista#client#default_username = 'patsancu'
 "
 
 " Gist-vim
+" ========
 " Gists will be private by default
 let g:gist_post_private = 1
+
 " Vim-javacomplete
+" ========
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 let NERDTreeQuitOnOpen = 1
+
 " -----------------
 " Undo configuration
 " ------------------
@@ -150,6 +168,7 @@ nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 
 " Map caps to escape
+
 au VimEnter :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "Unmap caps to escape
 au VimLeave :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
