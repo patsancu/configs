@@ -112,6 +112,8 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " ========
 " Gists will be private by default
 let g:gist_post_private = 1
+" Show my private gists when listing
+let g:gist_show_privates = 1
 
 " Vim-javacomplete
 " ========
@@ -161,7 +163,8 @@ noremap <CR> :set hlsearch! hlsearch?<CR>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 nnoremap <Leader>f zA<CR>
-
+nnoremap <Leader>g :Gist -p<CR>
+nnoremap <Leader>G :Gist -P<CR>
 
 "Javacomplete2
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
