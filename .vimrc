@@ -103,10 +103,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "vim-closetag only for suitable files
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
-" Gista
-" ========
-"let g:gista#client#default_username = 'patsancu'
-"
 
 " Gist-vim
 " ========
