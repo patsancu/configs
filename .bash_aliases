@@ -68,3 +68,5 @@ alias recargarAlias='source ~/.bashrc'
 #alias roo="/home/patrick/Development/Software/spring-roo-2.0.0.M2/bin/roo.sh"
 
 alias checkInternet='ping 8.8.8.8'
+alias lsd='ls -d */'
+alias lld='ls -ld */'
