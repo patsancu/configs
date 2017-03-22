@@ -12,7 +12,8 @@ set foldtext=FoldText()
 function FoldText()
 		    return '...'
 endfunction
-
+"Only very nested blocks are folded
+set foldlevelstart=10
 
 " just to avoid the freaking prompt at launch-time
 set cmdheight=3
