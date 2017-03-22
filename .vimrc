@@ -104,10 +104,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "vim-closetag only for suitable files
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
-" Gista
-" ========
-"let g:gista#client#default_username = 'patsancu'
-"
 
 " Gist-vim
 " ========
@@ -115,6 +111,8 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 let g:gist_post_private = 1
 " Show my private gists when listing
 let g:gist_show_privates = 1
+let g:gist_detect_filetype = 1
+
 
 " Vim-javacomplete
 " ========
