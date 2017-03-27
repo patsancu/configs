@@ -70,3 +70,4 @@ alias recargarAlias='source ~/.bashrc'
 alias checkInternet='ping 8.8.8.8'
 alias lsd='ls -d */'
 alias lld='ls -ld */'
+alias gitweb=my_gitweb

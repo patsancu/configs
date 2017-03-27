@@ -202,6 +202,16 @@ if ! shopt -oq posix; then
 fi
 
 
+
+my_gitweb(){
+	if [ -d .git  ]; then
+    	url=`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'`;
+		xdg-open $url;
+	else
+ 		echo "Not a git repo";
+	fi
+}
+
 function contarArchivos() {
 	#do things with parameters like $1 such as
 	ls -l $1 | grep -v ^l | wc -l
