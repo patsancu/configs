@@ -186,8 +186,8 @@ if [ -f ~/.bash_rc_config ]; then
 fi
 
 ### Config for machine
-if [ -f ~/.bash_other_stuff ]; then
-    . ~/.bash_other_stuff
+if [ -f ~/privateconfigs/.bash_other_stuff ]; then
+    . ~/privateconfigs/.bash_other_stuff
 fi
 
 # enable programmable completion features (you don't need to enable
