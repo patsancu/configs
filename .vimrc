@@ -169,6 +169,12 @@ nnoremap <Leader>G :Gist -P<CR>
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 
+
+" Enter new line in normal mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+
 " Map caps to escape
 
 au VimEnter :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
