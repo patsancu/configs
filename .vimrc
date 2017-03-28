@@ -171,9 +171,9 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 
 
 " Enter new line in normal mode
-nmap <S-Enter> O<Esc>
-nmap <CR> o<Esc>
-
+"nmap <S-Enter> O<Esc>
+" nmap <CR> o<Esc>
+nnoremap <Leader>, o<Esc>
 
 " Map caps to escape
 
