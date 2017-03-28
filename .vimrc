@@ -168,7 +168,7 @@ nnoremap <Leader>G :Gist -P<CR>
 "Javacomplete2
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-
+map <leader>l :echo expand('%:p')<CR>
 
 " Enter new line in normal mode
 "nmap <S-Enter> O<Esc>
@@ -180,6 +180,5 @@ nnoremap <Leader>, o<Esc>
 au VimEnter :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "Unmap caps to escape
 au VimLeave :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
-
 " Highlight in red with white font
 hi Search ctermbg=DarkRed ctermfg=White
