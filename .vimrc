@@ -15,6 +15,7 @@ endfunction
 "Only very nested blocks are folded
 set foldlevelstart=10
 
+
 " just to avoid the freaking prompt at launch-time
 set cmdheight=3
 " Copy paste to system clipboard
@@ -161,7 +162,10 @@ noremap <CR> :set hlsearch! hlsearch?<CR>
 
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
+"Fold toggle
 nnoremap <Leader>f zA<CR>
+
+"Gist private and public
 nnoremap <Leader>g :Gist -p<CR>
 nnoremap <Leader>G :Gist -P<CR>
 
@@ -176,9 +180,9 @@ map <leader>l :echo expand('%:p')<CR>
 nnoremap <Leader>, o<Esc>
 
 " Map caps to escape
-
 au VimEnter :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "Unmap caps to escape
 au VimLeave :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
 " Highlight in red with white font
 hi Search ctermbg=DarkRed ctermfg=White
