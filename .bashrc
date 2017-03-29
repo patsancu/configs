@@ -247,6 +247,11 @@ shorten(){
    curl -s "https://www.googleapis.com/urlshortener/v1/url?key=$GOOGLE_SHORTEN_API_KEY" -H 'Content-Type: application/json' -d "{'longUrl':      \"$1\"}" | jq ".id"
 }
 
+
+calculate(){
+	bc -l <<< "$1";
+}
+
 fortune -s | cowsay
 
 function cdl { cd $1; ls;}
