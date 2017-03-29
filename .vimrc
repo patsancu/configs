@@ -172,7 +172,9 @@ nnoremap <Leader>G :Gist -P<CR>
 "Javacomplete2
 nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-map <leader>l :echo expand('%:p')<CR>
+
+" Print current file's full path
+noremap <leader>, :echo expand('%:p')<CR>
 
 " Enter new line in normal mode
 "nmap <S-Enter> O<Esc>
