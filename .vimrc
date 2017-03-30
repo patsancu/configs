@@ -180,6 +180,9 @@ noremap <leader>, :echo expand('%:p')<CR>
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
 
+" Quit buffer with ,q
+nnoremap <Leader>q :bd<Enter>
+
 " Map caps to escape
 au VimEnter :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "Unmap caps to escape
