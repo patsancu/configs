@@ -1,0 +1,3 @@
+#MACOS specific
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBx
