@@ -176,6 +176,9 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 " Print current file's full path
 noremap <leader>, :echo expand('%:p')<CR>
 
+" Enter space in normal mode with ss
+nnoremap ss i<space><esc>
+
 " Enter new line in normal mode
 nnoremap <Leader>o o<Esc>
 nnoremap <Leader>O O<Esc>
