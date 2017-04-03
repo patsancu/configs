@@ -1,3 +1,4 @@
 #MACOS specific
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBx
+source /usr/local/bin/virtualenvwrapper.sh
