@@ -1,5 +1,5 @@
-source ~/privateConfigs/.bash_private_wk
-source ~/privateConfigs/.bash_wk_aliases
+source ~/privateConfigs/.bash_dell_private
+source ~/privateConfigs/.bash_dell_aliases
 
 export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
 export ORACLE_SID=XE
