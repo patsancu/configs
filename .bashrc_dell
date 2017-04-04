@@ -1,0 +1,23 @@
+source ~/privateConfigs/.bash_private_wk
+source ~/privateConfigs/.bash_wk_aliases
+
+export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
+export ORACLE_SID=XE
+export NLS_LANG=`$ORACLE_HOME/bin/nls_lang.sh`
+export ORACLE_BASE=/u01/app/oracle
+export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
+export PATH=$ORACLE_HOME/bin:$PATH:/home/patrick/bin
+
+export CMS_HOME="/home/patrick/dev/cms/"
+export CMS_INSTALLER_HOME="/home/patrick/dev/workspace-microservices/iris-cms-service-installer"
+export LD_LIBRARY_PATH=/u01/app/oracle/product/11.2.0/xe/lib/
+export ANT_HOME=/home/patrick/dev/process-tools-5-25
+#export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+
+
+#Metrix variables
+export METRIX_HOME=/home/patrick/dev/tvmetrix
+export EXTRACTOR="$METRIX/extractor"
+
+cd $METRIX_HOME
