@@ -1,0 +1,8 @@
+django_help (){
+	echo "Create project:"
+	echo "   django-admin startproject mysite "
+	echo "Create app"
+ 	echo "   python manage.py startapp polls"
+    echo "Run server"
+	echo "   python manage.py runserver"
+}
