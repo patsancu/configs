@@ -1,0 +1,3 @@
+alias switchClusterToTelevisa='export TVMETRIX_CFG=tvmetrix-televisa; cd $METRIX_HOME/tvmetrix-k8s/; ./tvmetrix; cd -'
+alias switchClusterToWorkbench='export TVMETRIX_CFG=tvmetrix-workbench; cd $METRIX_HOME/tvmetrix-k8s/; ./tvmetrix; cd -'
+
