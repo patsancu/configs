@@ -668,6 +668,13 @@ _make()
 
 }
 
+# Autocomplete aws cli
+which aws_completer > /dev/null && complete -C '/usr/local/bin/aws_completer' aws
+
+# Enable kubernetes autocompletion, if installed
+which kubectl > /dev/null &&  source <(kubectl completion bash)
+
+
 complete -F _make -X '+($*|*.[cho])' make gmake pmake
 
 DARKGRAY='\e[1;30m'
