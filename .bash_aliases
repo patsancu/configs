@@ -15,7 +15,7 @@ alias buscarPaquete='sudo apt-cache search'
 # Use gls in macOS 
 which gls > /dev/null && alias ls='gls --color'
 # The ubiquitous 'll': directories first, with alphanumeric sorting:
-alias ll="ls -lv --group-directories-first"
+alias ll="ls -lhv --group-directories-first"
 alias lx='ll -XB'         #  Sort by extension.
 alias lk='ll -Sr'         #  Sort by size, biggest last.
 alias lt='ll -tr'         #  Sort by date, most recent last.
@@ -26,8 +26,6 @@ alias lm='ll |less'        #  Pipe through 'more'
 alias lr='ll -R'           #  Recursive ls.
 alias la='ll -A'           #  Show hidden files.
 alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
-alias la='ls -a'
-alias lla='ls -la'
 alias l='ls -CF'
 alias kk='ll'
 
