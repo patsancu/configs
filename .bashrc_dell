@@ -7,6 +7,7 @@ export NLS_LANG=`$ORACLE_HOME/bin/nls_lang.sh`
 export ORACLE_BASE=/u01/app/oracle
 export LD_LIBRARY_PATH=$ORACLE_HOME/lib:$LD_LIBRARY_PATH
 export PATH=$ORACLE_HOME/bin:$PATH:/home/patrick/bin
+export PATH=$PATH:/home/patrick/dev/software/linux-amd64/
 
 export CMS_HOME="/home/patrick/dev/cms/"
 export CMS_INSTALLER_HOME="/home/patrick/dev/workspace-microservices/iris-cms-service-installer"
