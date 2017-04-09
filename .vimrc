@@ -72,7 +72,7 @@ Plug 'tpope/vim-fireplace'
 call plug#end()
 " ================PLUGINS END===============
 "
-colorscheme Monokai
+colorscheme seoul256
 "
 " -----------------------
 " Plugin configuration
