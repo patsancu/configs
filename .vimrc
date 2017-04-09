@@ -50,6 +50,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'Valloric/YouCompleteMe'
+Plug 'edkolev/promptline.vim'
 "Plug 'lambdalisue/vim-gista'
 "Plug 'mattn/emmet-vim' " HTML generation
 Plug 'Valloric/YouCompleteMe'
@@ -76,7 +77,18 @@ colorscheme Monokai
 " -----------------------
 " Plugin configuration
 " ------------------------
-"
+
+let promptline#slices#battery = ({ 'threshold': 95 })
+" sections (a, b, c, x, y, z, warn) are optional
+let g:promptline_preset = {
+        \'a' : [ promptline#slices#host() ],
+        \'b' : [ promptline#slices#user() ],
+        \'c' : [ promptline#slices#cwd() ],
+		\'x' : [ promptline#slices#python_virtualenv()],
+        \'y' : [ promptline#slices#vcs_branch() ],
+		\'z' : [ promptline#slices#git_status(), '%*' ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
+
 " Airline
 " ========
 let g:airline#extensions#tabline#enabled = 1
