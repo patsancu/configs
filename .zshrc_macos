@@ -1,0 +1,10 @@
+# Generic zsh stuff
+source ~/Configs/zsh/.zshrc
+source ~/Configs/zsh/.zsh_prompt
+
+source ~/Configs/generic/._shrc_MACOS
+# Generic stuff
+source ~/Configs/generic/._shrc
+source ~/Configs/generic/._sh_aliases
+# Generic macos stuff
+

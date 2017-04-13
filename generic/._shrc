@@ -1,0 +1,96 @@
+# vim: set filetype=sh :
+
+
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+PATH=/usr/local/bin:$VIRTUALENVWRAPPER_PYTHON:$PATH
+export PATH
+
+# For vim backup stuff
+mkdir -p ~/.vim/.backup ~/.vim/.swp ~/.vim/.undo
+
+# Alias definitions.
+if [ -f ~/Configs/.bash_aliases ]; then
+. ~/Configs/.bash_aliases
+fi
+
+### Config with pw and other stuff 
+if [ -f ~/privateconfigs/.bash_other_stuff ]; then
+. ~/privateconfigs/.bash_other_stuff
+fi
+
+if [ -f ~/Configs/.bashrc_dev_helpers ]; then
+	. ~/Configs/.bashrc_dev_helpers 
+fi
+
+# =========
+# Functions
+# =========
+
+my_gitweb(){
+if [ -d .git  ]; then
+    	url=`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'`;
+		xdg-open $url;
+	else
+ 		echo "Not a git repo";
+	fi
+}
+
+function contarArchivos() {
+	#do things with parameters like $1 such as
+	ls -l $1 | grep -v ^l | wc -l
+}
+
+weather_short(){
+  curl -s "http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=${@:-<YOURZIPORLOCATION>}"|perl -ne '/<title>([^<]+)/&&printf "%s: ",$1;/<fcttext>([^<]+)/&&print $1,"\n"';
+}
+
+weather_long(){
+  curl wttr.in/madrid
+}
+
+mkcd(){
+   mkdir -p $1;
+   cd $1
+}
+
+weather(){
+  if [ $# -gt 0 ]; then
+    if [ $1 == "short" ];  then
+      weather_short madrid
+    else
+      weather_long
+    fi
+  else
+    weather_short madrid
+  fi
+}
+
+
+shorten(){
+   curl -s "https://www.googleapis.com/urlshortener/v1/url?key=$GOOGLE_SHORTEN_API_KEY" -H 'Content-Type: application/json' -d "{'longUrl':      \"$1\"}" | jq ".id"
+}
+
+# In zsh, with certain glob options,
+# multiplications will only work with 
+# "9*9"
+# Others will work, e.g. 9/8
+calculate(){
+	bc -l <<< "$1";
+}
+
+function my_ip() # Get IP adress on ethernet.
+{
+    MY_IP=$(/sbin/ifconfig eth0 | awk '/inet/ { print $2 } ' |
+      sed -e s/addr://)
+    echo ${MY_IP:-"Not connected"}
+}
+
+
+
+
+if [ -f ~/.git-completion.bash  ]; then
+    . ~/.git-completion.bash
+else
+	curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+	. ~/.git-completion.bash
+fi

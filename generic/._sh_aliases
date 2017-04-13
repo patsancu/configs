@@ -1,3 +1,5 @@
+# vim: set filetype=sh :
+
 # Safe aliases
 alias cp='cp -i'
 alias mv='mv -i'
@@ -42,16 +44,11 @@ alias kk='ll'
 
 alias actualizar='sudo apt-get update; sudo apt-get upgrade; sudo apt-get autoremove; sudo apt-get autoclean; sudo apt-get update'
 alias matar='sudo killall'
-#alias montar1and1='sshfs u76288608@sanzo.es:/ ~/ssh1and1/'
-#alias desmontar1and1='fusermount -u ssh1and1'
-#alias ftp1and1='sftp u76288608@sanzo.es'
-#alias descargarVideo="youtube-dl --proxy '127.0.0.1:8123'"
 alias descargarVideo='proxychains youtube-dl'
 ## this one saved by butt so many times ##
 alias wget='wget -c'
 
 alias disco='df -h'
-#alias ip='curl ipinfo.io'
 alias ip='ip=`curl -s http://whatismyip.akamai.com/`; echo $ip'
 
 
@@ -80,9 +77,6 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
  
-## older system use /proc/cpuinfo ##
-##alias cpuinfo='less /proc/cpuinfo' ##
- 
 ## get GPU ram on desktop / laptop## 
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
@@ -97,8 +91,6 @@ alias getBTCeurPrice='btcPrice=`curl -s  http://api.coindesk.com/v1/bpi/currentp
 
 alias getETHeurPrice='ethPrice=`curl -s  https://coinmarketcap-nexuist.rhcloud.com/api/eth | jq "[.price.eur]" | grep -v "\[" | grep -v "\]" | tr -d " "`; ethPriceUnit="$ethPrice"."EUR"; echo "1ETH=$ethPriceUnit"'
 alias recargarAlias='source ~/.bashrc'
-
-#alias roo="/home/patrick/Development/Software/spring-roo-2.0.0.M2/bin/roo.sh"
 
 alias checkInternet='ping 8.8.8.8'
 alias lsd='ls -d */'

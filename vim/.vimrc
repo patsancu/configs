@@ -37,8 +37,6 @@ set matchtime=3
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set ignorecase
 set smartcase
-set backspace=indent,eol,start
-
 
 "set shellcmdflag=-ci
 "set shell=/bin/bash\ -li
@@ -55,7 +53,6 @@ Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'Valloric/YouCompleteMe'
@@ -77,15 +74,6 @@ Plug 'mattn/webapi-vim' " needed for gist-vim
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fireplace'
-" Generate a nice airline tmux line theme
-" nice ones are generated via: 
-" Tmuxline airline_insert Tmuxline airline_visual
-" Don't forget to remove the utf line
-" in the theme
-"  In vim, inside a tmux session
-" :Tmuxline whatever
-" :TmuxlineSnapshot themfilename
-Plug 'edkolev/tmuxline.vim'
 " Initialize plugin system
 call plug#end()
 " ================PLUGINS END===============
@@ -95,14 +83,6 @@ colorscheme seoul256
 " -----------------------
 " Plugin configuration
 " ------------------------
-
-
-
-" Airline 
-" -------
-" In order for airline to show always the statusline,
-" and not only only splits 
-set laststatus=2
 
 let promptline#slices#battery = ({ 'threshold': 95 })
 " sections (a, b, c, x, y, z, warn) are optional

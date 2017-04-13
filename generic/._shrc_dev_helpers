@@ -1,3 +1,5 @@
+# vim: set filetype=sh :
+
 django_help (){
 	echo "Create project:"
 	echo "   django-admin startproject mysite "

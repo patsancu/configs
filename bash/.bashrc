@@ -143,26 +143,6 @@ alias egrep='egrep --color=auto'
 fi
 
 
-# Alias definitions.
-if [ -f ~/Configs/.bash_aliases ]; then
-. ~/Configs/.bash_aliases
-fi
-
-### Config with pw and other stuff 
-if [ -f ~/privateconfigs/.bash_other_stuff ]; then
-. ~/privateconfigs/.bash_other_stuff
-fi
-
-if [ -f ~/Configs/.bashrc_dev_helpers ]; then
-	. ~/Configs/.bashrc_dev_helpers 
-fi
-
-if [ -f ~/.git-completion.bash  ]; then
-    . ~/.git-completion.bash
-else
-	curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-	. ~/.git-completion.bash
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -678,6 +658,16 @@ _make()
                                 $makef 2>/dev/null | eval $gcmd  ))
 
 }
+
+
+
+if [ -f ~/.git-completion.bash  ]; then
+    . ~/.git-completion.bash
+else
+	curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+	. ~/.git-completion.bash
+fi
+
 
 # Autocomplete aws cli
 which aws_completer > /dev/null && complete -C '/usr/local/bin/aws_completer' aws
