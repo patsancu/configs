@@ -31,3 +31,7 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 # Fuzzy finder 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+autoload -U compinit && compinit
+zmodload -i zsh/complist
