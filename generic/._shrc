@@ -84,13 +84,3 @@ function my_ip() # Get IP adress on ethernet.
       sed -e s/addr://)
     echo ${MY_IP:-"Not connected"}
 }
-
-
-
-
-if [ -f ~/.git-completion.bash  ]; then
-    . ~/.git-completion.bash
-else
-	curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-	. ~/.git-completion.bash
-fi
