@@ -3,7 +3,7 @@ set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
-
+set encoding=utf-8
 set tabstop=4
 set number
 set cursorline
@@ -86,12 +86,13 @@ Plug 'tpope/vim-fireplace'
 " :Tmuxline whatever
 " :TmuxlineSnapshot themfilename
 Plug 'edkolev/tmuxline.vim'
+Plug 'ryanoasis/vim-devicons'
 " Initialize plugin system
 call plug#end()
 " ================PLUGINS END===============
 "
 colorscheme seoul256
-"
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 " -----------------------
 " Plugin configuration
 " ------------------------
