@@ -1,0 +1,5 @@
+"if inside tmux, change clipboard
+if exists('$TMUX') 
+	echo "patata"
+	set clipboard=unnamed
+endif
