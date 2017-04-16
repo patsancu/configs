@@ -1,4 +1,2 @@
 "if inside tmux, change clipboard
-if exists('$TMUX') 
-	set clipboard=unnamed
-endif
+set clipboard=unnamed
