@@ -35,3 +35,7 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 autoload -U compinit && compinit
 zmodload -i zsh/complist
+
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
