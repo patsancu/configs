@@ -19,7 +19,7 @@ setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
-
+setopt DOT_GLOB 
 
 # Completion
 #
