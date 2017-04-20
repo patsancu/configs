@@ -39,3 +39,15 @@ zmodload -i zsh/complist
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
 fi
+
+# Allow ^+ arrow key
+if [ "$TERM" = "xterm" ] || [ "$TERM" = "terminator" ] || [ "$TERM" = "konsole" ]; then
+		bindkey "^[[1;5D" backward-word
+		bindkey "^[[1;5C" forward-word
+fi
+
+if [ "$TERM" = "urxvt" ] || [ "$TERM" = "rxvt-unicode" ]; then
+		bindkey "^[Od" backward-word
+		bindkey "^[Oc" forward-word
+fi
+

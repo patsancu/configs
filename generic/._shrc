@@ -84,15 +84,3 @@ function my_ip() # Get IP adress on ethernet.
       sed -e s/addr://)
     echo ${MY_IP:-"Not connected"}
 }
-
-# Allow ^+ arrow key
-if [ "$TERM" = "xterm" ] || [ "$TERM" = "terminator" ] || [ "$TERM" = "konsole" ]; then
-		bindkey "^[[1;5D" backward-word
-		bindkey "^[[1;5C" forward-word
-fi
-
-if [ "$TERM" = "urxvt" ] || [ "$TERM" = "rxvt-unicode" ]; then
-		bindkey "^[Od" backward-word
-		bindkey "^[Oc" forward-word
-fi
-
