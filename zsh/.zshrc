@@ -19,7 +19,7 @@ setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
-
+setopt DOT_GLOB 
 
 # Completion
 #
@@ -35,3 +35,19 @@ setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 autoload -U compinit && compinit
 zmodload -i zsh/complist
+
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
+
+# Allow ^+ arrow key
+if [ "$TERM" = "xterm" ] || [ "$TERM" = "terminator" ] || [ "$TERM" = "konsole" ]; then
+		bindkey "^[[1;5D" backward-word
+		bindkey "^[[1;5C" forward-word
+fi
+
+if [ "$TERM" = "urxvt" ] || [ "$TERM" = "rxvt-unicode" ]; then
+		bindkey "^[Od" backward-word
+		bindkey "^[Oc" forward-word
+fi
+

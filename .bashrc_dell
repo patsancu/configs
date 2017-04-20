@@ -1,0 +1,10 @@
+
+source ~/Configs/bash/.bashrc
+
+# Generic stuff
+source ~/Configs/generic/._shrc
+source ~/Configs/generic/._shrc_dell
+source ~/Configs/generic/._sh_aliases
+source ~/Configs/generic/._sh_aliases_dell
+
+source ~/privateConfigs/.bash_other_stuff
