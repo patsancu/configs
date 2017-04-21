@@ -85,3 +85,16 @@ function my_ip() # Get IP adress on ethernet.
       sed -e s/addr://)
     echo ${MY_IP:-"Not connected"}
 }
+getFileGithub(){ rawUrl=`echo $1 | sed "s/github/raw.githubusercontent/g" | sed "s/blob\///"`; wget $rawUrl; }
+
+
+
+recargarConfiguracion{
+		shellPid=`echo "$$"`
+		usingShell=`ps -p $shellPid | egrep "[a-zA-Z]+sh" -o`
+	    if [ $usingShell = "bash" ]; then
+			source ~/.bashrc
+		else if [ $usingShell = "zsh" ]; then
+			source ~/.zshrc
+		fi	
+}

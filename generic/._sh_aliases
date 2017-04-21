@@ -90,9 +90,11 @@ alias buscarPaquetePorDescripcion='sudo apt-cache search'
 alias getBTCeurPrice='btcPrice=`curl -s  http://api.coindesk.com/v1/bpi/currentprice.json | jq "[.bpi.EUR.rate_float]" | grep -v "\[" | grep -v "\]" | tr -d " "`; btcPriceUnit="$btcPrice"."EUR"; echo "1BTC=$btcPriceUnit"'
 
 alias getETHeurPrice='ethPrice=`curl -s  https://coinmarketcap-nexuist.rhcloud.com/api/eth | jq "[.price.eur]" | grep -v "\[" | grep -v "\]" | tr -d " "`; ethPriceUnit="$ethPrice"."EUR"; echo "1ETH=$ethPriceUnit"'
-alias recargarAlias='source ~/.bashrc'
+
 
 alias checkInternet='ping 8.8.8.8'
 alias lsd='ls -d */'
 alias lld='ls -ld */'
+
+### Git & github
 alias gitweb=my_gitweb
