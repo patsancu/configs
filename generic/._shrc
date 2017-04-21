@@ -89,12 +89,13 @@ getFileGithub(){ rawUrl=`echo $1 | sed "s/github/raw.githubusercontent/g" | sed 
 
 
 
-recargarConfiguracion{
+recargarConfiguracion(){
 		shellPid=`echo "$$"`
 		usingShell=`ps -p $shellPid | egrep "[a-zA-Z]+sh" -o`
+
 	    if [ $usingShell = "bash" ]; then
-			source ~/.bashrc
-		else if [ $usingShell = "zsh" ]; then
-			source ~/.zshrc
+			source ~/.bashrc;
+		elif [ $usingShell = "zsh" ]; then
+			source ~/.zshrc;
 		fi	
 }
