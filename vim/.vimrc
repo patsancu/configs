@@ -70,6 +70,7 @@ Plug 'tpope/vim-surround'
 "https://gist.github.com/patsancu/4d9e63539a4f335e168695e285a92f97
 Plug 'jiangmiao/auto-pairs'
 "Plug 'junegunn/gv.vim'
+Plug 'airblade/vim-gitgutter'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim' " needed for gist-vim
 "Plug 'mhinz/vim-signify'
