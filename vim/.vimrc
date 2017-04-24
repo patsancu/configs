@@ -21,6 +21,8 @@ endfunction
 "Only very nested blocks are folded
 set foldlevelstart=10
 
+" Show trailing whitespaces as errors
+match ErrorMsg '\s\+$'
 
 " just to avoid the freaking prompt at launch-time
 set cmdheight=3
