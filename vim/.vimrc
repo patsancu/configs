@@ -80,7 +80,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fireplace'
 " Generate a nice airline tmux line theme
-" nice ones are generated via: 
+" nice ones are generated via:
 " Tmuxline airline_insert Tmuxline airline_visual
 " Don't forget to remove the utf line
 " in the theme
@@ -103,10 +103,10 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 
 
 
-" Airline 
+" Airline
 " -------
 " In order for airline to show always the statusline,
-" and not only only splits 
+" and not only only splits
 set laststatus=2
 
 let promptline#slices#battery = ({ 'threshold': 95 })
