@@ -88,6 +88,7 @@ Plug 'tpope/vim-fireplace'
 " :TmuxlineSnapshot themfilename
 Plug 'edkolev/tmuxline.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'vim-syntastic/syntastic'
 " Initialize plugin system
 call plug#end()
 " ================PLUGINS END===============
@@ -160,6 +161,17 @@ let g:gist_detect_filetype = 1
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 let NERDTreeQuitOnOpen = 1
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
 " -----------------
 " Undo configuration
