@@ -74,7 +74,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim' " needed for gist-vim
 "Plug 'mhinz/vim-signify'
-"Plug 'tpope/vim-fugitive'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fireplace'
@@ -89,6 +88,7 @@ Plug 'tpope/vim-fireplace'
 Plug 'edkolev/tmuxline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
 " Initialize plugin system
 call plug#end()
 " ================PLUGINS END===============
@@ -167,11 +167,14 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" Fugitive
+" ========
+set statusline+=%{fugitive#statusline()}
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 
 " -----------------
 " Undo configuration
