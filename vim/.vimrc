@@ -20,7 +20,7 @@ set foldmethod=indent
 set foldtext=FoldText()
 
 function FoldText()
-		    return '...'
+    return '...'
 endfunction
 "Only very nested blocks are folded
 set foldlevelstart=10
@@ -120,9 +120,9 @@ let g:promptline_preset = {
         \'a' : [ promptline#slices#host() ],
         \'b' : [ promptline#slices#user() ],
         \'c' : [ promptline#slices#cwd() ],
-		\'x' : [ promptline#slices#python_virtualenv()],
+        \'x' : [ promptline#slices#python_virtualenv()],
         \'y' : [ promptline#slices#vcs_branch() ],
-		\'z' : [ promptline#slices#git_status(), '%*' ],
+        \'z' : [ promptline#slices#git_status(), '%*' ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
 " Airline
