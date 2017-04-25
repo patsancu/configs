@@ -8,6 +8,10 @@ set tabstop=4
 set number
 set cursorline
 
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
 "Folding
 set foldenable
 set foldlevel=0
