@@ -98,3 +98,4 @@ alias lld='ls -ld */'
 
 ### Git & github
 alias gitweb=my_gitweb
+alias gitl="git log --pretty=format:'%Cgreen%ad %cn %Cblue%h %Creset%s' --date=short"
