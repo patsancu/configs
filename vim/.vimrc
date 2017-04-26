@@ -41,8 +41,6 @@ set ignorecase
 set smartcase
 set backspace=indent,eol,start
 
-set list
-
 "set shellcmdflag=-ci
 "set shell=/bin/bash\ -li
 "if &diff == 'nodiff'
