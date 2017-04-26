@@ -45,8 +45,6 @@ set ignorecase
 set smartcase
 set backspace=indent,eol,start
 
-set list
-
 "set shellcmdflag=-ci
 "set shell=/bin/bash\ -li
 "if &diff == 'nodiff'
@@ -243,6 +241,7 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 
 " Print current file's full path
 noremap <leader>, :echo expand('%:p')<CR>
+noremap <leader>. :set list!<CR>
 
 " Enter space in normal mode with ss
 nnoremap ss i<space><esc>
