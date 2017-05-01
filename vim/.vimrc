@@ -94,6 +94,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
+Plug 'tommcdo/vim-exchange'
 " Initialize plugin system
 call plug#end()
 " ================PLUGINS END===============
