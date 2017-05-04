@@ -264,6 +264,7 @@ nnoremap <Leader>O O<Esc>
 nnoremap <Leader>q :bd<Enter>
 
 nnoremap <Leader>p :TagbarToggle<CR>
+nnoremap <Leader>ev :Eval<CR>
 
 
 " Map caps to escape
