@@ -96,6 +96,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-exchange'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'majutsushi/tagbar'
 " Initialize plugin system
 call plug#end()
 " ================PLUGINS END===============
@@ -259,6 +260,9 @@ nnoremap <Leader>O O<Esc>
 
 " Quit buffer with ,q
 nnoremap <Leader>q :bd<Enter>
+
+nnoremap <Leader>p :TagbarToggle<CR>
+
 
 " Map caps to escape
 au VimEnter :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
