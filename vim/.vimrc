@@ -95,6 +95,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-exchange'
+Plug 'christoomey/vim-tmux-navigator'
 " Initialize plugin system
 call plug#end()
 " ================PLUGINS END===============
@@ -211,7 +212,12 @@ autocmd FileType python set sts=4
 "--------
 let mapleader=","
 
-"
+"Tmux navigator
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-J> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
+
 "copy paste
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
