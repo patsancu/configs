@@ -216,8 +216,10 @@ let mapleader=","
 "Tmux navigator
 let g:tmux_navigator_no_mappings = 1
 
+nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-J> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 
 "copy paste
 nnoremap <C-y> "+y
@@ -225,8 +227,8 @@ vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
 vnoremap <C-p> "+gP
 " Change buffers
-nnoremap <C-h> :bprev<CR>
-nnoremap <C-l> :bnext<CR>
+nnoremap <Leader>k :bprev<CR>
+nnoremap <Leader>l :bnext<CR>
 nnoremap <A-j> :m .+1<CR>==
 " Highlight words when searching by
 " hitting enter
