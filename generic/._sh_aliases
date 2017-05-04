@@ -14,7 +14,7 @@ alias buscarPaquete='sudo apt-cache search'
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls).
 #-------------------------------------------------------------
-# Use gls in macOS 
+# Use gls in macOS
 which gls > /dev/null && alias ls='gls --color'
 # The ubiquitous 'll': directories first, with alphanumeric sorting:
 alias ll="ls -lhv --group-directories-first --color"
@@ -63,21 +63,21 @@ alias red='netstat -nap'
 
 
 ###Computer usage
-## pass options to free ## 
+## pass options to free ##
 alias meminfo='free -m -l -t'
- 
+
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
- 
+
 ## get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
- 
+
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
- 
-## get GPU ram on desktop / laptop## 
+
+## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 ## Readable output for dmesg
