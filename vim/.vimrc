@@ -97,6 +97,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-exchange'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
+
+"Mercurial
+Plug 'ludovicchabant/vim-lawrencium'
+"
 " Initialize plugin system
 call plug#end()
 " ================PLUGINS END===============
