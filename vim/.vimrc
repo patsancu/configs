@@ -270,6 +270,12 @@ nnoremap <Leader>q :bd<Enter>
 nnoremap <Leader>p :TagbarToggle<CR>
 nnoremap <Leader>ev :Eval<CR>
 
+" Relative line number by default,
+" enter absolute when
+" editing text
+set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
 
 " Map caps to escape
 au VimEnter :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
