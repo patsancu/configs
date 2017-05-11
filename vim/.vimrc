@@ -12,6 +12,8 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+set cryptmethod=blowfish2
+
 "Folding
 set foldenable
 set foldlevel=0
@@ -244,6 +246,11 @@ nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 "Fold toggle
 nnoremap <Leader>f zA<CR>
+
+map <Leader>U gUU
+map <Leader>u guu
+
+
 
 "Gist private and public
 nnoremap <Leader>g :Gist -p<CR>
