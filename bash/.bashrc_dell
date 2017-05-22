@@ -1,0 +1,1 @@
+alias esperarDrillTermine='curl -s http://localhost:8047/profiles.json | jq "[.runningQueries]" | grep queryId > /dev/null; while [ $? -eq 0 ]; do echo "Not yet: `date`"; sleep 1m; curl -s http://localhost:8047/profiles.json | jq "[.runningQueries]" | grep queryId > /dev/null ; done; echo "preguntar a Nacho"'
