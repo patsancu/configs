@@ -6,3 +6,4 @@ alias switchClusterToTelevisa='export TVMETRIX_CFG=tvmetrix-televisa; cd $METRIX
 alias switchClusterToWorkbench='export TVMETRIX_CFG=tvmetrix-workbench; cd $METRIX_HOME/tvmetrix-k8s/; ./tvmetrix; cd -'
 alias whichCluster='echo $TVMETRIX_CFG'
 
+alias getDrillRunningQueries='which jq; curl -s  "http://localhost:8047/profiles.json" | jq "[.runningQueries]"'
