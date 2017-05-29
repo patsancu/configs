@@ -7,3 +7,6 @@ alias switchClusterToWorkbench='export TVMETRIX_CFG=tvmetrix-workbench; cd $METR
 alias whichCluster='echo $TVMETRIX_CFG'
 
 alias getDrillRunningQueries='which jq; curl -s  "http://localhost:8047/profiles.json" | jq "[.runningQueries]"'
+
+alias drillKubectl='kubectl exec -ti drill-alluxio-0 -c drill -- /opt/apache-drill-1.8.0-SNAPSHOT/bin/sqlline -u "jdbc:drill:drillbit=localhost;user=ps"'
+alias alluxioKubectl='kubectl exec -ti alluxio-master-0 -- bash'
