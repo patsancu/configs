@@ -175,6 +175,8 @@ let g:gist_detect_filetype = 1
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 let NERDTreeQuitOnOpen = 1
+let g:NERDTreeMapJumpNextSibling = '<Nop>'
+let g:NERDTreeMapJumpPrevSibling = '<Nop>'
 
 " Syntastic
 set statusline+=%#warningmsg#
