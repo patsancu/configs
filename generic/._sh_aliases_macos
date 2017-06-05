@@ -1,2 +1,3 @@
 # vim: set filetype=sh :
 alias pip='/usr/local/bin/python -m pip'
+alias tmux-django='~/Configs/tmux/sessions/dev/django.sh'

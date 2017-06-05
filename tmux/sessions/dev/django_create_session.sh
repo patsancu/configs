@@ -21,13 +21,13 @@ tmux new-session -d -s "$SESSION_NAME" -n "$WINDOW_1_NAME"
 #|                     |                      |
 #|                     |                      |
 #|_____________________|______________________|
-tmux send-keys "cd $PROJECT_DIR/;" C-m
-tmux send-keys "workon prueba_pisos" C-m
+tmux send-keys "workon prueba_pisos ; cd $PROJECT_DIR" C-m
 tmux send-keys "vim ." C-m
 tmux split-window -h
 
 tmux send-keys -t $SESSION_NAME.1 "workon prueba_pisos" C-m
-tmux send-keys -t $SESSION_NAME.1 "cd $PROJECT_DIR/; clear;" C-m
+tmux send-keys -t $SESSION_NAME.1 "echo 'tuputamadre'" C-m;
+tmux send-keys -t $SESSION_NAME.1 "cd $PROJECT_DIR/; " C-m
 tmux send-keys -t $SESSION_NAME.1 "python manage.py runserver"
 tmux split-window -v
 tmux send-keys -t $SESSION_NAME.2 "cd $PROJECT_DIR; git status" C-m
