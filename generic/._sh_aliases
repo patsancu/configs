@@ -108,4 +108,4 @@ if [ -x /usr/bin/dircolors ]; then
 		alias egrep='egrep --color=auto'
 fi
 
-which zenity && alias notify='zenity --info --title "Notification" --text'
+which zenity > /dev/null && alias notify='zenity --info --title "Notification" --text'
