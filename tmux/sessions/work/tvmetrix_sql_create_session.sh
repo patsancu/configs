@@ -59,23 +59,7 @@ tmux send-keys "cd $PROJECT_DIR" C-m
 tmux send-keys "drillKubectl" C-m
 
 
-# Window 3: VIM, tvmetrix-reports, tvmetrix-sql
-#
-#
-#____________________________________________________
-#|                         |                        |
-#|                         |                        |
-#|     VIM                 |    tvmetrix-reports    |
-#|                         |                        |
-#|                         |________________________|
-#|                         |                        |
-#|                         |     tvmetrix-sql       |
-#|                         |                        |
-#|                         |                        |
-#|_________________________|________________________|
-
-
-# Window 4: Vim tvmetrix-reports
+# Window 3: Vim tvmetrix-reports
 
 #____________________________________________________
 #|                                                  |
@@ -89,8 +73,14 @@ tmux send-keys "drillKubectl" C-m
 #|                                                  |
 #|__________________________________________________|
 
+WINDOW_3_NAME="tvmetrix-reports,clj"
+tmux new-window -n $WINDOW_3_NAME
+tmux send-keys "cd $PROJECT_DIR/tvmetrix-reports" C-m
+tmux send-keys "vim" C-m
 
-
+tmux split-window -v
+tmux send-keys "cd $PROJECT_DIR/tvmetrix-reports" C-m
+tmux send-keys "lein repl" C-m
 
 tmux select-window -t $SESSION_NAME:$WINDOW_1_NAME.0
 tmux select-pane -t $SESSION_NAME:$WINDOW_1_NAME.0
