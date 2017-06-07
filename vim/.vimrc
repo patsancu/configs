@@ -47,6 +47,9 @@ set ignorecase
 set smartcase
 set backspace=indent,eol,start
 
+iabbr #p #!/usr/bin/python
+iabbr #b #!/bin/bash
+
 "set shellcmdflag=-ci
 "set shell=/bin/bash\ -li
 "if &diff == 'nodiff'
