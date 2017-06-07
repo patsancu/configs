@@ -79,7 +79,7 @@ tmux send-keys "cd $PROJECT_DIR/tvmetrix-reports" C-m
 tmux send-keys "vim" C-m
 tmux send-keys ",n" C-m
 
-tmux split-window -v
+tmux split-window -h
 tmux send-keys "cd $PROJECT_DIR/tvmetrix-reports" C-m
 tmux send-keys "lein repl" C-m
 
