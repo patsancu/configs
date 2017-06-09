@@ -8,6 +8,9 @@ set tabstop=4
 set number
 set cursorline
 
+" Incremental search
+set incsearch
+
 set expandtab
 set tabstop=4
 set shiftwidth=4
