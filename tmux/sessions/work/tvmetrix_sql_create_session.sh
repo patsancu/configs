@@ -13,8 +13,7 @@ tmux new-session -d -s "$SESSION_NAME" -n "$WINDOW_1_NAME"
 #|                     |                      |
 #|                     |                      |
 #|                     |    tvmetrix-sql      |
-#|                     |                      |
-#|                     |______________________|
+#|                     |                      | #|                     |______________________|
 #|                     |                      |
 #|      vim            |     tvmetrix-reports |
 #|                     |                      |
@@ -85,4 +84,28 @@ tmux send-keys "lein repl" C-m
 
 tmux select-window -t $SESSION_NAME:$WINDOW_1_NAME.0
 tmux select-pane -t $SESSION_NAME:$WINDOW_1_NAME.0
+
+
+# Window 4: Vim tvmetrix-reports
+
+#____________________________________________________
+#|                                                  |
+#|                                                  |
+#|                                                  |
+#|         VIM tvmetrix-k8s
+#|                                                  |
+#|                                                  |
+#|                                                  |
+#|                                                  |
+#|                                                  |
+#|__________________________________________________|
+
+WINDOW_4_NAME="tvmetrix-k8s"
+tmux new-window -n $WINDOW_4_NAME
+tmux send-keys "cd $PROJECT_DIR/tvmetrix-k8s" C-m
+tmux send-keys "vim" C-m
+tmux send-keys ",n" C-m
+
+
+
 tmux attach-session -t "$SESSION_NAME"
