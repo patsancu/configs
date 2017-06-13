@@ -50,7 +50,7 @@ tmux send-keys "alluxioKubectl"
 tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.0
 tmux split-window -v
 tmux send-keys "cd $PROJECT_DIR" C-m
-tmux send-keys "watch -n1 ./kubectl get pods --all-namespaces" C-m
+tmux send-keys "watch -n1 ./kubectl get pods -n tvmetrix" C-m
 
 tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.2
 tmux split-window -v
