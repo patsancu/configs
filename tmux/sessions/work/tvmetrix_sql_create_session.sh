@@ -82,8 +82,6 @@ tmux split-window -h
 tmux send-keys "cd $PROJECT_DIR/tvmetrix-reports" C-m
 tmux send-keys "lein repl" C-m
 
-tmux select-window -t $SESSION_NAME:$WINDOW_1_NAME.0
-tmux select-pane -t $SESSION_NAME:$WINDOW_1_NAME.0
 
 
 # Window 4: Vim tvmetrix-reports
@@ -106,6 +104,7 @@ tmux send-keys "cd $PROJECT_DIR/tvmetrix-k8s" C-m
 tmux send-keys "vim" C-m
 tmux send-keys ",n" C-m
 
-
-
+## Select pane and attach to session
+tmux select-window -t $SESSION_NAME:$WINDOW_1_NAME.0
+tmux select-pane -t $SESSION_NAME:$WINDOW_1_NAME.0
 tmux attach-session -t "$SESSION_NAME"
