@@ -21,3 +21,7 @@ export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 #Metrix variables
 export METRIX_HOME=/home/patrick/dev/tvmetrix
 export EXTRACTOR="$METRIX/extractor"
+
+# Default env to load tmux sessions from
+# in ~/Configs/tmux/sessions/tmux-session.sh
+TMUX_SESSION_ENV=work
