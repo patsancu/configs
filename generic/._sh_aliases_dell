@@ -10,3 +10,5 @@ alias whichCluster='echo $TVMETRIX_CFG'
 alias getDrillRunningQueries='which jq; curl -s  "http://localhost:8047/profiles.json" | jq "[.runningQueries]"'
 
 alias tmux-tvmetrix-sql='~/Configs/tmux/sessions/tmux-sessions.sh tvmetrix-sql '
+
+alias drill-kubectl-logs='kubectl logs -f drill-alluxio-0 -c drill'
