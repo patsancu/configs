@@ -21,9 +21,9 @@ tmux new-session -d -s "$SESSION_NAME" -n "$WINDOW_1_NAME"
 #|_____________________|______________________|
 tmux send-keys "cd $PROJECT_DIR/tvmetrix-sql; vim ." C-m
 tmux split-window -h
-tmux send-keys -t $SESSION_NAME.1 "cd $PROJECT_DIR/tvmetrix-sql; clear" C-m
+tmux send-keys -t $SESSION_NAME.2 "cd $PROJECT_DIR/tvmetrix-sql; clear" C-m
 tmux split-window -v
-tmux send-keys -t $SESSION_NAME.2 "cd $PROJECT_DIR/tvmetrix-reports; clear" C-m
+tmux send-keys -t $SESSION_NAME.3 "cd $PROJECT_DIR/tvmetrix-reports; clear" C-m
 
 # Window 2: proxy tvmetrix kubectl,
 #               alluxio, drill remote
@@ -47,12 +47,12 @@ tmux split-window -h
 tmux send-keys "cd $PROJECT_DIR" C-m
 tmux send-keys "alluxioKubectl"
 
-tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.0
+tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.1
 tmux split-window -v
 tmux send-keys "cd $PROJECT_DIR" C-m
 tmux send-keys "watch -n1 ./kubectl get pods -n tvmetrix" C-m
 
-tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.2
+tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.3
 tmux split-window -v
 tmux send-keys "cd $PROJECT_DIR" C-m
 tmux send-keys "drillKubectl" C-m
@@ -105,6 +105,6 @@ tmux send-keys "vim" C-m
 tmux send-keys ",n" C-m
 
 ## Select pane and attach to session
-tmux select-window -t $SESSION_NAME:$WINDOW_1_NAME.0
-tmux select-pane -t $SESSION_NAME:$WINDOW_1_NAME.0
+tmux select-window -t $SESSION_NAME:$WINDOW_1_NAME.1
+tmux select-pane -t $SESSION_NAME:$WINDOW_1_NAME.1
 tmux attach-session -t "$SESSION_NAME"
