@@ -41,12 +41,24 @@ get-podnames() {
 alluxio-kubectl-prefix(){
     alluxio_name=`get-podnames alluxio-refresh`
     echo -n "Connecting to alluxio @ "
-    echo $alluxio_name
-    kubectl exec -ti -n tvmetrix $alluxio_name -- "${@:1}";
+    if [[ -z "$alluxio_name" ]]; then
+        echo "";
+        echo "======WARNING=======";
+        echo "No alluxio pod found";
+        echo "====================";
+    else
+        echo $alluxio_name
+        kubectl exec -ti -n tvmetrix $alluxio_name -- "${@:1}";
+    fi
+
 }
 
 alluxio-kubectl(){
     alluxio-kubectl-prefix bash
+}
+
+alluxio-kubectl-tail-logs(){
+    alluxio-kubectl-prefix tail -f /opt/alluxio/logs/user_root.log
 }
 
 
