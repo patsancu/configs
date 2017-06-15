@@ -21,3 +21,58 @@ export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 #Metrix variables
 export METRIX_HOME=/home/patrick/dev/tvmetrix
 export EXTRACTOR="$METRIX/extractor"
+
+# Default env to load tmux sessions from
+# in ~/Configs/tmux/sessions/tmux-session.sh
+TMUX_SESSION_ENV=work
+
+
+#====================
+# Cluster stuff
+#====================
+
+get-podnames() {
+  echo $(kubectl get pods --all-namespaces | grep $1 | awk '{print $2}')
+}
+
+#--------------------
+# alluxio
+#--------------------
+alluxio-kubectl-prefix(){
+    alluxio_name=`get-podnames alluxio-refresh`
+    echo -n "Connecting to alluxio @ "
+    if [[ -z "$alluxio_name" ]]; then
+        echo "";
+        echo "======WARNING=======";
+        echo "No alluxio pod found";
+        echo "====================";
+    else
+        echo $alluxio_name
+        kubectl exec -ti -n tvmetrix $alluxio_name -- "${@:1}";
+    fi
+
+}
+
+alluxio-kubectl(){
+    alluxio-kubectl-prefix bash
+}
+
+alluxio-kubectl-tail-logs(){
+    alluxio-kubectl-prefix tail -f /opt/alluxio/logs/user_root.log
+}
+
+
+#--------------------
+# drill
+#--------------------
+drill-kubectl-prefix(){
+    drill_name=`get-podnames drill-alluxio-0`
+    echo -n "Connecting to drill @ "
+    echo $drill_name
+    kubectl exec -ti -n tvmetrix $drill_name -c drill -- "${@:1}";
+}
+
+
+drill-kubectl(){
+    drill-kubectl-prefix /opt/apache-drill-1.8.0-SNAPSHOT/bin/sqlline -u "jdbc:drill:drillbit=localhost;user=ps"
+}
