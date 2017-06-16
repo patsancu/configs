@@ -13,7 +13,8 @@ tmux new-session -d -s "$SESSION_NAME" -n "$WINDOW_1_NAME"
 #|                     |                      |
 #|                     |                      |
 #|                     |    tvmetrix-sql      |
-#|                     |                      | #|                     |______________________|
+#|                     |                      |
+#|                     |______________________|
 #|                     |                      |
 #|      vim            |     tvmetrix-reports |
 #|                     |                      |
@@ -45,7 +46,7 @@ tmux send-keys "cd $PROJECT_DIR/tvmetrix-k8s" C-m
 tmux send-keys "./tvmetrix proxy" C-m
 tmux split-window -h
 tmux send-keys "cd $PROJECT_DIR" C-m
-tmux send-keys "alluxio-kubectl"
+tmux send-keys "alluxioKubectl"
 
 tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.1
 tmux split-window -v
