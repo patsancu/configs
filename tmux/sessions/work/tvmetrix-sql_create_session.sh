@@ -46,12 +46,12 @@ tmux send-keys "cd $PROJECT_DIR/tvmetrix-k8s" C-m
 tmux send-keys "./tvmetrix proxy" C-m
 tmux split-window -h
 tmux send-keys "cd $PROJECT_DIR" C-m
-tmux send-keys "alluxioKubectl"
+tmux send-keys "alluxio-kubectl"
 
 tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.1
 tmux split-window -v
 tmux send-keys "cd $PROJECT_DIR" C-m
-tmux send-keys "watch -n1 ./kubectl get pods -n tvmetrix" C-m
+tmux send-keys "watch -n1 kubectl get pods -n tvmetrix" C-m
 
 tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.3
 tmux split-window -v

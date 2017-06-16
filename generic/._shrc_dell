@@ -76,3 +76,12 @@ drill-kubectl-prefix(){
 drill-kubectl(){
     drill-kubectl-prefix /opt/apache-drill-1.8.0-SNAPSHOT/bin/sqlline -u "jdbc:drill:drillbit=localhost;user=ps"
 }
+
+drill-kubectl-logs(){
+    cluster_number=0
+    if [[ ! -z $1 ]]; then
+        cluster_number=$1
+    fi
+    drill_name=`get-podnames drill-alluxio-$cluster_number`
+    kubectl logs -f $drill_name -c drill -n tvmetrix
+}
