@@ -299,3 +299,7 @@ au VimLeave :silent * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
 " Highlight in red with white font
 hi Search ctermbg=DarkRed ctermfg=White
+
+" Rounded separators (extra-powerline-symbols):
+let g:airline_left_sep = "\uE0B4"
+let g:airline_right_sep = "\uE0B6"
