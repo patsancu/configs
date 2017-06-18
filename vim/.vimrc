@@ -148,6 +148,9 @@ let g:NERDTreeBookmarksFile = $HOME ."/.vim/plugged/nerdtree/bookmarks" " existi
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let NERDTreeQuitOnOpen = 1
+let g:NERDTreeMapJumpNextSibling = '<Nop>'
+let g:NERDTreeMapJumpPrevSibling = '<Nop>'
 
 " YouCompleteMe
 " ========
@@ -180,9 +183,6 @@ let g:gist_detect_filetype = 1
 " ========
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-let NERDTreeQuitOnOpen = 1
-let g:NERDTreeMapJumpNextSibling = '<Nop>'
-let g:NERDTreeMapJumpPrevSibling = '<Nop>'
 
 " Syntastic
 set statusline+=%#warningmsg#
