@@ -11,4 +11,5 @@ alias getDrillRunningQueries='which jq; curl -s  "http://localhost:8047/profiles
 
 alias tmux-tvmetrix-sql='~/Configs/tmux/sessions/tmux-sessions.sh tvmetrix-sql '
 
-alias drill-kubectl-logs='kubectl logs -f drill-alluxio-0 -c drill'
+alias drill-kubectl-logs='kubectl logs --tail=100 -f drill-alluxio-0 -c drill | tee drill-alluxio-0.log'
+alias drill-kubectl-logs-1='kubectl logs --tail=100 -f drill-alluxio-1 -c drill | tee drill-alluxio-0.log'
