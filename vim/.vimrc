@@ -286,8 +286,8 @@ nnoremap <Leader>p :TagbarToggle<CR>
 nnoremap <Leader>ev :Eval<CR>
 
 "Slime shortcut
-nnoremap <Leader>m vip:SlimeSend<CR>
-xnoremap <Leader>m :SlimeSend<CR>
+xmap <Leader>m <Plug>SlimeRegionSend
+nmap <Leader>m <Plug>SlimeParagraphSend
 
 " Relative line number by default,
 " enter absolute when
