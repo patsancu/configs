@@ -105,7 +105,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-exchange'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
-
+Plug 'jpalardy/vim-slime'
 "Mercurial
 Plug 'ludovicchabant/vim-lawrencium'
 "
@@ -285,6 +285,10 @@ nnoremap <Leader>q :bd<Enter>
 nnoremap <Leader>p :TagbarToggle<CR>
 nnoremap <Leader>ev :Eval<CR>
 
+"Slime shortcut
+nnoremap <Leader>m vip:SlimeSend<CR>
+xnoremap <Leader>m :SlimeSend<CR>
+
 " Relative line number by default,
 " enter absolute when
 " editing text
@@ -303,3 +307,6 @@ hi Search ctermbg=DarkRed ctermfg=White
 " Rounded separators (extra-powerline-symbols):
 let g:airline_left_sep = "\uE0B4"
 let g:airline_right_sep = "\uE0B6"
+
+" Slime config
+let g:slime_target = "tmux"
