@@ -108,6 +108,7 @@ Plug 'majutsushi/tagbar'
 Plug 'jpalardy/vim-slime'
 "Mercurial
 Plug 'ludovicchabant/vim-lawrencium'
+Plug 'chrisbra/csv.vim'
 "
 " Initialize plugin system
 call plug#end()
