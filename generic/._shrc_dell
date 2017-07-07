@@ -85,3 +85,13 @@ drill-kubectl-logs(){
     drill_name=`get-podnames drill-alluxio-$cluster_number`
     kubectl logs -f $drill_name -c drill -n tvmetrix
 }
+
+#--------------------
+# tvmetrix-reports
+#--------------------
+reports-sleep(){
+    reports_sleep_name="`get-podnames reports-sleep`";
+    echo -n "Connecting to tvmetrix-reports @ "
+    echo $reports_sleep_name
+    kubectl exec -ti -n tvmetrix $reports_sleep_name -- bash;
+}
