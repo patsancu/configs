@@ -289,6 +289,7 @@ nnoremap <Leader>ev :Eval<CR>
 "Slime
 xmap <Leader>m <Plug>SlimeRegionSend
 nmap <Leader>m <Plug>SlimeParagraphSend
+let g:slime_python_ipython = 1
 
 " Relative line number by default,
 " enter absolute when
