@@ -286,7 +286,7 @@ nnoremap <Leader>q :bd<Enter>
 nnoremap <Leader>p :TagbarToggle<CR>
 nnoremap <Leader>ev :Eval<CR>
 
-"Slime shortcut
+"Slime
 xmap <Leader>m <Plug>SlimeRegionSend
 nmap <Leader>m <Plug>SlimeParagraphSend
 
