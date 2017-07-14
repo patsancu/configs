@@ -51,7 +51,7 @@ tmux send-keys "alluxio-kubectl"
 tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.1
 tmux split-window -v
 tmux send-keys "cd $PROJECT_DIR" C-m
-tmux send-keys 'watch -n1 \"echo -n \"Cluster is: \"; cat ~/.tvmetrix; kubectl get pods -n tvmetrix' C-m
+tmux send-keys 'watch -n1 "echo -n \"Cluster is: \"; cat ~/.tvmetrix; kubectl get pods -n tvmetrix"' C-m
 
 tmux select-pane -t $SESSION_NAME:$WINDOW_2_NAME.3
 tmux split-window -v
