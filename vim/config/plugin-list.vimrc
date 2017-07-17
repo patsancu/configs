@@ -20,14 +20,6 @@ Plug 'mattn/webapi-vim' " needed for gist-vim
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fireplace'
-" Generate a nice airline tmux line theme
-" nice ones are generated via:
-" Tmuxline airline_insert Tmuxline airline_visual
-" Don't forget to remove the utf line
-" in the theme
-"  In vim, inside a tmux session
-" :Tmuxline whatever
-" :TmuxlineSnapshot themfilename
 Plug 'edkolev/tmuxline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-syntastic/syntastic'
@@ -38,6 +30,16 @@ Plug 'majutsushi/tagbar'
 Plug 'jpalardy/vim-slime'
 Plug 'ludovicchabant/vim-lawrencium' "Mercurial
 Plug 'chrisbra/csv.vim'
+" Generate a nice airline tmux line theme
+" nice ones are generated via:
+" Tmuxline airline_insert Tmuxline airline_visual
+" Don't forget to remove the utf line
+" in the theme
+"  In vim, inside a tmux session
+" :Tmuxline whatever
+" :TmuxlineSnapshot themfilename
+
+
 "Plug 'junegunn/gv.vim'
 "Plug 'lambdalisue/vim-gista'
 "Plug 'mattn/emmet-vim' " HTML generation
