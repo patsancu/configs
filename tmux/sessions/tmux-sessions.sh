@@ -14,7 +14,7 @@ done
 tmux has-session -t $SESSION_NAME 2>/dev/null
 if [ "$?" -eq 1 ] ; then
     echo "No Session found.  Creating and configuring."
-    POSSIBLE_SESSION_SCRIPT=$TMUX_SESSIONS_FOLDER/$TMUX_SESSION_ENV/"$SESSION_NAME"_create_session.sh;
+    POSSIBLE_SESSION_SCRIPT=$TMUX_SESSIONS_FOLDER/$TMUX_SESSION_ENV/"$SESSION_NAME"-create_session.sh;
     echo "Will try with default env: $TMUX_SESSION_ENV"
     echo "path would be: $POSSIBLE_SESSION_SCRIPT"
     if [[ -f $POSSIBLE_SESSION_SCRIPT ]]; then
@@ -25,7 +25,7 @@ if [ "$?" -eq 1 ] ; then
         echo "TMUX_SESSION_ENVIRONMENTS: $TMUX_SESSION_ENVIRONMENTS"
         for env in $TMUX_SESSION_ENVIRONMENTS; do
             echo "Will try with $POSSIBLE_SESSION_SCRIPT"
-            POSSIBLE_SESSION_SCRIPT=$TMUX_SESSIONS_FOLDER/$env/"$SESSION_NAME"_create_session.sh
+            POSSIBLE_SESSION_SCRIPT=$TMUX_SESSIONS_FOLDER/$env/"$SESSION_NAME"-create_session.sh
             if [[ -f $POSSIBLE_SESSION_SCRIPT ]]; then
                source $POSSIBLE_SESSION_SCRIPT;
                exit 0;

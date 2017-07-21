@@ -9,8 +9,9 @@ alias whichCluster='echo $TVMETRIX_CFG'
 
 alias getDrillRunningQueries='which jq; curl -s  "http://localhost:8047/profiles.json" | jq "[.runningQueries]"'
 
-alias tmux-tvmetrix-sql='~/Configs/tmux/sessions/tmux-sessions.sh tvmetrix-sql '
+alias tmux-tvmetrix='~/Configs/tmux/sessions/tmux-sessions.sh tvmetrix'
 
 alias drill-kubectl-logs='kubectl logs --tail=100 -f drill-alluxio-0 -c drill | tee drill-alluxio-0.log'
 alias drill-kubectl-logs-1='kubectl logs --tail=100 -f drill-alluxio-1 -c drill | tee drill-alluxio-0.log'
 alias matar-storm-workers='kubectl delete pods -lname=storm-worker'
+alias franz='/home/patrick/Downloads/software/Franz-linux-x64-4.0.4/Franz'
