@@ -114,3 +114,13 @@ function matchrun_filename() {
 function matchrun_contents() {
   grep -Ri "$1" -e "$2" -lZ | xargs -0 "${@:3}"
 }
+
+# Download youtube asset to mp3
+function ytmp3() {
+    which youtube-dl > /dev/null;
+    if [ $? -eq 0 ]; then
+        youtube-dl -x --audio-format "mp3" --audio-quality 0 "$@"
+    else
+        echo "Need to have youtube-dl installed";
+    fi
+}
