@@ -122,6 +122,32 @@ function ytmp3() {
         echo "$0 \"artist song\"";
         echo "$0 \"some query\"";
     else
-        echo "Need to have youtube-dl installed";
+        which youtube-dl > /dev/null;
+        if [ $? -eq 0 ]; then
+            youtube-dl -x --audio-format "mp3" --audio-quality 0 "$@"
+        else
+            echo "Need to have youtube-dl installed";
+        fi
+    fi
+}
+
+
+function musicy() {
+    if [ $# -eq 0 ]; then
+        echo "Usage:"
+        echo "$0 \"artist song\"";
+        echo "$0 \"some query\"";
+    else
+        which youtube-dl > /dev/null;
+        if [ $? -ne 0 ]; then
+            echo "Need to have youtube-dl installed";
+        fi
+        which mpv > /dev/null;
+        if [ $? -eq 0 ]; then
+            # Actual command
+            mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch10:"$@"
+        else
+            echo "Need to have mpv installed";
+        fi
     fi
 }
