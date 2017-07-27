@@ -73,7 +73,7 @@ if has('persistent_undo')
 endif
 
 " Abbreviations
-iabbr #p #!/usr/bin/python
+iabbr #p #!/usr/bin/env python
 iabbr #b #!/bin/bash
 
 

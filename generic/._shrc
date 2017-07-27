@@ -15,13 +15,13 @@ if [ -f ~/Configs/.bash_aliases ]; then
 . ~/Configs/.bash_aliases
 fi
 
-### Config with pw and other stuff 
+### Config with pw and other stuff
 if [ -f ~/privateconfigs/.bash_other_stuff ]; then
 . ~/privateconfigs/.bash_other_stuff
 fi
 
 if [ -f ~/Configs/.bashrc_dev_helpers ]; then
-	. ~/Configs/.bashrc_dev_helpers 
+	. ~/Configs/.bashrc_dev_helpers
 fi
 
 # =========
@@ -73,7 +73,7 @@ shorten(){
 }
 
 # In zsh, with certain glob options,
-# multiplications will only work with 
+# multiplications will only work with
 # "9*9"
 # Others will work, e.g. 9/8
 calculate(){
@@ -98,7 +98,7 @@ recargarConfiguracion(){
 			source ~/.bashrc;
 		elif [ $usingShell = "zsh" ]; then
 			source ~/.zshrc;
-		fi	
+		fi
 }
 
 # https://www.gregjs.com/linux/2016/upgrade-your-terminal-with-bash-functions-for-matching-text-in-filenames-or-contents/
@@ -113,4 +113,41 @@ function matchrun_filename() {
 }
 function matchrun_contents() {
   grep -Ri "$1" -e "$2" -lZ | xargs -0 "${@:3}"
+}
+
+# Download youtube asset to mp3
+function ytmp3() {
+    if [ $# -eq 0 ]; then
+        echo "Usage:"
+        echo "$0 \"artist song\"";
+        echo "$0 \"some query\"";
+    else
+        which youtube-dl > /dev/null;
+        if [ $? -eq 0 ]; then
+            youtube-dl -x --audio-format "mp3" --audio-quality 0 "$@"
+        else
+            echo "Need to have youtube-dl installed";
+        fi
+    fi
+}
+
+
+function musicy() {
+    if [ $# -eq 0 ]; then
+        echo "Usage:"
+        echo "$0 \"artist song\"";
+        echo "$0 \"some query\"";
+    else
+        which youtube-dl > /dev/null;
+        if [ $? -ne 0 ]; then
+            echo "Need to have youtube-dl installed";
+        fi
+        which mpv > /dev/null;
+        if [ $? -eq 0 ]; then
+            # Actual command
+            mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch10:"$@"
+        else
+            echo "Need to have mpv installed";
+        fi
+    fi
 }
