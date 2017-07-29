@@ -78,3 +78,6 @@ iabbr #b #!/bin/bash
 
 
 colorscheme seoul256
+
+" faster macros, without showing every single step
+set lazyredraw
