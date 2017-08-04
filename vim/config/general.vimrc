@@ -7,7 +7,9 @@ set directory=~/.vim/.swp//
 
 set encoding=utf-8
 set tabstop=4
-set number
+" Relative number by default
+set relativenumber
+set number "this, added to relative number, makes hybrid mode
 set cursorline
 
 " Incremental search
