@@ -54,6 +54,7 @@ nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 nnoremap <Leader>n :NERDTreeToggle<CR>
 "Gist private and public
 nnoremap <Leader>g :Gist -p<CR>
+vnoremap <Leader>g :Gist -p<CR>
 nnoremap <Leader>G :Gist -P<CR>
 
 "Javacomplete2
