@@ -3,10 +3,7 @@
 
 [github]
 	user = patsancu
-	token = b381acdd2a2c943c7c385ec4069e0b0ba2e5fb46
-[gui]
-	recentrepo = /home/patrick/dev/tvmetrix/tvmetrix-drill-udf
-	recentrepo = /home/patrick/Configs
+
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
@@ -29,8 +26,10 @@
     added = yellow
     changed = green
     untracked = cyan
+
 [core]
     pager = sed 's/\t/|/g' | less -R
     pager = sed 's/ $/·/g' | less -R
+
 [alias]
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit --all

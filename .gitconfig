@@ -1,2 +1,3 @@
 [include]
     path = ~/Configs/.mygitconfig
+    path = ~/privateConfigs/.github_config_token
