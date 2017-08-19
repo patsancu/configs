@@ -1,0 +1,1 @@
+let g:gist_browser_command = 'xdg-open %URL% &'
