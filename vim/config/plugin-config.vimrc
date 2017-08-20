@@ -90,7 +90,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Ultisnips
 " =========
-let g:UltiSnipsSnippetDirectories=["/home/patrick/Configs/vim/config/ultisnips"]
+let g:UltiSnipsSnippetDirectories=[$HOME . "/Configs/vim/config/ultisnips", $HOME . "/.vim/plugged/vim-snippets/UltiSnips"]
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
