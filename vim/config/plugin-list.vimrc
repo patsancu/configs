@@ -30,6 +30,10 @@ Plug 'majutsushi/tagbar'
 Plug 'jpalardy/vim-slime'
 Plug 'ludovicchabant/vim-lawrencium' "Mercurial
 Plug 'chrisbra/csv.vim'
+Plug 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
 " Generate a nice airline tmux line theme
 " nice ones are generated via:
 " Tmuxline airline_insert Tmuxline airline_visual
