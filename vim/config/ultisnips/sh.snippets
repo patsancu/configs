@@ -1,3 +1,17 @@
 snippet #!
 #!/usr/bin/env bash
 endsnippet
+
+snippet for "for ... done (ints)"
+for i in {1..10}; do
+	${0:#statements}
+done
+endsnippet
+
+snippet forfile
+input=${0:/path/to/txt/file}
+while IFS= read -r var
+do
+  echo "$var"
+done < "$input"
+endsnippet
