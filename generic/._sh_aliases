@@ -48,7 +48,7 @@ alias descargarVideo='proxychains youtube-dl'
 ## this one saved by butt so many times ##
 alias wget='wget -c'
 
-alias disco='df -h'
+alias df='df -h'
 alias ip='ip=`curl -s http://whatismyip.akamai.com/`; echo $ip'
 
 
