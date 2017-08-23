@@ -1,6 +1,6 @@
 # vim: set filetype=sh :
-source ~/privateConfigs/.bash_dell_private
-source ~/privateConfigs/.bash_dell_aliases
+source ~/privateconfigs/.bash_dell_private
+source ~/privateconfigs/.bash_dell_aliases
 source /usr/local/bin/virtualenvwrapper.sh
 
 export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe
