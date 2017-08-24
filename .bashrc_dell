@@ -6,4 +6,4 @@ source ~/Configs/generic/._shrc_dell
 source ~/Configs/generic/._sh_aliases
 source ~/Configs/generic/._sh_aliases_dell
 
-source ~/privateConfigs/.bash_other_stuff
+source ~/privateconfigs/.bash_other_stuff
