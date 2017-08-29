@@ -59,6 +59,7 @@ alias j='jobs -l'
 alias ports='netstat -tulanp'
 
 alias procesos='ps -aux'
+alias ps='ps T'
 alias red='netstat -nap'
 
 
