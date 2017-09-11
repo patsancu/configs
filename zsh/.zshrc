@@ -2,6 +2,7 @@
 # only applicable if setopt SHIN_STDIN
 setopt AUTO_CD
 setopt GLOB
+unsetopt NOMATCH
 
 setopt APPEND_HISTORY # If this is set, zsh sessions will append 
                       # their history list to the history file, rather than replace it.
