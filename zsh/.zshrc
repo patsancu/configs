@@ -30,6 +30,10 @@ setopt DOT_GLOB
 # Enable kubernetes autocompletion, if installed
 #which kubectl > /dev/null &&  source /usr/local/share/zsh/site-functions/kubectl
 
+# Put this **before** the fuzzy finder autocompletion
+setopt vi
+
+# Put this **after** vi mode
 # Fuzzy finder 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
