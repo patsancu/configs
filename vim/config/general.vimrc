@@ -83,3 +83,6 @@ colorscheme seoul256
 
 " faster macros, without showing every single step
 set lazyredraw
+
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
