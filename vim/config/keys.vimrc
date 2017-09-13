@@ -17,7 +17,7 @@ nnoremap <Leader>l :bnext<CR>
 nnoremap <A-j> :m .+1<CR>==
 " Highlight words when searching by
 " hitting enter
-noremap <CR> :set hlsearch! hlsearch?<CR>
+noremap <Space> :set hlsearch! hlsearch?<CR>
 
 " Remove trailing whitespaces
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
