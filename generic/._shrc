@@ -151,3 +151,5 @@ function musicy() {
         fi
     fi
 }
+
+source ~/privateconfigs/.bash_generic
