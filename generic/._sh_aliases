@@ -112,3 +112,4 @@ fi
 which zenity > /dev/null && alias notify='zenity --info --title "Notification" --text'
 
 alias edit='docker run -ti --rm -v $(pwd):/home/developer/workspace patsancu/mi-vim'
+alias youtube-dl='youtube-dl --config-location $HOME/Configs/misc/youtube-dl/config'
