@@ -49,7 +49,7 @@ alias descargarVideo='proxychains youtube-dl'
 alias wget='wget -c'
 
 alias df='df -h'
-alias ip='ip=`curl -s http://whatismyip.akamai.com/`; echo $ip'
+alias my_ip='ip=`curl -s http://whatismyip.akamai.com/`; echo $ip'
 
 
 alias h='history'
