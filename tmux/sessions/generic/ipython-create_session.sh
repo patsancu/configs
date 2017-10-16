@@ -23,7 +23,7 @@ else
     #|                     |                      |
     #|                     |                      |
     #|_____________________|______________________|
-    mkdir $TESTS_DIR
+    mkdir -p $TESTS_DIR
 
     tmux send-keys -t $SESSION_NAME.2 "cd $TESTS_DIR" C-m
     tmux send-keys "vim" C-m
