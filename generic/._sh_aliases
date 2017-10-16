@@ -115,3 +115,4 @@ alias edit='docker run -ti --rm -v $(pwd):/home/developer/workspace patsancu/mi-
 alias youtube-dl='youtube-dl --config-location $HOME/Configs/misc/youtube-dl/config'
 alias tmux-ipython='~/Configs/tmux/sessions/generic/ipython.sh'
 alias aws-mia='ssh $AWS_USER@$AWS_PUBLIC_API -i $AWS_CREDS_FILE'
+alias jsonpy='python -m json.tool'
