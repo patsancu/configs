@@ -46,7 +46,7 @@ if [ $commands[kubectl] ]; then
 fi
 
 # Allow ^+ arrow key
-if [ "$TERM" = "xterm" ] || [ "$TERM" = "terminator" ] || [ "$TERM" = "konsole" ] || [ "$TERM" = "screen-256color" ]; then
+if [ "$TERM" = "xterm" ] || [ "$TERM" = "terminator" ] || [ "$TERM" = "konsole" ] || [ "$TERM" = "screen-256color" ] || [ "$TERM" = "xterm-256color" ]; then
 		bindkey "^[[1;5D" backward-word
 		bindkey "^[[1;5C" forward-word
 fi
