@@ -5,7 +5,7 @@ if [ $? -eq 1 ]; then
     echo "ipython not installed"
 else
     SESSION_NAME=$1
-    TESTS_DIR="~/dev/python/$(date +'%Y%m%d_%H%M%S')"
+    TESTS_DIR="$HOME/dev/python/$(date +'%Y%m%d_%H%M%S')"
 
     WINDOW_1_NAME="Workspace"
     tmux new-session -d -s "$SESSION_NAME" -n "$WINDOW_1_NAME"
