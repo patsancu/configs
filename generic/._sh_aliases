@@ -116,3 +116,5 @@ alias youtube-dl='youtube-dl --config-location $HOME/Configs/misc/youtube-dl/con
 alias tmux-ipython='~/Configs/tmux/sessions/generic/ipython.sh'
 alias aws-mia='ssh $AWS_USER@$AWS_PUBLIC_API -i $AWS_CREDS_FILE'
 alias jsonpy='python -m json.tool'
+alias docker-delete-exited-containers='docker rm -v $(docker ps -a -q -f status=exited)'
+alias docker-remove-dangling-images='docker rmi $(docker images -f "dangling=true" -q)'
