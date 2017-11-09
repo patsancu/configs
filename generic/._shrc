@@ -152,4 +152,8 @@ function musicy() {
     fi
 }
 
+docker-ps(){
+    docker ps -a | grep $1 | tr -s ' ' | cut -d ' ' -f 1
+}
+
 source ~/privateconfigs/.bash_generic
