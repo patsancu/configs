@@ -25,7 +25,7 @@ else
     #|_____________________|______________________|
     mkdir -p $TESTS_DIR
 
-    tmux send-keys -t $SESSION_NAME.2 "cd $TESTS_DIR" C-m
+    tmux send-keys "cd $TESTS_DIR" C-m
     tmux send-keys "vim" C-m
     tmux split-window -h
 
