@@ -1,0 +1,9 @@
+session_name: openvpn
+windows:
+- window_name: dev
+  layout: main-vertical
+  shell_command_before:
+    - cd $OPENVPN_DIR;
+  panes:
+    - sudo openvpn /etc/openvpn/uk100.nordvpn.com.tcp443.ovpn
+    - $HOME/scripts/list_vpn_servers.sh
