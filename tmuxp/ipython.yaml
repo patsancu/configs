@@ -1,0 +1,15 @@
+session_name: ipython
+windows:
+- window_name: dev
+  layout: main-vertical
+  shell_command_before:
+    - new_folder="~/dev/python/$(date +%Y%m%d_%H%M)";
+      mkdir -p $new_folder;
+      cd $new_folder
+  panes:
+    - vim tmp.py
+    - ipython
+- window_name: notes
+  layout: tiled
+  panes:
+    - vim
