@@ -3,3 +3,5 @@
 # needed for virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+source ~/Configs/generic/._sh_aliases_lenovo
