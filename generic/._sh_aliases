@@ -113,7 +113,6 @@ which zenity > /dev/null && alias notify='zenity --info --title "Notification" -
 
 alias edit='docker run -ti --rm -v $(pwd):/home/developer/workspace patsancu/mi-vim'
 alias youtube-dl='youtube-dl --config-location $HOME/Configs/misc/youtube-dl/config'
-alias tmux-ipython='~/Configs/tmux/sessions/generic/ipython.sh'
 alias aws-mia='ssh $AWS_USER@$AWS_PUBLIC_API -i $AWS_CREDS_FILE'
 alias jsonpy='python -m json.tool'
 alias docker-delete-exited-containers='docker rm -v $(docker ps -a -q -f status=exited)'
@@ -121,3 +120,7 @@ alias docker-remove-dangling-images='docker rmi $(docker images -f "dangling=tru
 alias docker-clean-stuff='docker-delete-exited-containers; docker-remove-dangling-images'
 alias docker-get-image='docker images | grep'
 alias docker-history='echo "ID\tCommand\tCreated at\tSize"; docker history --format "{{.ID}}\t{{.CreatedBy}}\t{{.CreatedAt}}\t{{.Size}}" --no-trunc'
+
+
+### tmuxp sessions
+alias tmux-ipython="tmuxp load ~/Configs/tmuxp/ipython.yaml"
