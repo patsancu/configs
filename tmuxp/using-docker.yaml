@@ -1,0 +1,15 @@
+session_name: using-docker
+windows:
+- window_name: dev
+  layout: main-vertical
+  shell_command_before:
+    - new_folder="$HOME/dev/docker/using-docker";
+      mkdir -p $new_folder;
+      cd $new_folder
+  panes:
+    - vim
+    - docker ps -a
+- window_name: notes
+  layout: tiled
+  panes:
+    - vim
