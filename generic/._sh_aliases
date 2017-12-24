@@ -121,6 +121,8 @@ alias docker-clean-stuff='docker-delete-exited-containers; docker-remove-danglin
 alias docker-get-image='docker images | grep'
 alias docker-history='echo "ID\tCommand\tCreated at\tSize"; docker history --format "{{.ID}}\t{{.CreatedBy}}\t{{.CreatedAt}}\t{{.Size}}" --no-trunc'
 
+# tmux
+alias tmux-new='tmux new -s'
 
 ### tmuxp sessions
 alias tmux-ipython="tmuxp load ~/Configs/tmuxp/ipython.yaml"
