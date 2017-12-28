@@ -156,7 +156,7 @@ docker-ps(){
     docker ps | grep $1 | tr -s ' ' | cut -d ' ' -f 1
 }
 docker-volumes(){
-    docker inspect -f inspect -f '{{ .Mounts  }}' $(docker-ps $1)
+    docker inspect -f '{{ .Mounts  }}' $(docker-ps $1)
 }
 
 
