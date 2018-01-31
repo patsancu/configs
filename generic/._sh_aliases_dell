@@ -2,10 +2,7 @@
 
 alias drillLocal='/home/patrick/dev/software/apache-drill-1.8.0/bin/drill-embedded'
 
-alias switchClusterToTelevisa='export TVMETRIX_CFG=tvmetrix-televisa; cd $METRIX_HOME/tvmetrix-k8s/; ./tvmetrix; cd -'
-alias switchClusterToWorkbench='export TVMETRIX_CFG=tvmetrix-workbench; cd $METRIX_HOME/tvmetrix-k8s/; ./tvmetrix; cd -'
-alias switchClusterToIzzi='export TVMETRIX_CFG=tvmetrix-izzi; cd $METRIX_HOME/tvmetrix-k8s/; ./tvmetrix; cd -'
-alias whichCluster='echo $TVMETRIX_CFG'
+alias whichCluster='kubectl config get-contexts | grep "\\*" | tr -s " " | cut -d " " -f 2'
 
 alias getDrillRunningQueries='which jq; curl -s  "http://localhost:8047/profiles.json" | jq "[.runningQueries]"'
 
