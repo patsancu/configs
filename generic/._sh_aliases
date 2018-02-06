@@ -126,3 +126,6 @@ alias tmux-new='tmux new -s'
 
 ### tmuxp sessions
 alias tmux-ipython="tmuxp load ~/Configs/tmuxp/ipython.yaml"
+
+alias getADApriceUSD="curl -s https://api.coinmarketcap.com/v1/ticker/cardano/?convert=USD | jq '.[0].price_usd' | tr -d '\"'"
+alias getADApriceEUR="curl -s https://api.coinmarketcap.com/v1/ticker/cardano/?convert=EUR | jq '.[0].price_eur' | tr -d '\"'"

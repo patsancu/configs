@@ -159,5 +159,24 @@ docker-volumes(){
     docker inspect -f '{{ .Mounts  }}' $(docker-ps $1)
 }
 
+getCoinInfo(){
+   if [[ $# -lt 1 || $# -ge 3  ]]; then
+       echo "wrong!"
+       echo
+       echo "Usage:"
+       echo "-----"
+       echo "    $0 COIN FIAT (ticker)"
+   else
+       COIN=$1
+       if [[ $# -eq 2 ]]; then
+           FIAT=$2
+       else
+           FIAT="usd"
+       fi
+       curl -s https://api.coinmarketcap.com/v1/ticker/$COIN/?convert=$FIAT | jq ".[0].price_$FIAT" | tr -d '"'
+   fi
+}
 
 source ~/privateconfigs/.bash_generic
+
+
