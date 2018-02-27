@@ -33,7 +33,7 @@ TMUX_SESSION_ENV=work
 #====================
 
 get-podnames() {
-  echo $(kubectl get pods --all-namespaces | grep $1 | awk '{print $2}')
+  echo $(kubectl get pods | grep $1 | awk '{print $1}')
 }
 
 #--------------------
