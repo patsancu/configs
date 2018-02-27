@@ -62,6 +62,10 @@ alluxio-kubectl-tail-logs(){
     alluxio-kubectl-prefix tail -f /opt/alluxio/logs/user_root.log
 }
 
+alluxio (){
+    kubectl exec -ti $(kubectl get pods | grep refresh-externals | cut -d ' ' -f 1 ) bash
+}
+
 
 #--------------------
 # drill
