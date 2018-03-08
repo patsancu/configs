@@ -121,6 +121,7 @@ alias docker-remove-volumes='docker volume rm $(docker volume ls -qf dangling=tr
 alias docker-clean-stuff='echo "Delete exited containers"; echo "========";docker-delete-exited-containers; echo "Remove dangling images"; echo "========"; docker-remove-dangling-images; echo "Delete remove volumes"; echo "========"; docker-remove-volumes'
 alias docker-get-image='docker images | grep'
 alias docker-history='echo "ID\tCommand\tCreated at\tSize"; docker history --format "{{.ID}}\t{{.CreatedBy}}\t{{.CreatedAt}}\t{{.Size}}" --no-trunc'
+alias docker-ip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 
 # tmux
 alias tmux-new='tmux new -s'
