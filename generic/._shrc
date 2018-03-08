@@ -177,6 +177,11 @@ getCoinInfo(){
    fi
 }
 
+
+tmux-command (){                                                                                                                             1  15:40:42
+    tmux new-session -d -s "$1" $1
+}
+
 source ~/privateconfigs/.bash_generic
 
 
