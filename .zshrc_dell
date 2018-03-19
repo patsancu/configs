@@ -1,6 +1,5 @@
 # Generic zsh stuff
 source ~/Configs/zsh/.zshrc
-source ~/Configs/zsh/.zsh_prompt
 
 # Generic stuff
 source ~/Configs/generic/._shrc

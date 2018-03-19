@@ -56,3 +56,8 @@ if [ "$TERM" = "urxvt" ] || [ "$TERM" = "rxvt-unicode" ]; then
 		bindkey "^[Oc" forward-word
 fi
 
+
+mkdir -p ~/scripts
+source ~/Configs/zsh/.zsh_antigen
+
+source ~/Configs/generic/._shrc

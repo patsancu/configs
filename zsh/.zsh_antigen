@@ -1,0 +1,18 @@
+ANTIGEN_FILE=~/scripts/antigen.zsh
+if [ -f "$ANTIGEN_FILE" ]; then
+    source "$ANTIGEN_FILE"
+else
+    echo "$ANTIGEN_FILE does not exist"
+    echo "Will download it"
+    curl -L git.io/antigen > "$ANTIGEN_FILE"
+fi
+source $ANTIGEN_FILE
+
+antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+antigen apply
+
+
+# spaceship config
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_FORMAT="%D{%Y-%m-%d} %*"
+SPACESHIP_VI_MODE_SHOW=false
