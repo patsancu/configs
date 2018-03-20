@@ -27,12 +27,9 @@ fi
 TMUX_PLUGINS_FOLDER=~/.tmux/plugins/tpm
 
 if [ ! -d "$TMUX_PLUGINS_FOLDER" ]; then
-    read -p "tmux plugin manager (tpm) is not installed. Install?" -n 1 -r
-    echo    # (optional) move to a new line
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-        git clone https://github.com/tmux-plugins/tpm "$TMUX_PLUGINS_FOLDER"
-    fi
+    echo "tpm not installed. will clone to $TMUX_PLUGINS_FOLDER"
+    echo
+    git clone https://github.com/tmux-plugins/tpm "$TMUX_PLUGINS_FOLDER"
 fi
 
 
