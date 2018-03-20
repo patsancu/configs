@@ -24,6 +24,19 @@ if [ -f ~/Configs/.bashrc_dev_helpers ]; then
 	. ~/Configs/.bashrc_dev_helpers
 fi
 
+TMUX_PLUGINS_FOLDER=~/.tmux/plugins/tpm
+
+if [ ! -d "$TMUX_PLUGINS_FOLDER" ]; then
+    read -p "tmux plugin manager (tpm) is not installed. Install?" -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        git clone https://github.com/tmux-plugins/tpm "$TMUX_PLUGINS_FOLDER"
+    fi
+fi
+
+
+
 # =========
 # Functions
 # =========
@@ -178,7 +191,7 @@ getCoinInfo(){
 }
 
 
-tmux-command (){                                                                                                                             1  15:40:42
+tmux-command (){
     tmux new-session -d -s "$1" $1
 }
 
