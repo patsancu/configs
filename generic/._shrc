@@ -192,6 +192,18 @@ tmux-command (){
     tmux new-session -d -s "$1" $1
 }
 
+
+bakdate(){
+    if [ -f $1 ]; then
+        original=$(basename "$1")
+        extension="${original##*.}"
+        filename="${original%.*}"
+        new_filename="$filename-$(date +'%Y%m%d%H%M%S').$extension"
+        mv "$original" "$new_filename"
+        echo "renamed from $original to $new_filename"
+    else
+        echo "File \"$1\" does not exist"
+    fi
+}
+
 source ~/privateconfigs/.bash_generic
-
-
