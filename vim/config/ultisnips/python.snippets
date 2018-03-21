@@ -22,6 +22,9 @@ class TestStringMethods(unittest.TestCase):
         # check that s.split fails when the separator is not a string
         with self.assertRaises(TypeError):
             s.split(2)
+
+if __name__ == '__main__':
+    unittest.main()
 endsnippet
 
 snippet subprocess
@@ -40,4 +43,10 @@ snippet strftime
 from datetime import datetime
 date_obj = datetime.now()
 date_string = date_obj.strftime('%B %d %Y %I:%M%p')
+endsnippet
+
+
+snippet main
+if __name__ == '__main__':
+    unittest.main()
 endsnippet
