@@ -206,4 +206,14 @@ bakdate(){
     fi
 }
 
+getCoinInfo(){
+    FROM=$1
+    FIAT=usd
+    if [ ! -z "$2" ]; then
+        FIAT="$2";
+    fi
+    echo "Fiat is: $FIAT"
+    curl -s https://api.coinmarketcap.com/v1/ticker/${FROM}/?convert=eur | jq ".[0].price_${FIAT}" | tr -d '"'
+}
+
 source ~/privateconfigs/.bash_generic
