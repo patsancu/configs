@@ -233,4 +233,13 @@ getCoins(){
     echo "--------";
 }
 
+getCoinsLoop(){
+    REFRESH_RATE=${1:=5}
+    while true; do
+        getCoins
+        sleep $REFRESH_RATE
+        clear;
+    done
+}
+
 source ~/privateconfigs/.bash_generic
