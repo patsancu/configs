@@ -71,3 +71,6 @@ let g:slime_python_ipython = 1
 
 "Syntastic
 nnoremap <Leader>s :SyntasticToggleMode<CR>
+
+"Silver Searcher custom command Ag
+nnoremap % :Ag<SPACE>
