@@ -78,8 +78,18 @@ weather(){
 }
 
 
-shorten(){
+shorten_google(){
    curl -s "https://www.googleapis.com/urlshortener/v1/url?key=$GOOGLE_SHORTEN_API_KEY" -H 'Content-Type: application/json' -d "{'longUrl':      \"$1\"}" | jq ".id"
+}
+
+
+shorten(){
+   url_pattern="http"
+   url=$1
+   if ! [[ $url = $url_pattern* ]]; then
+    url="http://$url"
+   fi
+   echo $(wget -q -O - "http://tny.im/yourls-api.php?action=shorturl&format=simple&url=$url&keyword=$2")
 }
 
 # In zsh, with certain glob options,
