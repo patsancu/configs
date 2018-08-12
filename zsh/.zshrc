@@ -4,7 +4,7 @@ setopt AUTO_CD
 setopt GLOB
 unsetopt NOMATCH
 
-setopt APPEND_HISTORY # If this is set, zsh sessions will append 
+setopt APPEND_HISTORY # If this is set, zsh sessions will append
                       # their history list to the history file, rather than replace it.
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
@@ -20,7 +20,7 @@ setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
-setopt DOT_GLOB 
+setopt DOT_GLOB
 
 # Completion
 #
@@ -34,7 +34,7 @@ setopt DOT_GLOB
 setopt vi
 
 # Put this **after** vi mode
-# Fuzzy finder 
+# Fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
