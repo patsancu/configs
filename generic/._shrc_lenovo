@@ -1,7 +1,13 @@
 # vim: set filetype=sh :
 
-# needed for virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+WRAPPER_FILE=$(find /usr -name "virtualenvwrapper.sh" -print 2>/dev/null)
+if [ -z "$WRAPPER_FILE"  ]; then
+    echo "virtualenvwrapper not present"
+    echo
+    echo "install it with:"
+    echo "  sudo -H pip install virtualenvwrapper"
+else
+    source "$WRAPPER_FILE"
+fi
 
 source ~/Configs/generic/._sh_aliases_lenovo
