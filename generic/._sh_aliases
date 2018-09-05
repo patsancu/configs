@@ -15,7 +15,7 @@ alias buscarPaquete='sudo apt-cache search'
 # The 'ls' family (this assumes you use a recent GNU ls).
 #-------------------------------------------------------------
 # Use gls in macOS
-which gls > /dev/null && alias ls='gls --color'
+which gls &> /dev/null && alias ls='gls --color'
 # The ubiquitous 'll': directories first, with alphanumeric sorting:
 alias ll="ls -lhv --group-directories-first --color"
 alias lx='ll -XB'         #  Sort by extension.
