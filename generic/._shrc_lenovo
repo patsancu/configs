@@ -10,4 +10,4 @@ else
     source "$WRAPPER_FILE"
 fi
 
-source ~/Configs/generic/._sh_aliases_lenovo
+source ~/configs/generic/._sh_aliases_lenovo

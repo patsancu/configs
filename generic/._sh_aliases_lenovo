@@ -1,1 +1,1 @@
-alias tmux-openvpn='tmuxp load $HOME/Configs/tmuxp/openvpn.yaml'
+alias tmux-openvpn='tmuxp load $HOME/configs/tmuxp/openvpn.yaml'

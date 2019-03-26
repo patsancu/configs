@@ -6,7 +6,7 @@
 
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /Users/patrick/Configs/git/.gitignore_global
+	excludesfile = /Users/patrick/configs/git/.gitignore_global
 
 [color]
     ui = true

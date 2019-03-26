@@ -1,10 +1,10 @@
 # Generic zsh stuff
-source ~/Configs/zsh/.zshrc
-source ~/Configs/zsh/.zsh_prompt
+source ~/configs/zsh/.zshrc
+source ~/configs/zsh/.zsh_prompt
 
-source ~/Configs/generic/._shrc_lenovo
+source ~/configs/generic/._shrc_lenovo
 # Generic stuff
-source ~/Configs/generic/._shrc
-source ~/Configs/generic/._sh_aliases
+source ~/configs/generic/._shrc
+source ~/configs/generic/._sh_aliases
 
 export TERM=screen-256color

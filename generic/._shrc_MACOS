@@ -8,9 +8,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 PATH=/usr/local/bin:$PATH:$HOME/bin
 
 # Default env to load tmux sessions from
-# in ~/Configs/tmux/sessions/tmux-session.sh
+# in ~/configs/tmux/sessions/tmux-session.sh
 TMUX_SESSION_ENV=dev
-source ~/Configs/generic/._sh_aliases_macos
+source ~/configs/generic/._sh_aliases_macos
 source ~/privateconfigs/.bash_macos_envs
 
 # pgrep doesn't work the way I though it was supposed to

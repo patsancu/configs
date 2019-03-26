@@ -58,7 +58,7 @@ fi
 
 
 mkdir -p ~/scripts
-source ~/Configs/zsh/.zsh_antigen
-source ~/Configs/zsh/.zshrc_aliases
+source ~/configs/zsh/.zsh_antigen
+source ~/configs/zsh/.zshrc_aliases
 
-source ~/Configs/generic/._shrc
+source ~/configs/generic/._shrc

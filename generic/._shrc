@@ -11,8 +11,8 @@ export PATH
 mkdir -p ~/.vim/.backup ~/.vim/.swp ~/.vim/.undo
 
 # Alias definitions.
-if [ -f ~/Configs/.bash_aliases ]; then
-. ~/Configs/.bash_aliases
+if [ -f ~/configs/.bash_aliases ]; then
+. ~/configs/.bash_aliases
 fi
 
 ### Config with pw and other stuff
@@ -20,8 +20,8 @@ if [ -f ~/privateconfigs/.bash_other_stuff ]; then
 . ~/privateconfigs/.bash_other_stuff
 fi
 
-if [ -f ~/Configs/.bashrc_dev_helpers ]; then
-	. ~/Configs/.bashrc_dev_helpers
+if [ -f ~/configs/.bashrc_dev_helpers ]; then
+	. ~/configs/.bashrc_dev_helpers
 fi
 
 TMUX_PLUGINS_FOLDER=~/.tmux/plugins/tpm

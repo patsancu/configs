@@ -1,2 +1,2 @@
-source ~/Configs/vim/.vimrc
-source ~/Configs/vim/.vimrc_macos
+source ~/configs/vim/.vimrc
+source ~/configs/vim/.vimrc_macos
