@@ -35,6 +35,23 @@ if [ ! -d "$TMUX_PLUGINS_FOLDER" ]; then
 fi
 
 
+FZF_FOLDER=~/.fzf
+if [ ! -d "$FZF_FOLDER" ]; then
+    echo "fzf not installed. "
+    echo
+    echo "to install:"
+    echo "  git clone --depth 1 https://github.com/junegunn/fzf.git $FZF_FOLDER"
+    echo "  ~/.fzf/install"
+fi
+
+PLUG_FILE=~/.vim/autoload/plug.vim
+if [ ! -d "$PLUG_FILE" ]; then
+    echo "Vim plug not installed"
+    echo
+    echo "to install:"
+    echo "  curl -fLo $PLUG_FILE --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+fi
+
 
 # =========
 # Functions
