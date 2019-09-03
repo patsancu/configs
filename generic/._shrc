@@ -44,8 +44,8 @@ if [ ! -d "$FZF_FOLDER" ]; then
     echo "  ~/.fzf/install"
 fi
 
-PLUG_FILE=~/.vim/autoload/plug.vim
-if [ ! -d "$PLUG_FILE" ]; then
+PLUG_FILE="~/.vim/autoload/plug.vim"
+if [ ! -f "$PLUG_FILE" ]; then
     echo "Vim plug not installed"
     echo
     echo "to install:"
