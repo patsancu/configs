@@ -1,6 +1,6 @@
 # vim: set filetype=sh :
 
-WRAPPER_FILE=$(find /usr -name "virtualenvwrapper.sh" -print 2>/dev/null)
+WRAPPER_FILE=$(find /usr -name "virtualenvwrapper.sh"  -print 2>/dev/null | head -n 1)
 if [ -z "$WRAPPER_FILE"  ]; then
     echo "virtualenvwrapper not present"
     echo
