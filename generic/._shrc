@@ -35,7 +35,7 @@ if [ ! -d "$TMUX_PLUGINS_FOLDER" ]; then
 fi
 
 
-FZF_FOLDER=~/.fzf
+FZF_FOLDER=$HOME/.fzf
 if [ ! -d "$FZF_FOLDER" ]; then
     echo "fzf not installed. "
     echo
