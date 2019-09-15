@@ -275,6 +275,11 @@ gbranches(){
     git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
 }
 
+bak() {
+    FILENAME=$1;
+    cp $FILENAME ${FILENAME}_$(date +%Y%m%d_%H%M%S).bak;
+}
+
 PRIVATE_CONFIG_PATH=~/privateconfigs/.bash_generic
 if [ -f $PRIVATE_CONFIG_PATH ]; then
     source $PRIVATE_CONFIG_PATH
