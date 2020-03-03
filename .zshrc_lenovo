@@ -1,6 +1,5 @@
 # Generic zsh stuff
 source ~/configs/zsh/.zshrc
-source ~/configs/zsh/.zsh_prompt
 
 source ~/configs/generic/._shrc_lenovo
 # Generic stuff
