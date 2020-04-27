@@ -40,7 +40,11 @@ match ErrorMsg '\s\+$'
 " just to avoid the freaking prompt at launch-time
 set cmdheight=3
 " Copy paste to system clipboard
-set clipboard=unnamedplus
+if system('uname -s') == "Darwin"
+      set clipboard=unnamed "OSX
+else
+      set clipboard=unnamedplus "Linux
+endif
 
 "Cursor briefly jumps to the matching brace when
 "you insert one
