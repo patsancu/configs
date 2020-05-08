@@ -32,6 +32,7 @@ Plug 'jpalardy/vim-slime'
 Plug 'ludovicchabant/vim-lawrencium' "Mercurial
 Plug 'chrisbra/csv.vim'
 Plug 'SirVer/ultisnips'
+Plug 'udalov/kotlin-vim'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 
