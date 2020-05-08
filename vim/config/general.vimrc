@@ -40,8 +40,10 @@ match ErrorMsg '\s\+$'
 " just to avoid the freaking prompt at launch-time
 set cmdheight=3
 " Copy paste to system clipboard
-if system('uname -s') == "Darwin"
-      set clipboard=unnamed "OSX
+
+let uname = substitute(system('uname'), '\n', '', '')
+if uname == "Darwin"
+      set clipboard=unnamed " macosx"
 else
       set clipboard=unnamedplus "Linux
 endif
