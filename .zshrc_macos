@@ -8,3 +8,5 @@ source ~/configs/generic/._shrc
 source ~/configs/generic/._sh_aliases
 # Generic macos stuff
 
+ZSH_EXTRA_CONFIG_FILE=~/.zshrc_extra
+[ -f $ZSH_EXTRA_CONFIG_FILE ] && source $ZSH_EXTRA_CONFIG_FILE
