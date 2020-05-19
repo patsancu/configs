@@ -60,7 +60,11 @@ fi
 my_gitweb(){
 if [ -d .git  ]; then
     	url=`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'`;
-		xdg-open $url;
+        if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
+            open $url
+        else
+            xdg-open $url;
+        fi
 	else
  		echo "Not a git repo";
 	fi
