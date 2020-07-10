@@ -284,6 +284,16 @@ bak() {
     cp $FILENAME ${FILENAME}_$(date +%Y%m%d_%H%M%S).bak;
 }
 
+# ignores anything after the period if you feed it one
+#➜ epoch-to-date 1594396667
+#Fri Jul 10 17:57:47 CEST 2020
+fun epoch-to-date() {
+    epoch_seconds=$(echo $1 | cut -d '.' -f 1)
+    if [ "$(uname)" == "Darwin" ]; then
+        date -r $epoch_seconds
+    fi
+}
+
 PRIVATE_CONFIG_PATH=~/privateconfigs/.bash_generic
 if [ -f $PRIVATE_CONFIG_PATH ]; then
     source $PRIVATE_CONFIG_PATH
