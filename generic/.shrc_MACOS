@@ -10,7 +10,7 @@ PATH=/usr/local/bin:$PATH:$HOME/bin
 # Default env to load tmux sessions from
 # in ~/configs/tmux/sessions/tmux-session.sh
 TMUX_SESSION_ENV=dev
-source ~/configs/generic/._sh_aliases_macos
+source ~/configs/generic/.sh_aliases_macos
 [ -f ~/privateconfigs/.bash_macos_envs ] && source ~/privateconfigs/.bash_macos_envs
 
 # pgrep doesn't work the way I though it was supposed to
