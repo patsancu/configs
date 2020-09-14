@@ -29,9 +29,10 @@ fi
 TMUX_PLUGINS_FOLDER=~/.tmux/plugins/tpm
 
 if [ ! -d "$TMUX_PLUGINS_FOLDER" ]; then
-    echo "tpm not installed. will clone to $TMUX_PLUGINS_FOLDER"
+    echo "tpm not installed"
     echo
-    git clone https://github.com/tmux-plugins/tpm "$TMUX_PLUGINS_FOLDER"
+    echo "To install:"
+    echo "git clone https://github.com/tmux-plugins/tpm $TMUX_PLUGINS_FOLDER"
 fi
 
 
