@@ -1,0 +1,251 @@
+# vim: set filetype=sh :
+
+# =========
+# Functions
+# =========
+
+my_gitweb(){
+    if git status 2>&1 > /dev/null ; then
+        url=`git remote -v | grep fetch | head -1 | cut -f2 | cut -d' ' -f1 | sed -e's/git@/http:\/\//' -e's/\.git$//' | sed -E 's/(\/\/[^:]*):/\1\//'`;
+        url_with_path=$url/tree/$(git rev-parse --abbrev-ref HEAD)/$(git rev-parse --show-prefix)
+        if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
+            open $url_with_path
+        else
+            xdg-open $url_with_path;
+        fi
+  else
+    echo "Not a git repo";
+  fi
+}
+
+
+function contarArchivos() {
+  #do things with parameters like $1 such as
+  ls -l $1 | grep -v ^l | wc -l
+}
+
+weather_short(){
+  curl -s "http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=${@:-<YOURZIPORLOCATION>}"|perl -ne '/<title>([^<]+)/&&printf "%s: ",$1;/<fcttext>([^<]+)/&&print $1,"\n"';
+}
+
+weather_long(){
+  curl wttr.in/madrid
+}
+
+mkcd(){
+   mkdir -p $1;
+   cd $1
+}
+
+weather(){
+  if [ $# -gt 0 ]; then
+    if [ $1 == "short" ];  then
+      weather_short madrid
+    else
+      weather_long
+    fi
+  else
+    weather_short madrid
+  fi
+}
+
+
+shorten_google(){
+   curl -s "https://www.googleapis.com/urlshortener/v1/url?key=$GOOGLE_SHORTEN_API_KEY" -H 'Content-Type: application/json' -d "{'longUrl':      \"$1\"}" | jq ".id"
+}
+
+
+shorten(){
+   url_pattern="http"
+   url=$1
+   if ! [[ $url = $url_pattern* ]]; then
+    url="http://$url"
+   fi
+   echo $(wget -q -O - "http://tny.im/yourls-api.php?action=shorturl&format=simple&url=$url&keyword=$2")
+}
+
+# In zsh, with certain glob options,
+# multiplications will only work with
+# "9*9"
+# Others will work, e.g. 9/8
+calculate(){
+  bc -l <<< "$1";
+}
+
+function my_ip() # Get IP adress on ethernet.
+{
+    MY_IP=$(/sbin/ifconfig eth0 | awk '/inet/ { print $2 } ' |
+      sed -e s/addr://)
+    echo ${MY_IP:-"Not connected"}
+}
+getFileGithub(){ rawUrl=`echo $1 | sed "s/github/raw.githubusercontent/g" | sed "s/blob\///"`; wget $rawUrl; }
+
+
+
+recargarConfiguracion(){
+    shellPid=`echo "$$"`
+    usingShell=`ps -p $shellPid | egrep "[a-zA-Z]+sh" -o`
+
+      if [ $usingShell = "bash" ]; then
+      source ~/.bashrc;
+    elif [ $usingShell = "zsh" ]; then
+      source ~/.zshrc;
+    fi
+}
+
+# https://www.gregjs.com/linux/2016/upgrade-your-terminal-with-bash-functions-for-matching-text-in-filenames-or-contents/
+function match_filename() {
+  find "$1" -iname "*$2*" -print
+}
+function match_contents() {
+  grep -Ri "$1" -e "$2"
+}
+function matchrun_filename() {
+  find "$1" -iname "*$2*" -print0 | xargs -0 ls -l
+}
+function matchrun_contents() {
+  grep -Ri "$1" -e "$2" -lZ | xargs -0 "${@:3}"
+}
+
+# Download youtube asset to mp3
+function ytmp3() {
+    if [ $# -eq 0 ]; then
+        echo "Usage:"
+        echo "$0 \"artist song\"";
+        echo "$0 \"some query\"";
+    else
+        which youtube-dl > /dev/null;
+        if [ $? -eq 0 ]; then
+            youtube-dl -x --audio-format "mp3" --audio-quality 0 "$@"
+        else
+            echo "Need to have youtube-dl installed";
+        fi
+    fi
+}
+
+
+function musicy() {
+    if [ $# -eq 0 ]; then
+        echo "Usage:"
+        echo "$0 \"artist song\"";
+        echo "$0 \"some query\"";
+    else
+        which youtube-dl > /dev/null;
+        if [ $? -ne 0 ]; then
+            echo "Need to have youtube-dl installed";
+        fi
+        which mpv > /dev/null;
+        if [ $? -eq 0 ]; then
+            # Actual command
+            mpv --no-video --ytdl-format=bestaudio ytdl://ytsearch10:"$@"
+        else
+            echo "Need to have mpv installed";
+        fi
+    fi
+}
+
+docker-ps(){
+    docker ps | grep $1 | tr -s ' ' | cut -d ' ' -f 1
+}
+docker-volumes(){
+    docker inspect -f '{{ .Mounts  }}' $(docker-ps $1)
+}
+
+getCoinInfo(){
+   if [[ $# -lt 1 || $# -ge 3  ]]; then
+       echo "wrong!"
+       echo
+       echo "Usage:"
+       echo "-----"
+       echo "    $0 COIN FIAT (ticker)"
+   else
+       COIN=$1
+       if [[ $# -eq 2 ]]; then
+           FIAT=$2
+       else
+           FIAT="usd"
+       fi
+       curl -s https://api.coinmarketcap.com/v1/ticker/$COIN/?convert=$FIAT | jq ".[0].price_$FIAT" | tr -d '"'
+   fi
+}
+
+
+tmux-command (){
+    tmux new-session -d -s "$1" $1
+}
+
+
+bakdate(){
+    if [ -f $1 ]; then
+        original=$(basename "$1")
+        extension="${original##*.}"
+        filename="${original%.*}"
+        new_filename="$filename-$(date +'%Y%m%d%H%M%S').$extension"
+        mv "$original" "$new_filename"
+        echo "renamed from $original to $new_filename"
+    else
+        echo "File \"$1\" does not exist"
+    fi
+}
+
+getCoinInfo(){
+    FROM=$1
+    FIAT=usd
+    if [ ! -z "$2" ]; then
+        FIAT="$2";
+    fi
+    curl -s https://api.coinmarketcap.com/v1/ticker/${FROM}/?convert=eur | jq ".[0].price_${FIAT}" | tr -d '"'
+}
+
+getCoins(){
+    echo "dollars/ADA";
+    getCoinInfo cardano usd
+    echo "--------";
+
+    echo "euros/ADA";
+    getCoinInfo cardano eur
+    echo "--------";
+
+    echo "btc/eur"
+    getCoinInfo bitcoin eur
+    echo "--------";
+
+    echo "btc/usd"
+    getCoinInfo bitcoin usd
+    echo "--------";
+}
+
+getCoinsLoop(){
+    REFRESH_RATE=${1:=5}
+    while true; do
+        getCoins
+        sleep $REFRESH_RATE
+        clear;
+    done
+}
+
+gbranches(){
+    git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+}
+
+bak() {
+    FILENAME=$1;
+    cp $FILENAME ${FILENAME}_$(date +%Y%m%d_%H%M%S).bak;
+}
+
+# ignores anything after the period if you feed it one
+#➜ epoch-to-date 1594396667
+#Fri Jul 10 17:57:47 CEST 2020
+fun epoch-to-date() {
+    epoch_seconds=$(echo $1 | cut -d '.' -f 1)
+    if [ "$(uname)" == "Darwin" ]; then
+        date -r $epoch_seconds
+    fi
+}
+
+function pull-rebase() {
+  BRANCH=$1
+  git co master && git pull && git co "$BRANCH" && git rebase master
+}
+
+
