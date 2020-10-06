@@ -48,4 +48,5 @@
     dc = diff --cached
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
     alias = "!git config -l | grep alias | cut -c 7-"
+    merged-branches = "!git branch --merged master --no-color --no-abbrev | tr -d ' ' | grep -v -- '->' | grep -v 'master' | grep -v 'prod' | grep -v 'staging'"
     current-branch = symbolic-ref --short HEAD
