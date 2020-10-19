@@ -6,3 +6,5 @@
 	ff = only
 [core]
 	excludesfile = /Users/psanzo/configs/git/.gitignore_global
+[rebase]
+	autoStash = true
