@@ -50,3 +50,4 @@
     alias = "!git config -l | grep alias | cut -c 7-"
     merged-branches = "!git branch --merged master --no-color --no-abbrev | tr -d ' ' | grep -v -- '->' | grep -v 'master' | grep -v 'prod' | grep -v 'staging'"
     current-branch = symbolic-ref --short HEAD
+    blist = branch --list
