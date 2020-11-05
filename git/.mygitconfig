@@ -51,3 +51,5 @@
     merged-branches = "!git branch --merged master --no-color --no-abbrev | tr -d ' ' | grep -v -- '->' | grep -v 'master' | grep -v 'prod' | grep -v 'staging'"
     current-branch = symbolic-ref --short HEAD
     blist = branch --list
+    # just updates the date of the last commit and adds staged files (if any) to the last commit
+    amend = commit --amend --no-edit --date=\"Thu Nov  5 17:34:21 CET 2020\"
