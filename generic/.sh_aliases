@@ -87,11 +87,6 @@ alias dmesg='dmesg -eHT'
 alias buscarPaquete='sudo apt-cache search --names-only'
 alias buscarPaquetePorDescripcion='sudo apt-cache search'
 
-
-alias getBTCeurPrice='btcPrice=`curl -s  http://api.coindesk.com/v1/bpi/currentprice.json | jq "[.bpi.EUR.rate_float]" | grep -v "\[" | grep -v "\]" | tr -d " "`; btcPriceUnit="$btcPrice"."EUR"; echo "1BTC=$btcPriceUnit"'
-alias getETHeurPrice='ethPrice=`curl -s "https://api.coinbase.com/v2/exchange-rates?currency=ETH" | jq ".data.rates.EUR"`; echo "1ETH=$ethPrice €"'
-
-
 alias checkInternet='ping 8.8.8.8'
 alias lsd='ls -d */'
 alias lld='ls -ld */'
@@ -124,6 +119,3 @@ alias tmux-new='tmux new -s'
 
 ### tmuxp sessions
 alias tmux-ipython="tmuxp load ~/configs/tmuxp/ipython.yaml"
-
-alias getADApriceUSD="curl -s https://api.coinmarketcap.com/v1/ticker/cardano/?convert=USD | jq '.[0].price_usd' | tr -d '\"'"
-alias getADApriceEUR="curl -s https://api.coinmarketcap.com/v1/ticker/cardano/?convert=EUR | jq '.[0].price_eur' | tr -d '\"'"
