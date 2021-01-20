@@ -12,6 +12,8 @@ export editor="vim"
 # For vim backup stuff
 mkdir -p ~/.vim/.backup ~/.vim/.swp ~/.vim/.undo
 
+source ~/configs/generic/.shrc_functions
+
 # Alias definitions.
 if [ -f ~/configs/.bash_aliases ]; then
 . ~/configs/.bash_aliases
