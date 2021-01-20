@@ -17,3 +17,22 @@ source ~/configs/generic/.sh_aliases_macos
 function pgrep() {
     ps -aux | grep $1 | grep -v grep
 }
+
+# Temporary switch to other Java versions
+function j11() {
+    unset JAVA_HOME
+    export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+    java -version
+}
+
+function j14() {
+    unset JAVA_HOME
+    export JAVA_HOME=$(/usr/libexec/java_home -v 14.0.1)
+    java -version
+}
+
+function j15() {
+    unset JAVA_HOME
+    export JAVA_HOME=$(/usr/libexec/java_home -v 15.0.1)
+    java -version
+}
