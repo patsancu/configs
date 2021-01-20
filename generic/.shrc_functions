@@ -1,6 +1,11 @@
 # vim: set filetype=sh :
 
 # =========
+# Config
+# =========
+CITY_EN=Cologne
+
+# =========
 # Functions
 # =========
 
@@ -29,7 +34,7 @@ weather_short(){
 }
 
 weather_long(){
-  curl wttr.in/madrid
+  curl wttr.in/$CITY_EN
 }
 
 mkcd(){
