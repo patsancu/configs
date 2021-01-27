@@ -50,6 +50,8 @@ nnoremap <silent> <C-J> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 
+" Bdelete -- close buffers
+nnoremap <Leader>z :Bdelete menu<CR>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
 "Gist private and public
