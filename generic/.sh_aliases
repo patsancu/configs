@@ -1,5 +1,7 @@
 # vim: set filetype=sh :
 
+source ~/configs/generic/.dev_aliases
+
 # Safe aliases
 alias cp='cp -i'
 alias mv='mv -i'
