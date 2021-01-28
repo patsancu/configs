@@ -248,4 +248,11 @@ function pull-rebase() {
   git co master && git pull && git co "$BRANCH" && git rebase master
 }
 
-
+function c() {
+    cd $1;
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        ls -lha --color
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        gls -lha --color
+    fi
+}
