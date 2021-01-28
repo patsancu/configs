@@ -1,7 +1,7 @@
 # Generic zsh stuff
 source ~/configs/zsh/.zshrc
 
-source ~/configs/generic/.shrc_MACOS
+source ~/configs/generic/.shrc_macos
 # Generic stuff
 source ~/configs/generic/.shrc
 source ~/configs/generic/.sh_aliases
