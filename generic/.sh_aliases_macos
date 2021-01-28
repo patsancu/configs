@@ -1,2 +1,3 @@
 # vim: set filetype=sh :
 alias pip='/usr/local/bin/python -m pip'
+alias lt='du -sh * | sort -h'
