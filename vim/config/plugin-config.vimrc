@@ -7,6 +7,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let NERDTreeQuitOnOpen = 1
 let g:NERDTreeMapJumpNextSibling = '<Nop>'
 let g:NERDTreeMapJumpPrevSibling = '<Nop>'
+let NERDTreeShowHidden=1
 
 " Airline
 " ========
