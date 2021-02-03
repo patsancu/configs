@@ -17,14 +17,9 @@ services:
         condition: on-failure
 
   db:
-    image: postgres:9.4
-    volumes:
-      - db-data:/var/lib/postgresql/data
-    networks:
-      - backend
-    deploy:
-      placement:
-        constraints: [node.role == manager]
+    build:
+      context: service-whatever
+      dockerfile: Dockerfile-db
 
   vote:
     image: dockersamples/examplevotingapp_vote:before
