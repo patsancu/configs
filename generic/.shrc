@@ -62,5 +62,5 @@ if [ -f $PRIVATE_CONFIG_PATH ]; then
 fi
 
 
-ZSH_EXTRA_CONFIG_FILE=~/.zshrc_extra
-[ -f $ZSH_EXTRA_CONFIG_FILE ] && source $ZSH_EXTRA_CONFIG_FILE
+EXTRA_CONFIG_FILE=~/.sh_extra_config
+[ -f $EXTRA_CONFIG_FILE ] && source $EXTRA_CONFIG_FILE
