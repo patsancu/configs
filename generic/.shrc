@@ -60,3 +60,7 @@ PRIVATE_CONFIG_PATH=~/privateconfigs/.bash_generic
 if [ -f $PRIVATE_CONFIG_PATH ]; then
     source $PRIVATE_CONFIG_PATH
 fi
+
+
+ZSH_EXTRA_CONFIG_FILE=~/.zshrc_extra
+[ -f $ZSH_EXTRA_CONFIG_FILE ] && source $ZSH_EXTRA_CONFIG_FILE
