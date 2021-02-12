@@ -7,4 +7,5 @@ source ~/configs/generic/.sh_aliases
 # Generic macos stuff
 source ~/configs/generic/.shrc_macos
 source ~/configs/generic/.sh_aliases_macos
+source ~/configs/generic/.shrc_functions_macos
 
