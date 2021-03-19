@@ -28,39 +28,8 @@ if [ -f ~/configs/.bashrc_dev_helpers ]; then
 	. ~/configs/.bashrc_dev_helpers
 fi
 
-TMUX_PLUGINS_FOLDER=~/.tmux/plugins/tpm
-
-if [ ! -d "$TMUX_PLUGINS_FOLDER" ]; then
-    echo "tpm not installed"
-    echo
-    echo "To install:"
-    echo "git clone https://github.com/tmux-plugins/tpm $TMUX_PLUGINS_FOLDER"
-fi
-
-
-FZF_FOLDER=$HOME/.fzf
-if [ ! -d "$FZF_FOLDER" ]; then
-    echo "fzf not installed. "
-    echo
-    echo "to install:"
-    echo "  git clone --depth 1 https://github.com/junegunn/fzf.git $FZF_FOLDER"
-    echo "  ~/.fzf/install"
-fi
-
-PLUG_FILE="$HOME/.vim/autoload/plug.vim"
-if [ ! -f "$PLUG_FILE" ]; then
-    echo "Vim plug not installed. Path $PLUG_FILE not existing"
-    echo
-    echo "to install:"
-    echo "  curl -fLo $PLUG_FILE --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-fi
-
-
 PRIVATE_CONFIG_PATH=~/privateconfigs/.bash_generic
-if [ -f $PRIVATE_CONFIG_PATH ]; then
-    source $PRIVATE_CONFIG_PATH
-fi
-
+[ -f $PRIVATE_CONFIG_PATH ] && source $PRIVATE_CONFIG_PATH
 
 EXTRA_CONFIG_FILE=~/.sh_extra_config
 [ -f $EXTRA_CONFIG_FILE ] && source $EXTRA_CONFIG_FILE
