@@ -76,3 +76,7 @@ nnoremap <Leader>s :SyntasticToggleMode<CR>
 
 "Silver Searcher custom command Ag
 nnoremap % :Ag<SPACE>
+
+" Find visually selected word again in file
+" press // after selecting word
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
