@@ -17,7 +17,7 @@ fi
 echo "==================="
 echo "Will check FZF..."
 echo "-------------------"
-FZF_FOLDER=$HOME/.fz
+FZF_FOLDER=$HOME/.fzf
 if [ ! -d "$FZF_FOLDER" ]; then
     echo "fzf not installed. "
     echo
@@ -62,4 +62,19 @@ if [ -f $EXTRA_CONFIG_FILE ]; then
     echo "OK"
 else
     echo "you can put extra stuff at $PRIVATE_CONFIG_PATH"
+fi
+
+
+
+echo "==================="
+echo "Will check antigen installation..."
+echo "-------------------"
+ANTIGEN_FILE=~/scripts/antigen.zsh
+if [ -f "$ANTIGEN_FILE" ]; then
+    echo "OK"
+else
+    source "$ANTIGEN_FILE"
+    echo "$ANTIGEN_FILE does not exist"
+    echo "To install:"
+    echo "curl -L git.io/antigen > $ANTIGEN_FILE"
 fi
