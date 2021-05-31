@@ -54,3 +54,4 @@
     # just updates the date of the last commit and adds staged files (if any) to the last commit
     amend = !git commit --amend --no-edit --date=\"$(date)\"
     ls = branch --list
+    latest-tag = "!git describe --tags $(git rev-list --tags --max-count=1)"
