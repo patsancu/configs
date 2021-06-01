@@ -59,7 +59,7 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set ignorecase
 set smartcase
 set backspace=indent,eol,start
-
+set paste "needed in order not to get crazy when pasting (at least in ubuntu)
 
 
 " -----------------
