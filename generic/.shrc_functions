@@ -262,3 +262,14 @@ function c() {
         gls -lha --color
     fi
 }
+
+function git-sha-in-tag() {
+    if [ $# -ne 2 ]; then
+        echo "Usage:"
+        echo "	$0 SHA_OF_COMMIT TAG"
+	else
+        SHA=$1
+        AG="$2"
+        git tag --contains "$SHA" grep "$TAG" && echo "it does contain it!" || echo "NOPE"
+    fi
+}
