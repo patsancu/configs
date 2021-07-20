@@ -248,6 +248,7 @@ function pull-rebase() {
 	DEFAULT_BRANCH=${CONFIG_DEFAULT_BRANCH:-master}
 	PREVIOUS_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 	git co $DEFAULT_BRANCH \
+		&& git pull \
 		&& git co $PREVIOUS_BRANCH \
 		&& git rebase $DEFAULT_BRANCH \
 		&& echo "rebase succeeded" || echo "rebase failed"
