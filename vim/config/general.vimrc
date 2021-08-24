@@ -6,7 +6,6 @@ set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
 set encoding=utf-8
-set tabstop=4
 " Relative number by default
 set relativenumber
 set number "this, added to relative number, makes hybrid mode
@@ -15,9 +14,6 @@ set cursorline
 " Incremental search
 set incsearch
 
-set expandtab
-set tabstop=4
-set shiftwidth=4
 
 set cryptmethod=blowfish2
 
@@ -61,6 +57,11 @@ set smartcase
 set backspace=indent,eol,start
 set paste "needed in order not to get crazy when pasting (at least in ubuntu)
 
+set expandtab
+set tabstop=4
+set softtabstop=0
+set shiftwidth=4
+set smarttab
 
 " -----------------
 " Undo configuration
