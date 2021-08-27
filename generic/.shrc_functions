@@ -273,3 +273,7 @@ function git-sha-in-tag() {
         git tag --contains "$SHA" grep "$TAG" && echo "it does contain it!" || echo "NOPE"
     fi
 }
+
+function get-current-folder() {
+    echo $(basename $(pwd))
+}
