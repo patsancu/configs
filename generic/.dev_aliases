@@ -1,3 +1,4 @@
 # vim: set filetype=sh :
 
-alias mvn-clean-install-no-tests='mvn clean install -DskipTests -Dmaven.javadoc.skip=true -Denforcer.skip=true'
+# -fae -> Fail at end
+alias mvn-clean-install-no-tests='mvn clean install -fae -DskipTests -Dmaven.javadoc.skip=true -Denforcer.skip=true'
