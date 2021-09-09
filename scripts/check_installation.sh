@@ -69,7 +69,7 @@ fi
 echo "==================="
 echo "Will check antigen installation..."
 echo "-------------------"
-ANTIGEN_FILE=~/scripts/antigen.zsh
+ANTIGEN_FILE=~/antigen.zsh
 if [ -f "$ANTIGEN_FILE" ]; then
     echo "OK"
 else
