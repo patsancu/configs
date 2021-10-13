@@ -1,5 +1,13 @@
 " ================PLUGINS================
 "Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+
+" Automagically install vim plug and install the plugins
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'Asheq/close-buffers.vim'
 Plug 'SirVer/ultisnips'
