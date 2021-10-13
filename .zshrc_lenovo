@@ -7,3 +7,5 @@ source ~/configs/generic/.shrc
 source ~/configs/generic/.sh_aliases
 
 export TERM=screen-256color
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
