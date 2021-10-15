@@ -6,6 +6,7 @@
 	ff = only
 [core]
 	excludesfile = /Users/psanzo/configs/git/.gitignore_global
+	editor = vim
 [rebase]
 	autoStash = true
 [init]
