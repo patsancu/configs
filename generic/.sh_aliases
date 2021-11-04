@@ -112,6 +112,10 @@ alias docker-get-image='docker images | grep'
 alias docker-history='echo "ID\tCommand\tCreated at\tSize"; docker history --format "{{.ID}}\t{{.CreatedBy}}\t{{.CreatedAt}}\t{{.Size}}" --no-trunc'
 alias docker-ip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 
+if [ "${OSTYPE//[0-9.]/}" != "darwin" ]; then
+    alias open='xdg-open'
+fi
+
 # tmux
 alias tmux-new='tmux new -s'
 
