@@ -1,6 +1,10 @@
 # vim: set filetype=sh :
 
-WRAPPER_FILE=$(find /usr -name "virtualenvwrapper.sh"  -print 2>/dev/null | head -n 1)
+PATH="$PATH:$HOME/.local/bin"
+WRAPPER_PATH=$HOME/.local/bin
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+
+WRAPPER_FILE=$(find $WRAPPER_PATH -name "virtualenvwrapper.sh"  -print 2>/dev/null | head -n 1)
 if [ -z "$WRAPPER_FILE"  ]; then
     echo "virtualenvwrapper not present"
     echo
