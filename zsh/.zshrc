@@ -37,7 +37,8 @@ setopt DOT_GLOB
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-autoload -U compinit && compinit
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+autoload -Uz compinit && compinit
 zmodload -i zsh/complist
 
 if [ $commands[kubectl] ]; then
