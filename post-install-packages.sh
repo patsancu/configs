@@ -2,8 +2,6 @@
 
 packages=( zsh vim tmux git curl guake silversearcher-ag)
 
-# for YouCompleteMe (vim)
-packages=(${packages[@]} build-essential cmake vim-nox python3-dev)
 
 # java stuff
 packages=(${packages[@]} maven)
@@ -11,6 +9,8 @@ packages=(${packages[@]} maven)
 # dev
 packages=(${packages[@]} docker-compose golang docker.io python3-pip meld jq)
 
+# for YouCompleteMe (vim)
+packages=(${packages[@]} build-essential cmake vim-nox python3-dev)
 
 for package in "${packages[@]}"; do
     echo "Will install package: $package"
