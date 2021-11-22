@@ -96,6 +96,7 @@ alias lld='ls -ld */'
 ### Git & github
 alias gitweb=my_gitweb
 alias gitl="git log --pretty=format:'%Cgreen%ad %cn %Cblue%h %Creset%s' --date=short"
+alias select-branch="git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout"
 
 # enable color support of ls and also add handy aliases
 alias grep='grep --color=auto'
