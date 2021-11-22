@@ -54,6 +54,8 @@ nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
 nnoremap <Leader>z :Bdelete menu<CR>
 
 nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>w :NERDTreeFind<CR>
+
 "Gist private and public
 nnoremap <Leader>g :Gist -p<CR>
 vnoremap <Leader>g :Gist -p<CR>
