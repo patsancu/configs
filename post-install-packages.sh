@@ -9,7 +9,7 @@ packages=(${packages[@]} build-essential cmake vim-nox python3-dev)
 packages=(${packages[@]} maven)
 
 # dev
-packages=(${packages[@]} docker-compose golang docker.io python3-pip meld)
+packages=(${packages[@]} docker-compose golang docker.io python3-pip meld jq)
 
 
 for package in "${packages[@]}"; do
