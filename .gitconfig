@@ -12,3 +12,7 @@
     autoStash = true
 [init]
     defaultBranch = master
+[github]
+    user = patsancu
+[url "git@github.com:"]
+    insteadOf = https://github.com/
