@@ -109,6 +109,7 @@ alias edit='docker run -ti --rm -v $(pwd):/home/developer/workspace patsancu/mi-
 alias youtube-dl='youtube-dl --config-location $HOME/configs/misc/youtube-dl/config'
 alias aws-mia='ssh $AWS_USER@$AWS_PUBLIC_API -i $AWS_CREDS_FILE'
 alias jsonpy='python -m json.tool'
+alias uuid='python3 -c "import uuid; myuuid = uuid.uuid4(); print(str(myuuid))"'
 alias docker-get-image='docker images | grep'
 alias docker-history='echo "ID\tCommand\tCreated at\tSize"; docker history --format "{{.ID}}\t{{.CreatedBy}}\t{{.CreatedAt}}\t{{.Size}}" --no-trunc'
 alias docker-ip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
