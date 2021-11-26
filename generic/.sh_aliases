@@ -118,6 +118,11 @@ if [ "${OSTYPE//[0-9.]/}" != "darwin" ]; then
     alias open='xdg-open'
 fi
 
+if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
+    alias copy-to-clipboard='pbcopy'
+fi
+
+
 # tmux
 alias tmux-new='tmux new -s'
 
