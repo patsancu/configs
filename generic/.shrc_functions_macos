@@ -18,3 +18,9 @@ function j15() {
     export JAVA_HOME=$(/usr/libexec/java_home -v 15.0.1)
     java -version
 }
+
+function j17() {
+    unset JAVA_HOME
+    export JAVA_HOME=$(/usr/libexec/java_home -v 17)
+    java -version
+}
