@@ -16,14 +16,10 @@ alias h='history'
 alias j='jobs -l'
 alias ..='cd ..'
 
-alias instalar='sudo apt-get install -y'
-alias buscarPaquete='sudo apt-cache search'
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls).
 #-------------------------------------------------------------
-# Use gls in macOS
-which gls &> /dev/null && alias ls='gls --color'
 # The ubiquitous 'll': directories first, with alphanumeric sorting:
 alias ll="ls -lhv --group-directories-first --color"
 alias lx='ll -XB'         #  Sort by extension.
@@ -50,7 +46,6 @@ alias moer='more'
 alias moew='more'
 alias kk='ll'
 
-alias actualizar='sudo apt-get update; sudo apt-get upgrade -y; sudo apt-get autoremove -y; sudo apt-get autoclean -y; sudo apt-get update'
 alias matar='sudo killall'
 alias descargarVideo='proxychains youtube-dl'
 ## this one saved by butt so many times ##
@@ -120,13 +115,6 @@ alias docker-get-image='docker images | grep'
 alias docker-history='echo "ID\tCommand\tCreated at\tSize"; docker history --format "{{.ID}}\t{{.CreatedBy}}\t{{.CreatedAt}}\t{{.Size}}" --no-trunc'
 alias docker-ip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 
-if [ "${OSTYPE//[0-9.]/}" != "darwin" ]; then
-    alias open='xdg-open'
-fi
-
-if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
-    alias copy-to-clipboard='pbcopy'
-fi
 
 
 # tmux

@@ -2,3 +2,9 @@
 alias pip='/usr/local/bin/python -m pip'
 alias lt='du -sh * | sort -h'
 alias local-ip='ifconfig -l | xargs -n1 ipconfig getifaddr'
+alias copy-to-clipboard='pbcopy'
+alias instalar='brew install'
+alias brew-update='brew update'
+
+# Use gls in macOS
+which gls &> /dev/null && alias ls='gls --color'
