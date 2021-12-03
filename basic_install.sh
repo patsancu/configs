@@ -5,10 +5,10 @@ CONFIG_FOLDER=$HOME/configs
 # EXTRACT THESE TWO TO A FUNCTION
 ZSHRC_DESTINATION=$HOME/.zshrc
 echo "********************"
-echo "Will link zshrc lenovo to $HOME/.zshrc if it doesn't exist"
+echo "Will link zshrc linux to $HOME/.zshrc if it doesn't exist"
 echo "-------------------"
 if [ ! -f $ZSHRC_DESTINATION ]; then
-	ln -s $CONFIG_FOLDER/.zshrc_lenovo $ZSHRC_DESTINATION
+	ln -s $CONFIG_FOLDER/.zshrc_linux $ZSHRC_DESTINATION
 	echo "file created"
 else
 	echo "file already exists"
