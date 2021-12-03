@@ -1,0 +1,7 @@
+# vim: set filetype=sh :
+
+alias instalar='sudo apt-get install -y'
+alias buscarPaquete='sudo apt-cache search'
+alias actualizar='sudo apt-get update; sudo apt-get upgrade -y; sudo apt-get autoremove -y; sudo apt-get autoclean -y; sudo apt-get update'
+alias open='xdg-open'
+alias buscarPaquete='sudo apt-cache search'

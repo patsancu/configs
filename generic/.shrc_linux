@@ -14,4 +14,4 @@ else
     source "$WRAPPER_FILE"
 fi
 
-source ~/configs/generic/.sh_aliases_lenovo
+source ~/configs/generic/.sh_aliases_linux

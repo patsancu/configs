@@ -2,6 +2,12 @@
 
 source ~/configs/generic/.dev_aliases
 
+if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
+    source $HOME/configs/generic/.sh_aliases_macos
+else if [ "${OSTYPE%-*}" -= "linux" ];
+    source $HOME/configs/generic/.sh_aliases_linux
+fi
+
 # Safe aliases
 alias cp='cp -i'
 alias mv='mv -i'
