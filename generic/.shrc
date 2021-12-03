@@ -8,7 +8,7 @@ PATH="$PATH:$HOME/scripts"
 PATH="$PATH:$HOME/configs/scripts"
 export PATH
 
-export editor="vim"
+export EDITOR="vim"
 
 # For vim backup stuff
 mkdir -p ~/.vim/.backup ~/.vim/.swp ~/.vim/.undo
