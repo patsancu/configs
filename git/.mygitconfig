@@ -46,6 +46,7 @@
     ci = commit
     st = status -sb
     br = branch
+    staged = diff --cached
     unstage = reset HEAD --
     uncommit = reset --soft HEAD^
     dc = diff --cached
