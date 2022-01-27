@@ -98,6 +98,7 @@ alias lld='ls -ld */'
 alias gitweb=my_gitweb
 alias gitl="git log --pretty=format:'%Cgreen%ad %cn %Cblue%h %Creset%s' --date=short"
 alias select-branch="git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout"
+alias empty-commit-push='GIT_COMMITTER_DATE="$(date)" git commit --amend --no-edit --date "$(date)" && git push origin $(git rev-parse --abbrev-ref HEAD) --force-with-lease'
 
 # enable color support of ls and also add handy aliases
 alias grep='grep --color=auto'
