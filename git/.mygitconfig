@@ -38,6 +38,7 @@
     pager = sed 's/ $/·/g' | less -R
 
 [alias]
+    log-files = log --name-status
     lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
     last = log -1 --stat
     cp = cherry-pick
