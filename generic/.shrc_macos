@@ -18,3 +18,23 @@ function pgrep() {
     ps -aux | grep $1 | grep -v grep
 }
 
+vmstart() {
+    MACHINE_NAME="$1"
+    VBoxManage startvm "$1" --type headless
+}
+vmpause() {
+    MACHINE_NAME="$1"
+    VBoxManage controlvm "$1" pause --type headless
+}
+vmresume() {
+    MACHINE_NAME="$1"
+    VBoxManage controlvm "$1" resume --type headless
+}
+vmstop() {
+    MACHINE_NAME="$1"
+    VBoxManage controlvm "$1" poweroff --type headless
+}
+vmstatus() {
+    MACHINE_NAME="$1"
+    VBoxManage list vms -l | grep -e ^Name: -e ^State | sed s/\ \ //g | cut -d: -f2-
+}
