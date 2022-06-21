@@ -100,3 +100,7 @@ let g:UltiSnipsEditSplit="vertical"
 " NerdCommenter
 " =========
 let g:NERDSpaceDelims = 1
+
+au FileType clojure call rainbow#load()
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']

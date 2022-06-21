@@ -42,6 +42,7 @@ Plug 'udalov/kotlin-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
+Plug 'frazrepo/vim-rainbow'
 
 " Generate a nice airline tmux line theme
 " nice ones are generated via:
