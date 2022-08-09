@@ -118,7 +118,7 @@ alias docker-get-image='docker images | grep'
 alias docker-history='echo "ID\tCommand\tCreated at\tSize"; docker history --format "{{.ID}}\t{{.CreatedBy}}\t{{.CreatedAt}}\t{{.Size}}" --no-trunc'
 alias docker-ip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 
-
+alias ffplay-mute='ffplay -af "azmq,volume@my=volume=1"'
 
 # tmux
 alias tmux-new='tmux new -s'
