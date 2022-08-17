@@ -1,8 +1,6 @@
 # vim: set filetype=sh :
 
 
-VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-PATH=/usr/local/bin:$VIRTUALENVWRAPPER_PYTHON:$PATH
 PATH="$PATH:/usr/local/go/bin"
 PATH="$PATH:$HOME/scripts"
 PATH="$PATH:$HOME/configs/scripts"

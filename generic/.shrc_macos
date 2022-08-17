@@ -1,9 +1,5 @@
 # vim: set filetype=sh :
 
-# needed for virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
 #In order for ctags to work correctly
 PATH=/usr/local/bin:$PATH:$HOME/bin
 

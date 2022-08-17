@@ -77,19 +77,6 @@ fi
 echo "********************"
 echo ""
 
-
-echo "********************"
-echo "virtualenvwrapper"
-echo "-------------------"
-if  [ command -v virtualenvwrapper &> /dev/null ]; then
-    echo "Virtualenvwrapper not installed. Will install"
-    python3 -m pip install virtualenvwrapper
-else
-    echo "Virtualenvwrapper is installed."
-fi
-echo "********************"
-echo ""
-
 echo "********************"
 echo "fzf"
 echo "-------------------"

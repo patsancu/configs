@@ -1,17 +1,5 @@
 # vim: set filetype=sh :
 
 PATH="$PATH:$HOME/.local/bin"
-WRAPPER_PATH=$HOME/.local/bin
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-
-WRAPPER_FILE=$(find $WRAPPER_PATH -name "virtualenvwrapper.sh"  -print 2>/dev/null | head -n 1)
-if [ -z "$WRAPPER_FILE"  ]; then
-    echo "virtualenvwrapper not present"
-    echo
-    echo "install it with:"
-    echo "  sudo -H pip install virtualenvwrapper"
-else
-    source "$WRAPPER_FILE"
-fi
 
 source ~/configs/generic/.sh_aliases_linux
