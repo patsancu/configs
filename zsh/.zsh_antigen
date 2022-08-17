@@ -27,7 +27,7 @@ if [ -f "$ANTIGEN_FILE" ]; then
     SPACESHIP_VI_MODE_SHOW=false
     SPACESHIP_VENV_PREFIX="🐍 "
     SPACESHIP_BATTERY_THRESHOLD=70
-    EXTRA_SPACESHIP_CONFIG="$HOME/extra-config.zsh"
+    EXTRA_SPACESHIP_CONFIG="$HOME/.extra-config.zsh"
     antigen apply
     [ -f "$EXTRA_SPACESHIP_CONFIG" ] && source "$EXTRA_SPACESHIP_CONFIG"
 fi
