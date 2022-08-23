@@ -32,3 +32,10 @@ PRIVATE_CONFIG_PATH=~/privateconfigs/.bash_generic
 
 EXTRA_CONFIG_FILE=~/.sh_extra_config
 [ -f $EXTRA_CONFIG_FILE ] && source $EXTRA_CONFIG_FILE
+
+# Do some checks
+function check-installed-stuff() {
+    hash patata &> /dev/null || echo "fzf is not installed! :O"
+}
+
+check-installed-stuff
