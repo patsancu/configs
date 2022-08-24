@@ -125,3 +125,5 @@ alias tmux-new='tmux new -s'
 
 ### tmuxp sessions
 alias tmux-ipython="tmuxp load ~/configs/tmuxp/ipython.yaml"
+
+alias mpv='mpv --mute=yes'
