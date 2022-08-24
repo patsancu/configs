@@ -35,7 +35,7 @@ EXTRA_CONFIG_FILE=~/.sh_extra_config
 
 # Do some checks
 function check-installed-stuff() {
-    hash patata &> /dev/null || echo "fzf is not installed! :O"
+    hash fzf &> /dev/null || echo "fzf is not installed! :O"
 }
 
 check-installed-stuff
