@@ -1,6 +1,7 @@
 # vim: set filetype=sh :
 
 
+GIT_REPO_PREFIX="REPLACE_ME_WITH_A_VALID_GIT_SERVER"
 PATH="$PATH:/usr/local/go/bin"
 PATH="$PATH:$HOME/scripts"
 PATH="$PATH:$HOME/configs/scripts"

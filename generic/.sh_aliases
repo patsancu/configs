@@ -100,6 +100,7 @@ alias gitl="git log --pretty=format:'%Cgreen%ad %cn %Cblue%h %Creset%s' --date=s
 alias select-branch="git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout"
 alias push-with-lease-force-current-branch='git push origin $(git rev-parse --abbrev-ref HEAD) --force-with-lease'
 alias empty-commit-push='GIT_COMMITTER_DATE="$(date)" git commit --amend --no-edit --date "$(date)" && git push origin $(git rev-parse --abbrev-ref HEAD) --force-with-lease'
+alias git-notes='git log origin/master.. --reverse --pretty=format:"- [**%s**]($GIT_REPO_PREFIX/$(git remote get-url origin | xargs basename -s .git)/-/commit/%H)  %w(0,2,2)%+b"'
 
 # enable color support of ls and also add handy aliases
 alias grep='grep --color=auto'
