@@ -1,0 +1,78 @@
+# ---------------------------------
+#   NOTE: This is just a template
+#   Edit to your convenience
+# ---------------------------------
+
+
+
+
+# Loads .env files (usually with env vars), such as
+# ----------------------------------------
+# DB_HOST=localhost
+# DB_USER=admin
+# DB_PASSWORD=password
+# ----------------------------------------
+set dotenv-load
+set shell := ["bash", "-uc"]
+
+# Better to keep the following two lines
+default:
+    just --list
+
+
+# -----------------------------------------------
+# TODO: Remove non needed
+# Sample tasks
+# -----------------------------------------------
+_run-image: # Underscore makes the task private
+    docker run -it --entrypoint /bin/bash --rm --name ror-dev -p 3000:3000 -v  $(pwd)/code:/home/ruby-dev/code patsancu/ruby-on-rails:latest
+
+run-image-no-login:
+    # Minus preceding a command makes it ok for it to fail
+    -docker run -it -d --name ror-dev -p 3000:3000 -v  $(pwd)/code:/home/ruby-dev/code patsancu/ruby-on-rails:latest
+
+default := 'all'
+
+test target tests=default:
+  @echo 'Testing {{target}}:{{tests}}...'
+  ./test --tests {{tests}} {{target}}
+
+# Variadic parameters prefixed with * accept zero or more arguments and expand
+# to a string containing those arguments separated by spaces, or an empty
+# string if no arguments are present
+commit MESSAGE *FLAGS:
+  git commit {{FLAGS}} -m "{{MESSAGE}}"
+
+# {{…}} substitutions may need to be quoted if they contain spaces.
+search QUERY:
+  lynx 'https://www.google.com/?q={{QUERY}}'
+
+# Parameters prefixed with a $ will be exported as environment variables:
+foo $bar:
+  echo $bar
+
+
+# Backticks can be used to store the result of commands:
+localhost := `dumpinterfaces | cut -d: -f2 | sed 's/\/.*//' | sed 's/ //g'`
+serve:
+  ./serve {{localhost}} 8080
+
+install:
+    docker exec -ti -w /home/ruby-dev/code/blog/ ror-dev bundle install
+
+update:
+    docker exec -ti -w /home/ruby-dev/code/blog/ ror-dev rake app:update:bin
+
+install-update: install update
+
+run-server: run-image-no-login
+    docker exec -ti -w /home/ruby-dev/code/blog/ ror-dev rails server -b 0.0.0.0
+
+migrate: run-image-no-login
+    docker exec -ti -w /home/ruby-dev/code/blog/ ror-dev rails db:migrate
+
+clean:
+    -docker stop ror-dev
+    -docker rm ror-dev
+
+restart: clean run-image-no-login install update login
