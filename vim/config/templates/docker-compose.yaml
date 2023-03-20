@@ -1,0 +1,39 @@
+# -----------------------------------------------
+# This is just a template, it WILL NOT work.
+# Change stuff
+# -----------------------------------------------
+
+version: '3'
+services:
+  prometheus:
+    image: some.registry.com:v2.38.0
+    restart: always
+    container_name: prometheus
+    network_mode: "host"
+    volumes:
+      - /etc/container/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-host-volume:/prometheus
+    command:
+      - '--web.listen-address=localhost:10001'
+      - '--storage.tsdb.retention.time=2h'
+      - '--storage.tsdb.max-block-duration=2h'
+      - '--storage.tsdb.min-block-duration=2h'
+      - '--storage.tsdb.retention.size=6GB'
+      - '--storage.tsdb.wal-compression'
+      - '--config.file=/etc/prometheus/prometheus.yml'
+  service-something:
+    image: some.registry/some-image:v1.39.4
+    restart: always
+    network_mode: "host"
+    user: root
+    volumes:
+      - /etc/certs:/etc/certs
+      - /etc/container:/etc/container
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/tmpfs:/etc/tmpfs
+      - /var/napoleon:/var/napoleon
+    env_file:
+      - /etc/container/napoleon.env
+
+volumes:
+  prometheus-host-volume:
