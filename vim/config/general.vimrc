@@ -113,3 +113,7 @@ endif
 
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+augroup filetypedetect
+    au BufRead,BufNewFile Justfile* set filetype=just
+augroup END
+au BufReadPost Dockerfile* set syntax=dockerfile
