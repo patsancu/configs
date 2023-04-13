@@ -43,6 +43,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
 Plug 'frazrepo/vim-rainbow'
+Plug 'sheerun/vim-polyglot'
 
 " Generate a nice airline tmux line theme
 " nice ones are generated via:
