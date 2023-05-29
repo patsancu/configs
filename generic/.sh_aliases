@@ -85,7 +85,7 @@ alias cpuinfo='lscpu'
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 ## Readable output for dmesg
-alias dmesg='dmesg -eHT'
+alias dmesg='sudo dmesg -eHT'
 
 alias buscarPaquete='sudo apt-cache search --names-only'
 alias buscarPaquetePorDescripcion='sudo apt-cache search'
