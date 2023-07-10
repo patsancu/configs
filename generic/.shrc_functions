@@ -281,3 +281,16 @@ function get-current-folder() {
 function bashman () {
     man bash | less -p "^       $1 "
 }
+
+function create-tunnel() {
+    if [ $# -ne 2 ]; then
+        echo "Usage:\n"
+        echo "\t$0 HOST PORT"
+        echo "\t$0 dev-poc01a.something.com 8443"
+    else
+        HOST="$1"
+        PORT="$2"
+        ssh -f -T -N -L $PORT":localhost:"$PORT $HOST
+    fi
+}
+
