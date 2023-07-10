@@ -22,18 +22,36 @@ services:
       - '--storage.tsdb.wal-compression'
       - '--config.file=/etc/prometheus/prometheus.yml'
   service-something:
+    environment:
+      - SERVICE_SHUTDOWN_GRACE_PERIOD_MS=300
     image: some.registry/some-image:v1.39.4
     restart: always
     network_mode: "host"
     user: root
+    build:
+      context: $DEV_FOLDER/service-something
     volumes:
       - /etc/certs:/etc/certs
       - /etc/container:/etc/container
       - /var/run/docker.sock:/var/run/docker.sock
+      - "~/.m2/:/root/.m2"
+      - "./mvn-clean-install-no-tests.sh:/app/mvn-clean-install-no-tests.sh"
       - /etc/tmpfs:/etc/tmpfs
       - /var/napoleon:/var/napoleon
     env_file:
       - /etc/container/napoleon.env
+    # so the container won't exit
+    tty: true
+  var-db:
+    container_name: service-videoasset-repo-db
+    build:
+      context: $DEV_FOLDER/service-videoasset-repo
+      dockerfile: Dockerfile-db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pgpwd123
+    ports:
+      - 2222:5432
 
 volumes:
   prometheus-host-volume:
