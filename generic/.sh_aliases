@@ -129,3 +129,4 @@ alias tmux-new='tmux new -s'
 alias tmux-ipython="tmuxp load ~/configs/tmuxp/ipython.yaml"
 
 alias mpv='mpv --mute=yes'
+alias cdl='cd $_'
