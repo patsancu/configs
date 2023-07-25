@@ -297,3 +297,13 @@ function create-tunnel() {
 alias cdl='cd $_'
 
 
+function record-ffmpeg () {
+    if [ $# -eq 2 ]; then
+        URL="$1"
+        DESTINATION="$2"
+        ffmpeg -i "$URL" -c copy -f mpegts "$DESTINATION"
+    else
+        echo "Usage:"
+        echo -e "$0 URL DESTINATION"
+    fi
+}
