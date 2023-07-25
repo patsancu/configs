@@ -294,3 +294,6 @@ function create-tunnel() {
     fi
 }
 
+alias cdl='cd $_'
+
+
