@@ -307,3 +307,9 @@ function record-ffmpeg () {
         echo -e "$0 URL DESTINATION"
     fi
 }
+
+function clone-cd() {
+    URL="$1"
+    REPO_NAME="$(echo $URL | rev | cut -d '.' -f 2 | rev | cut -d '/' -f 2)"
+    git clone "$URL" && cd $REPO_NAME
+}
