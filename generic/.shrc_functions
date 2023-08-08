@@ -310,6 +310,8 @@ function record-ffmpeg () {
 
 function clone-cd() {
     URL="$1"
-    REPO_NAME="$(echo $URL | rev | cut -d '.' -f 2 | rev | cut -d '/' -f 2)"
+    REPO_NAME="$(echo $URL | rev | cut -d '/' -f 1 | cut -d '.' -f 2 | rev)"
     git clone "$URL" && cd $REPO_NAME
+    echo
+    pwd
 }
