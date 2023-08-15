@@ -1,6 +1,6 @@
 #! /bin/bash
 
-packages=( zsh vim tmux git curl guake silversearcher-ag)
+packages=( zsh vim tmux git curl guake silversearcher-ag fzf xclip)
 
 
 # java stuff
