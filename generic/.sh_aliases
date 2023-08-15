@@ -130,3 +130,6 @@ alias tmux-ipython="tmuxp load ~/configs/tmuxp/ipython.yaml"
 
 alias mpv='mpv --mute=yes'
 alias cdl='cd $_'
+
+alias status='git status'
+alias staged='git staged'
