@@ -8,7 +8,8 @@ packages=( zsh vim-gtk tmux git curl guake silversearcher-ag fzf xclip tree gpre
 packages=(${packages[@]} maven clojure leiningen)
 
 # dev
-packages=(${packages[@]} docker-compose golang docker.io python3-pip meld jq)
+packages=(${packages[@]} docker-compose golang docker.io python3-pip meld jq npm)
+
 
 # for YouCompleteMe (vim)
 packages=(${packages[@]} build-essential cmake vim-nox python3-dev)
