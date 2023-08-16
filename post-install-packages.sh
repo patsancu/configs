@@ -1,6 +1,7 @@
 #! /bin/bash
 
-packages=( zsh vim tmux git curl guake silversearcher-ag fzf xclip tree)
+sudo apt update -y
+packages=( zsh vim-gtk tmux git curl guake silversearcher-ag fzf xclip tree gprename)
 
 
 # java stuff
