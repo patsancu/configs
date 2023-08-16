@@ -4,8 +4,8 @@ sudo apt update -y
 packages=( zsh vim-gtk tmux git curl guake silversearcher-ag fzf xclip tree gprename)
 
 
-# java stuff
-packages=(${packages[@]} maven)
+# jvm stuff
+packages=(${packages[@]} maven clojure leiningen)
 
 # dev
 packages=(${packages[@]} docker-compose golang docker.io python3-pip meld jq)
