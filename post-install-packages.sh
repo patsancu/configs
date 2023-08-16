@@ -10,9 +10,14 @@ packages=(${packages[@]} maven clojure leiningen)
 # dev
 packages=(${packages[@]} docker-compose golang docker.io python3-pip meld jq npm)
 
+# multimedia
+packages=(${packages[@]} imagemagick mpv vlc)
 
 # for YouCompleteMe (vim)
 packages=(${packages[@]} build-essential cmake vim-nox python3-dev)
+
+# networking
+packages=(${packages[@]} net-tools)
 
 for package in "${packages[@]}"; do
     echo "Will install package: $package"
@@ -20,6 +25,7 @@ for package in "${packages[@]}"; do
 done
 
 PACKAGE_GREP=$(echo "${packages[@]}" | tr ' ' '|')
+sudo apt autoremove -y
 
 echo "**********"
 echo "Not installed packages:"
