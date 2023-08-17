@@ -11,7 +11,7 @@ packages=(${packages[@]} maven clojure leiningen)
 packages=(${packages[@]} docker-compose golang docker.io python3-pip meld jq npm)
 
 # multimedia
-packages=(${packages[@]} imagemagick mpv vlc)
+packages=(${packages[@]} imagemagick mpv vlc gnome-sound-recorder)
 
 # for YouCompleteMe (vim)
 packages=(${packages[@]} build-essential cmake vim-nox python3-dev)
