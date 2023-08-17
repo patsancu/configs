@@ -77,23 +77,6 @@ fi
 echo "********************"
 echo ""
 
-echo "********************"
-echo "fzf"
-echo "-------------------"
-if command -v fzf > /dev/null 2>&1; then
-    echo "fzf is installed."
-else
-    echo "fzf not installed. Will install"
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --key-bindings --no-completion --no-update-rc
-fi
-echo "********************"
-
-
-
-echo
-echo
-echo
-echo
 
 echo "To install useful stuff, run:"
 echo
