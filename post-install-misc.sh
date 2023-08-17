@@ -29,3 +29,18 @@ else
     echo "-------------------"
     curl https://rtx.pub/install.sh | sh
 fi
+
+
+echo "********************"
+echo "makedeb"
+echo "-------------------"
+# makedeb
+if hash makedeb &> /dev/null; then
+    echo "makedeb already installed, will do nothing"
+else
+    wget -qO - 'https://proget.makedeb.org/debian-feeds/makedeb.pub' | gpg --dearmor | sudo tee /usr/share/keyrings/makedeb-archive-keyring.gpg 1> /dev/null
+    echo 'deb [signed-by=/usr/share/keyrings/makedeb-archive-keyring.gpg arch=all] https://proget.makedeb.org/ makedeb main' | sudo tee /etc/apt/sources.list.d/makedeb.list
+    sudo apt update
+    sudo apt install -y makedeb
+fi
+echo "********************"
