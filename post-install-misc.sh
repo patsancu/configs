@@ -3,11 +3,19 @@
 echo "********************"
 echo "fonts"
 echo "-------------------"
-mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts \
-    && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" \
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-fc-cache -rv
+
+FONT_URL=https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
+FONT_NAME=$(echo $FONT_URL | rev | cut -d '/' -f 1 | rev)
+FONT_FOLDER="$HOME/.local/share/fonts"
+mkdir -p $FONT_FOLDER
+if [ -f "$FONT_FOLDER/$FONT_NAME" ]; then
+    echo "Font already downloaded, nothing to do"
+else
+    echo "$FONT_FOLDER/$FONT_NAME doesn't exist"
+    echo "Will download"
+    mkdir -p "$FONT_FOLDER" && cd "$FONT_FOLDER" && curl -fLO $FONT_URL
+    fc-cache -rv
+fi
 echo "********************"
 
 echo "********************"
