@@ -1,7 +1,7 @@
 #! /bin/bash
 
 sudo apt update -y
-packages=( zsh vim-gtk tmux git curl guake silversearcher-ag fzf xclip tree gprename)
+packages=( zsh vim-gtk tmux git curl guake silversearcher-ag fzf xclip tree gprename gparted)
 
 
 # jvm stuff
@@ -18,6 +18,9 @@ packages=(${packages[@]} build-essential cmake vim-nox python3-dev)
 
 # networking
 packages=(${packages[@]} net-tools)
+
+# security
+packages=(${packages[@]} enigmail gpa)
 
 for package in "${packages[@]}"; do
     echo "Will install package: $package"
