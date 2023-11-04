@@ -97,6 +97,19 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 
+" CtrlP
+let g:ctrlp_show_hidden=1
+
+" The Silver Searcher with ctrl p
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag --hidden %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+
 " NerdCommenter
 " =========
 let g:NERDSpaceDelims = 1
