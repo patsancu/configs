@@ -60,6 +60,8 @@
     amend = !git commit --amend --no-edit --date=\"$(date)\"
     ls = branch --list
     latest-tag = "!git describe --tags $(git rev-list --tags --max-count=1)"
-
+[blame]
+	coloring = highlightRecent
+	date = human
 [help]
         autocorrect = 15
