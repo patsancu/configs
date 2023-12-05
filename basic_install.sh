@@ -69,7 +69,7 @@ echo "********************"
 echo "antigen installation..."
 echo "-------------------"
 ANTIGEN_FILE=$HOME/antigen.zsh
-if [ -f "$ANTIGEN_FILE" ]; then
+if [ -f "$ANTIGEN_FILE" ] &&  [ -n "$(find "$ANTIGEN_FILE" -prune -size +100 )" ]; then
     echo "OK"
 else
     curl -L git.io/antigen > $ANTIGEN_FILE
