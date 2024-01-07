@@ -1,7 +1,7 @@
 #! /bin/bash
 
 sudo apt update -y
-packages=( zsh vim-gtk tmux git curl guake silversearcher-ag fzf xclip tree gprename gparted)
+packages=( zsh vim-gtk tmux git curl guake silversearcher-ag fzf xclip tree gprename gparted htop pv)
 
 
 # jvm stuff
