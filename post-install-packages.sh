@@ -42,3 +42,5 @@ snap_packages=( dbeaver-ce postman )
 for package in "${snap_packages[@]}"; do
     sudo snap install  $package
 done
+
+sudo snap install intellij-idea-community --classic --edge
