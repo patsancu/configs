@@ -1,1 +1,2 @@
-let g:gist_browser_command = 'xdg-open %URL% &'
+source ~/configs/vim/.vimrc
+source ~/configs/vim/.vimrc_linux

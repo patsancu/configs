@@ -29,6 +29,11 @@ setopt DOT_GLOB
 #which aws_completer > /dev/null && source /usr/local/bin/aws_zsh_completer.sh
 # Enable kubernetes autocompletion, if installed
 #which kubectl > /dev/null &&  source /usr/local/share/zsh/site-functions/kubectl
+zstyle :compinstall filename '/home/patrick/.zshrc'
+
+autoload -Uz compinit
+compinit
+
 
 # Put this **before** the fuzzy finder autocompletion
 
