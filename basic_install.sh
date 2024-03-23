@@ -3,12 +3,27 @@
 CONFIG_FOLDER=$HOME/configs
 
 # EXTRACT THESE TWO TO A FUNCTION
-ZSHRC_DESTINATION=$HOME/.zshrc
-echo "********************"
-echo "Will link zshrc linux to $HOME/.zshrc if it doesn't exist"
+echo "Will link $CONFIG_FILE to $ZSHRC_DESTINATION if it doesn't exist"
 echo "-------------------"
 if [ ! -f $ZSHRC_DESTINATION ]; then
-	ln -s $CONFIG_FOLDER/.zshrc_linux $ZSHRC_DESTINATION
+    ZSHRC_DESTINATION=$HOME/.zshrc
+    echo "********************"
+    if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
+        CONFIG_FILE="$CONFIG_FOLDER/.zshrc_macos"
+        echo "$OSTYPE" >> "$HOME/os_patrick.txt"
+    else
+        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+            CONFIG_FILE="$CONFIG_FOLDER/.zshrc_linux"
+            echo "$OSTYPE" >> "$HOME/os_patrick.txt"
+        fi
+    fi
+
+
+    if [ ! -z "$CONFIG_FILE" ]; then
+        ln -s $CONFIG_FILE $ZSHRC_DESTINATION
+    else
+        echo "Config file is empty"
+    fi
 	echo "file created"
 else
 	echo "file already exists"
@@ -30,8 +45,22 @@ echo "Vim stuff"
 echo "-------------------"
 VIMRC_DESTINATION=$HOME/.vimrc
 if [ ! -f $VIMRC_DESTINATION ]; then
-	ln -s $CONFIG_FOLDER/.vimrc_linux_LINK_ME $VIMRC_DESTINATION
-	echo "file created"
+    if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
+        FILE_TO_COPY="$CONFIG_FOLDER/.vimrc_macos_LINK_ME"
+    else
+        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+            FILE_TO_COPY="$CONFIG_FOLDER/.vimrc_linux_LINK_ME"
+        else
+            echo "Not running linux or macos?"
+            echo "Hope you're trying bsd, not lsd"
+        fi
+    fi
+    if [ ! -z "$FILE_TO_COPY" ]; then
+        ln -s "$FILE_TO_COPY" "$VIMRC_DESTINATION"
+        echo "file $VIMRC_DESTINATION created"
+    else
+        echo "VIMRC_DESTINATION is empty"
+    fi
 else
 	echo "file already exists"
 fi
