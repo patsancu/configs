@@ -11,6 +11,7 @@ packages=(${packages[@]} maven clojure leiningen)
 # dev
 packages=(${packages[@]} docker-compose golang docker.io python3-pip meld jq npm httpie)
 packages=(${packages[@]} sqlite3)
+packages=(${packages[@]} libxml2-utils) # xmllint
 
 # multimedia
 packages=(${packages[@]} imagemagick mpv vlc gnome-sound-recorder)
