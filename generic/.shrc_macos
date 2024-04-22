@@ -34,3 +34,14 @@ vmstatus() {
     MACHINE_NAME="$1"
     VBoxManage list vms -l | grep -e ^Name: -e ^State | sed s/\ \ //g | cut -d: -f2-
 }
+
+
+# little hack for german keyboard key mapping for macos
+DUMMY_FOLDER=$HOME/.hidutil/
+mkdir -p "$DUMMY_FOLDER"
+TODAY="$DUMMY_FOLDER/$(date +%Y%m%d).dummy"
+if [ ! -f "$TODAY" ]; then # Only do this once a day
+    echo "configuring hidutil (max once a day)"
+    sudo hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}]}'
+    touch $TODAY
+fi
