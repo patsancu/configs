@@ -10,8 +10,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'Asheq/close-buffers.vim'
-Plug 'SirVer/ultisnips'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'SirVer/ultisnips'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'alvan/vim-closetag'
 Plug 'artur-shaik/vim-javacomplete2'
