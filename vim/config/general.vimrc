@@ -116,3 +116,5 @@ augroup filetypedetect
     au BufRead,BufNewFile Justfile* set filetype=just
 augroup END
 au BufReadPost Dockerfile* set syntax=dockerfile
+
+au VimEnter * if &diff | execute 'windo set wrap' | endif
