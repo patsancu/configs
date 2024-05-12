@@ -63,6 +63,8 @@ set softtabstop=0
 set shiftwidth=4
 set smarttab
 
+set splitright "open vertical splits to the right of the current window
+
 " -----------------
 " Undo configuration
 " ------------------
