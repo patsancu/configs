@@ -133,3 +133,4 @@ alias cdl='cd $_'
 
 alias status='git status'
 alias staged='git staged'
+alias pull='git pull --rebase'
