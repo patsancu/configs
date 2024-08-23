@@ -311,6 +311,10 @@ function record-ffmpeg () {
     fi
 }
 
+function pollama() {
+    ollama run $(ollama ls | grep -v "^NAME" | tr '\t' ' ' | cut -d ' ' -f 1 | fzf)
+}
+
 function clone-cd() {
     URL="$1"
     REPO_NAME="$(echo $URL | rev | cut -d '/' -f 1 | cut -d '.' -f 2 | rev)"
