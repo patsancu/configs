@@ -312,7 +312,9 @@ function record-ffmpeg () {
 }
 
 function pollama() {
-    ollama run $(ollama ls | grep -v "^NAME" | tr '\t' ' ' | cut -d ' ' -f 1 | fzf)
+    MODEL=$(ollama ls | grep -v "^NAME" | tr '\t' ' ' | cut -d ' ' -f 1 | fzf)
+    echo "Your chosen model is $MODEL"
+    ollama run "$MODEL"
 }
 
 function clone-cd() {
