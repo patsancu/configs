@@ -324,3 +324,15 @@ function clone-cd() {
     echo
     pwd
 }
+
+function git-author() {
+    AUTHOR="$1"
+    if [ -z "$AUTHOR" ]; then
+        echo "You should use it like so"
+        echo
+        echo "\t $0 'Peter Pan'"
+    else
+        git log --author="$AUTHOR"
+    fi
+}
+
