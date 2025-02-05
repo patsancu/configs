@@ -1,0 +1,32 @@
+
+set shell := ["bash", "-uc"]
+
+# Better to keep the following two lines
+default:
+    just --list
+
+assemble:
+    cd {{ invocation_directory() }}; ./gradlew clean assemble -x codenarcTest -x printCodenarcTest -x jacocoTestReport -x jacocoTestCoverageVerification -x downloadCodenarcConfiguration
+
+
+test:
+    cd {{ invocation_directory() }}; ./gradlew test -x checkstyleMain -x checkstyleIntegrationTest -x checkstyleEnvTest -x checkstyleTest -x codenarcTest -x jacocoTestReport -x jacocoTestCoverageVerification
+
+show-test:
+    cd {{ invocation_directory() }}; open ./build/reports/tests/test/index.html
+
+test-and-show: test show-test
+
+checkstyle:
+    -cd {{ invocation_directory() }}; ./gradlew checkstyleMain
+show-checkstyle:
+    cd {{ invocation_directory() }}; open ./build/reports/checkstyle/main.html
+
+checkstyle-and-show: checkstyle show-checkstyle
+
+
+run:
+    cd {{ invocation_directory() }}; ./gradlew bootRun --info --stacktrace --args='--spring.profiles.active=patrick-local,patrick-local-dev,patrick-local-common'
+
+run-debug:
+    cd {{ invocation_directory() }}; ./gradlew bootRun --debug --stacktrace --args='--spring.profiles.active=patrick-local,patrick-local-dev,patrick-local-common'
