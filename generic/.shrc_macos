@@ -45,3 +45,6 @@ if [ ! -f "$TODAY" ]; then # Only do this once a day
     sudo hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}]}'
     touch $TODAY
 fi
+
+bindkey "^[[1;3D" backward-word
+bindkey "^[[1;3C" forward-word

@@ -9,7 +9,4 @@ source ~/configs/generic/.shrc_macos
 source ~/configs/generic/.sh_aliases_macos
 source ~/configs/generic/.shrc_functions_macos
 
-bindkey "^[^[[C" forward-word
-bindkey "^[^[[D" backward-word
-
 source $(brew --prefix)/Cellar/fzf/$(fzf --version | cut -d ' ' -f 1)/shell/key-bindings.zsh
