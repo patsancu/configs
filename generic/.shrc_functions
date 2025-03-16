@@ -325,6 +325,25 @@ function clone-cd() {
     pwd
 }
 
+function select-tmux {
+    TMUX_CONTENT=$(tmux ls)
+    SELECTED_SESSION_FULL=$(echo $TMUX_CONTENT | fzf)
+    SELECTED_SESSION=$(echo $SELECTED_SESSION_FULL | cut -d ':' -f 1)
+    if [ ! -z "$SELECTED_SESSION" ]; then
+        echo "selected $SELECTED_SESSION"
+        echo will switch to it
+        if [ -z "$TMUX" ]; then
+            # it's outside of tmux
+            tmux a -t "$SELECTED_SESSION"
+        else
+            tmux switch -t "$SELECTED_SESSION"
+        fi
+    else
+        echo "No session selected, will do nothing"
+    fi
+}
+
+
 function git-author() {
     AUTHOR="$1"
     if [ -z "$AUTHOR" ]; then
