@@ -1,3 +1,5 @@
+## Important
+Before linking the gitconfig file, add ssh keys to github. Otherwise, because of the gitconfig preferring ssh over http, nothing related to git<->github  will work.
 
 ## Further config
 ### Zsh / shell
