@@ -1,7 +1,7 @@
 #! /bin/bash
 
 sudo apt update -y
-packages=( zsh vim-gtk tmux git curl guake silversearcher-ag fzf xclip tree gprename gparted htop pv)
+packages=( zsh vim-gtk tmux git curl guake silversearcher-ag fzf xclip tree gprename gparted htop pv ssh)
 packages=(${packages[@]} xpaint)
 
 
@@ -28,7 +28,7 @@ packages=(${packages[@]} enigmail gpa)
 
 for package in "${packages[@]}"; do
     echo "Will install package: $package"
-    # sudo apt install -y $package
+    sudo apt install -y $package
 done
 
 PACKAGE_GREP=$(echo "${packages[@]}" | tr ' ' '|')
