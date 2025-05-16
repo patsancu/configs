@@ -343,6 +343,10 @@ function select-tmux {
     fi
 }
 
+check-internet() {
+    until ping -W 1 -c 1 8.8.8.8; do sleep 2; done
+}
+
 
 function git-author() {
     AUTHOR="$1"

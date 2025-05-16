@@ -90,7 +90,6 @@ alias dmesg='sudo dmesg -eHT'
 alias buscarPaquete='sudo apt-cache search --names-only'
 alias buscarPaquetePorDescripcion='sudo apt-cache search'
 
-alias checkInternet='ping 8.8.8.8'
 alias lsd='ls -d */'
 alias lld='ls -ld */'
 
