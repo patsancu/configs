@@ -359,3 +359,16 @@ function git-author() {
     fi
 }
 
+
+function tmux-cd() {
+    if [ $# -lt 1 ]; then
+        echo "Usage:"
+        echo "\t$0 FOLDER_TO_START_TMUX_FROM"
+        exit 0
+    fi
+    FOLDER="$1"
+    SESSION_NAME="$(basename ${FOLDER})"
+    echo "If there's an existing session with name: ${SESSION_NAME}, will switch to it"
+    echo "If there isn't, will create a session named: ${SESSION_NAME} with name: ${SESSION_NAME}"
+    tmux a -t ${SESSION_NAME} || tmux new -s "${SESSION_NAME}" -c "$FOLDER"
+}
