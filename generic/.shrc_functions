@@ -372,3 +372,35 @@ function tmux-cd() {
     echo "If there isn't, will create a session named: ${SESSION_NAME} with name: ${SESSION_NAME}"
     tmux a -t ${SESSION_NAME} || tmux new -s "${SESSION_NAME}" -c "$FOLDER"
 }
+
+function review-pr() {
+    PR_NUMBER=$(git ls-remote origin | grep pull | grep head | cut -f 2 | cut -d '/' -f 3 | sort -u | tr ' ' '\n' | fzf)
+    if [ -z "$PR_NUMBER" ]; then
+        echo "You didn't select a PR number, will do nothing"
+        exit 1
+    fi
+    echo "You selected PR: $PR_NUMBER"
+    CURRENT_PROJECT="$(basename $(pwd))"
+    echo "Current project is: ${CURRENT_PROJECT}"
+    BRANCH_TO_REVIEW="pull/${PR_NUMBER}/head"
+    echo "Branch to review is: $BRANCH_TO_REVIEW"
+    LOCAL_BRANCH_NAME="pr-${PR_NUMBER}--$(date +%Y-%m-%d-%H%M)"
+    echo "Will fetch PR remote branch, and create a local PR branch with name: $LOCAL_BRANCH_NAME"
+    git fetch origin $BRANCH_TO_REVIEW:$LOCAL_BRANCH_NAME
+    NEW_FOLDER_NAME="../${CURRENT_PROJECT}-PR-${PR_NUMBER}--$(date +%Y-%m-%d-%H%M)"
+    git worktree add $NEW_FOLDER_NAME ${LOCAL_BRANCH_NAME}
+    echo "Created a repo @ ${NEW_FOLDER_NAME}"
+    if [ $# -eq 1 ]; then
+        if [ "$1" = "-i" ]; then
+            USE_INTELLIJ="YES"
+        fi
+    fi
+    if [ -z "$USE_INTELLIJ" ]; then
+        echo "Want to open intellij for that PR?"
+        sleep 2
+        USE_INTELLIJ=$(echo "YES\nNO" | fzf)
+    fi
+    if [ "$USE_INTELLIJ" = "YES" ]; then
+        idea ${NEW_FOLDER_NAME}
+    fi
+}
