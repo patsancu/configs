@@ -364,9 +364,9 @@ function tmux-cd() {
     if [ $# -lt 1 ]; then
         echo "Usage:"
         echo "\t$0 FOLDER_TO_START_TMUX_FROM"
-        exit 0
+        exit 1
     fi
-    FOLDER="$1"
+    FOLDER="$(readlink -f $1)"
     SESSION_NAME="$(basename ${FOLDER})"
     echo "If there's an existing session with name: ${SESSION_NAME}, will switch to it"
     echo "If there isn't, will create a session named: ${SESSION_NAME} with name: ${SESSION_NAME}"
