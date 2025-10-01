@@ -360,6 +360,51 @@ function git-author() {
 }
 
 
+jwt() {
+    TOKEN="$1"
+    if [ -z "$TOKEN" ]; then
+        echo "You should use it like so"
+        echo
+        echo "\t $0 'SOME_JWT_TOKEN'"
+    else
+        docker run --rm bitnami/jwt-cli:6.2.0-debian-12-r16 decode "$TOKEN"
+    fi
+}
+
+jwt-jwt() {
+    TOKEN="$1"
+    if [ -z "$TOKEN" ]; then
+        echo "You should use it like so"
+        echo
+        echo "\t $0 'SOME_JWT_TOKEN'"
+    else
+        RESULT=$(jwt "$TOKEN")
+        echo $RESULT
+        echo
+        echo "and this is the refresh token unfolded"
+        echo
+        REFRESH_TOKEN="$(echo $RESULT | grep 'Token claims' -A 999 | grep '{' -A 999 | jq '.refreshTokenValue' | tr -d '"'))"
+        echo "Refresh token: ${REFRESH_TOKEN}"
+        docker run --rm bitnami/jwt-cli:6.2.0-debian-12-r16 decode ${REFRESH_TOKEN}
+    fi
+}
+
+
+
+function git-log-exclude() {
+    AUTHOR_REGEX="$1"
+    # git log --perl-regexp --author='^((?!semantic-release-bot).*)$'
+    git log --perl-regexp --author="^((?!$1).*)$"
+}
+
+function git-logp-exclude() {
+    AUTHOR_REGEX="$1"
+    # git log --perl-regexp --author='^((?!semantic-release-bot).*)$'
+    git log -p --perl-regexp --author="^((?!$1).*)$"
+}
+
+
+
 function tmux-cd() {
     if [ $# -lt 1 ]; then
         echo "Usage:"
