@@ -35,6 +35,8 @@ vmstatus() {
     VBoxManage list vms -l | grep -e ^Name: -e ^State | sed s/\ \ //g | cut -d: -f2-
 }
 
+export HOMEBREW_AUTO_UPDATE_SECS=1200
+
 
 # little hack for german keyboard key mapping for macos
 DUMMY_FOLDER=$HOME/.hidutil/
