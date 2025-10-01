@@ -45,6 +45,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'frazrepo/vim-rainbow'
 Plug 'sheerun/vim-polyglot'
 Plug 'NoahTheDuke/vim-just'
+Plug 'godlygeek/tabular'
 
 " Generate a nice airline tmux line theme
 " nice ones are generated via:
