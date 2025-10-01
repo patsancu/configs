@@ -9,6 +9,12 @@ if [ ! -f $ZSHRC_DESTINATION ]; then
     ZSHRC_DESTINATION=$HOME/.zshrc
     echo "********************"
     if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
+        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+        KEY_REPEAT_CONFIG_FILE="~/configs/macos/key_repeat_config.sh"
+        echo "Loading key repeat config from ${KEY_REPEAT_CONFIG_FILE}"
+        [ -f $KEY_REPEAT_CONFIG_FILE ] && source $KEY_REPEAT_CONFIG_FILE
+
         CONFIG_FILE="$CONFIG_FOLDER/.zshrc_macos"
         echo "$OSTYPE" >> "$HOME/os_patrick.txt"
     else
