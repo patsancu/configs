@@ -3,3 +3,4 @@
 PATH="$PATH:$HOME/.local/bin"
 
 source ~/configs/generic/.sh_aliases_linux
+source /usr/share/doc/fzf/examples/key-bindings.zsh
