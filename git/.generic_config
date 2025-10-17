@@ -35,7 +35,7 @@
 [alias]
     log-files = log --name-status
     lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    last = log -1 --stat
+    last = "!f() { git log -${1:-1} --stat; }; f"
     cp = cherry-pick
     co = checkout
     cl = clone
