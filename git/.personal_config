@@ -4,5 +4,4 @@
     useconfigonly = true
 
 [github]
-	user = patsancu
-
+    user = patsancu
