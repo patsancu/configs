@@ -60,4 +60,4 @@
     coloring = highlightRecent
     date = human
 [help]
-        autocorrect = 15
+    autocorrect = 15
