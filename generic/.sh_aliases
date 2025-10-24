@@ -124,6 +124,8 @@ alias ffplay-mute='ffplay -volume 0'
 # tmux
 alias tmux-new='tmux new -s'
 
+alias cdl='cd $_'
+
 ### tmuxp sessions
 alias tmux-ipython="tmuxp load ~/configs/tmuxp/ipython.yaml"
 
