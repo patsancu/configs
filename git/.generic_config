@@ -35,7 +35,24 @@
 [alias]
     log-files = log --name-status
     lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    last = "!f() { git log -${1:-1} --stat; }; f"
+    last = "!f() { \
+        local count=1; \
+        local args=(); \
+        local show_stat=1; \
+        for arg in \"$@\"; do \
+          if [[ $arg =~ ^[0-9]+$ ]]; then \
+            count=$arg; \
+          else \
+            args+=(\"$arg\"); \
+            [[ $arg == *-p* ]] && show_stat=0; \
+          fi; \
+        done; \
+        if [[ $show_stat -eq 1 ]]; then \
+          git log -${count} --stat \"${args[@]}\"; \
+        else \
+          git log -${count} \"${args[@]}\"; \
+        fi; \
+      }; f"
     cp = cherry-pick
     co = checkout
     cl = clone
