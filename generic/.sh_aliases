@@ -112,7 +112,7 @@ which zenity > /dev/null && alias notify='zenity --info --title "Notification" -
 alias edit='docker run -ti --rm -v $(pwd):/home/developer/workspace patsancu/mi-vim'
 alias youtube-dl='youtube-dl --config-location $HOME/configs/misc/youtube-dl/config'
 alias aws-mia='ssh $AWS_USER@$AWS_PUBLIC_API -i $AWS_CREDS_FILE'
-alias jsonpy='python -m json.tool'
+alias jsonpy='$(command -v python >/dev/null 2>&1 && echo python || echo python3) -m json.tool'
 alias pyserver='python3 -m http.server'
 alias uuid='python3 -c "import uuid; myuuid = uuid.uuid4(); print(str(myuuid))"'
 alias docker-get-image='docker images | grep'
