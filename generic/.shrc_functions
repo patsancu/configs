@@ -368,7 +368,6 @@ function git-author() {
     fi
 }
 
-
 jwt() {
     TOKEN="$1"
     if [ -z "$TOKEN" ]; then
@@ -390,6 +389,7 @@ jwt-jwt() {
         echo
         echo
         echo "The user id (in keycloak) is *sub*"
+        echo "And the retailer.id is *retailer*"
         RESULT=$(jwt "$TOKEN")
         echo $RESULT
         echo
