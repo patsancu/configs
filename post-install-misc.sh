@@ -7,6 +7,11 @@ echo "-------------------"
 FONT_URL=https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/DroidSansMono/DroidSansMNerdFont-Regular.otf
 FONT_NAME=$(echo $FONT_URL | rev | cut -d '/' -f 1 | rev)
 FONT_FOLDER="$HOME/.local/share/fonts"
+if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
+    FONT_FOLDER="/Library/Fonts"
+else
+    FONT_FOLDER="$HOME/.local/share/fonts"
+fi
 mkdir -p $FONT_FOLDER
 if [ -f "$FONT_FOLDER/$FONT_NAME" ]; then
     echo "Font already downloaded, nothing to do"
