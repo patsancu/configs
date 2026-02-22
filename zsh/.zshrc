@@ -1,3 +1,6 @@
+# Skip global compinit rehashing
+zstyle ':completion:*' rehash true
+
 # If a command command_x not exists, try to cd command_x
 # only applicable if setopt SHIN_STDIN
 setopt AUTO_CD
