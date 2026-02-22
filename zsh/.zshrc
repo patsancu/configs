@@ -32,7 +32,7 @@ setopt DOT_GLOB
 zstyle :compinstall filename '/home/patrick/.zshrc'
 
 autoload -Uz compinit
-compinit
+compinit -C
 
 
 # Put this **before** the fuzzy finder autocompletion
@@ -43,7 +43,6 @@ compinit
 
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-autoload -Uz compinit && compinit
 zmodload -i zsh/complist
 
 if [ $commands[kubectl] ]; then
