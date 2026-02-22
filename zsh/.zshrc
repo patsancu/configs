@@ -32,7 +32,7 @@ setopt DOT_GLOB
 zstyle :compinstall filename '/home/patrick/.zshrc'
 
 autoload -Uz compinit
-compinit -C
+compinit -d ~/.zcompdump
 
 
 # Put this **before** the fuzzy finder autocompletion
