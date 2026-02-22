@@ -2,6 +2,8 @@
 
 CONFIG_FOLDER=$HOME/configs
 
+mkdir -p ~/scripts
+
 # EXTRACT THESE TWO TO A FUNCTION
 echo "Will link $CONFIG_FILE to $ZSHRC_DESTINATION if it doesn't exist"
 echo "-------------------"
