@@ -4,13 +4,10 @@ setopt AUTO_CD
 setopt GLOB
 unsetopt NOMATCH
 
-setopt APPEND_HISTORY # If this is set, zsh sessions will append
-                      # their history list to the history file, rather than replace it.
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000
 SAVEHIST=10000000
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
-setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
 setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
@@ -21,6 +18,10 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 setopt DOT_GLOB
+
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+unsetopt INC_APPEND_HISTORY
 
 # Completion
 #
