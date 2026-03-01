@@ -135,3 +135,6 @@ alias cdl='cd $_'
 alias status='git status'
 alias staged='git staged'
 alias pull='git pull --rebase'
+
+### alias to be able to directly select the just recipe
+alias pjust='just $(just | grep -v recipes | tr -s " " | cut -d " " -f 2 | fzf)'
