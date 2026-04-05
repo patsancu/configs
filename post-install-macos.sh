@@ -3,6 +3,8 @@
 packages=( zsh coreutils tmux just watch meld npm imagemagick ag wget gpg)
 packages=(${packages[@]} xpaint)
 packages=(${packages[@]} ghostscript) # for imagemagick
+packages=(${packages[@]} glow) # for fancy rendering of markdown, like "less"
+
 
 # macos' bash is veeery old
 packages=(${packages[@]} bash)

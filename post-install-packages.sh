@@ -41,7 +41,7 @@ for package in "${packages[@]}"; do
     dpkg -s $package >/dev/null | grep "not installed" > /dev/null && echo -n "$package"
 done
 
-snap_packages=( dbeaver-ce postman )
+snap_packages=( dbeaver-ce postman glow)
 for package in "${snap_packages[@]}"; do
     sudo snap install  $package
 done
