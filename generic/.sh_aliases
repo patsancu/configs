@@ -140,3 +140,4 @@ alias pull='git pull --rebase'
 alias pjust='just $(just | grep -v recipes | tr -s " " | cut -d " " -f 2 | fzf)'
 
 alias glow='glow -p'
+alias yt-dlp='yt-dlp -o "%(epoch>%Y-%m-%d_%H-%M-%S)s - %(title)s.%(ext)s"'
