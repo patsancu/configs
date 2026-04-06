@@ -123,6 +123,7 @@ alias ffplay-mute='ffplay -volume 0'
 
 # tmux
 alias tmux-new='tmux new -s'
+alias tmux-current-folder='tmux new -s $(basename $(pwd))'
 
 alias cdl='cd $_'
 
