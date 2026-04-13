@@ -44,7 +44,7 @@ mkdir -p "$DUMMY_FOLDER"
 TODAY="$DUMMY_FOLDER/$(date +%Y%m%d).dummy"
 if [ ! -f "$TODAY" ]; then # Only do this once a day
     echo "configuring hidutil (max once a day)"
-    sudo hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}]}'
+    hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}]}'
     touch $TODAY
 fi
 
