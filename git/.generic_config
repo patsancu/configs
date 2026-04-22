@@ -8,6 +8,10 @@
 [color]
     ui = true
 
+[pull]
+    ff = only
+    rebase = true
+
 [rebase]
     autosquash = true
 
