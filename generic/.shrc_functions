@@ -430,23 +430,61 @@ function tmux-cd() {
     tmux a -t ${SESSION_NAME} || tmux new -s "${SESSION_NAME}" -c "$FOLDER"
 }
 
+_worktree_add_for_branch() {
+    BRANCH_NAME="$1"
+    FOLDER="$2"
+    if git show-ref --verify --quiet "refs/heads/${BRANCH_NAME}"; then
+        echo "Branch ${BRANCH_NAME} exists locally, creating worktree on it"
+        git worktree add "${FOLDER}" "${BRANCH_NAME}"
+    elif git show-ref --verify --quiet "refs/remotes/origin/${BRANCH_NAME}"; then
+        echo "Branch ${BRANCH_NAME} exists on origin, creating local tracking branch"
+        git worktree add -b "${BRANCH_NAME}" --track "${FOLDER}" "origin/${BRANCH_NAME}"
+    else
+        echo "Branch ${BRANCH_NAME} does not exist anywhere, creating it from HEAD"
+        git worktree add -b "${BRANCH_NAME}" "${FOLDER}"
+    fi
+    echo "Created worktree @ ${FOLDER}"
+}
+
+worktree-create() {
+    if [ $# -lt 1 ]; then
+        echo "Usage: $0 BRANCH_NAME"
+        echo "  Fetches origin first, then:"
+        echo "    - if BRANCH_NAME exists locally, creates a worktree on it"
+        echo "    - else if origin/BRANCH_NAME exists, creates a local tracking branch from it"
+        echo "    - otherwise, creates a new branch from HEAD"
+        return 1
+    fi
+    BRANCH_NAME="$1"
+    BRANCH_SLUG=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-//; s/-$//')
+    CURRENT_PROJECT="$(basename $(pwd))"
+    NEW_FOLDER_NAME="${WORKTREES_FOLDER}/${CURRENT_PROJECT}-${BRANCH_SLUG}-$(date +%Y-%m-%d-%H%M)"
+
+    echo "Fetching origin..."
+    git fetch origin --prune
+
+    _worktree_add_for_branch "${BRANCH_NAME}" "${NEW_FOLDER_NAME}"
+}
+
 function review-pr() {
-    PR_NUMBER=$(git ls-remote origin | grep pull | grep head | cut -f 2 | cut -d '/' -f 3 | sort -u | tr ' ' '\n' | fzf)
-    if [ -z "$PR_NUMBER" ]; then
+    SELECTED_PR=$(gh pr list --json number,title,headRefName --template '{{range .}}{{.number}}{{"\t"}}{{.title}}{{"\t"}}{{.headRefName}}{{"\n"}}{{end}}' | fzf)
+    if [ -z "$SELECTED_PR" ]; then
         echo "You didn't select a PR number, will do nothing"
         exit 1
     fi
-    echo "You selected PR: $PR_NUMBER"
+    PR_NUMBER=$(echo "$SELECTED_PR" | cut -f1)
+    PR_BRANCH=$(echo "$SELECTED_PR" | cut -f3)
+    PR_BRANCH_SLUG=$(echo "$PR_BRANCH" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-//; s/-$//')
+    echo "You selected PR: $PR_NUMBER (branch: $PR_BRANCH)"
     CURRENT_PROJECT="$(basename $(pwd))"
     echo "Current project is: ${CURRENT_PROJECT}"
     BRANCH_TO_REVIEW="pull/${PR_NUMBER}/head"
+    LOCAL_BRANCH_NAME="PR-${PR_NUMBER}-${PR_BRANCH_SLUG}-$(date +%Y-%m-%d-%H%M)"
     echo "Branch to review is: $BRANCH_TO_REVIEW"
-    LOCAL_BRANCH_NAME="pr-${PR_NUMBER}--$(date +%Y-%m-%d-%H%M)"
     echo "Will fetch PR remote branch, and create a local PR branch with name: $LOCAL_BRANCH_NAME"
-    git fetch origin $BRANCH_TO_REVIEW:$LOCAL_BRANCH_NAME
-    NEW_FOLDER_NAME="../${CURRENT_PROJECT}-PR-${PR_NUMBER}--$(date +%Y-%m-%d-%H%M)"
-    git worktree add $NEW_FOLDER_NAME ${LOCAL_BRANCH_NAME}
-    echo "Created a repo @ ${NEW_FOLDER_NAME}"
+    git fetch origin "$BRANCH_TO_REVIEW:$LOCAL_BRANCH_NAME"
+    NEW_FOLDER_NAME="${WORKTREES_FOLDER}/${CURRENT_PROJECT}-PR-${PR_NUMBER}-${PR_BRANCH_SLUG}-$(date +%Y-%m-%d-%H%M)"
+    _worktree_add_for_branch "${LOCAL_BRANCH_NAME}" "${NEW_FOLDER_NAME}"
     if [ $# -eq 1 ]; then
         if [ "$1" = "-i" ]; then
             USE_INTELLIJ="YES"
@@ -461,3 +499,33 @@ function review-pr() {
         idea ${NEW_FOLDER_NAME}
     fi
 }
+
+
+function worktree-delete() {
+    local WORKTREE FULLPATH BRANCH
+    WORKTREE=$(git worktree list | sed '1d' | awk '{
+      n=split($1, parts, "/");
+      printf "%s %s\t%s\n", parts[n], $3, $1
+    }' | fzf \
+      --height=40% --reverse --border \
+      --prompt="Delete worktree > " \
+      --header="Pick a worktree to remove (Esc to cancel)" \
+      --with-nth=1 \
+      --delimiter=$'\t') || return 1
+
+    [ -z "$WORKTREE" ] && return 1
+
+    FULLPATH=$(echo "$WORKTREE" | cut -f2)
+    BRANCH=$(echo "$WORKTREE" | cut -f1 | awk '{print $NF}' | tr -d '[]')
+
+    printf "Remove worktree %s (BRANCH %s)? [y/N] " "$FULLPATH" "$BRANCH"
+    read -r confirm
+    case "$confirm" in
+      [yY]|[yY][eE][sS])
+        git worktree remove "$FULLPATH" && echo "Removed $FULLPATH"
+        ;;
+      *)
+        echo "Cancelled"
+        ;;
+    esac
+  }

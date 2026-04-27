@@ -6,6 +6,7 @@ PATH="$PATH:/usr/local/go/bin"
 PATH="$PATH:$HOME/scripts"
 PATH="$PATH:$HOME/configs/scripts"
 export PATH
+WORKTREES_FOLDER="$HOME/code/worktrees/"
 
 export EDITOR="vim"
 
