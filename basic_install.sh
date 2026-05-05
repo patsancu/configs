@@ -100,6 +100,20 @@ else
     echo "file already exists"
 fi
 echo "********************"
+
+echo "********************"
+echo "ghostty stuff"
+echo "-------------------"
+GHOSTTY_CONFIG_DESTINATION=$HOME/.config/ghostty/config
+if [ ! -f $TMUX_CONFIG_DESTINATION ]; then
+    ln -s $CONFIG_FOLDER/ghostty/config $GHOSTTY_CONFIG_DESTINATION
+    echo "file created"
+else
+    echo "file already exists, won't do anything"
+fi
+echo "********************"
+
+
 echo ""
 
 echo "********************"

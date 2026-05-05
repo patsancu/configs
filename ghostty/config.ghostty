@@ -1,0 +1,4 @@
+keybind = global:option+space=toggle_quick_terminal
+quick-terminal-size = 90%
+clipboard-write = allow
+copy-on-select = true
