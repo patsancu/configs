@@ -42,7 +42,7 @@ echo ""
 EXTRA_CONFIG_FILE=~/.sh_extra_config
 [ ! -f $EXTRA_CONFIG_FILE ] && touch $EXTRA_CONFIG_FILE
 echo "********************"
-echo "You can put a 'source file' in $EXTRA_CONFIG_FILE to load exteranl configs"
+echo "You can put a 'source file' in $EXTRA_CONFIG_FILE to load external configs"
 echo "********************"
 echo ""
 
