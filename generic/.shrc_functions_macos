@@ -24,3 +24,26 @@ function j17() {
     export JAVA_HOME=$(/usr/libexec/java_home -v 17)
     java -version
 }
+
+function notify() {
+  local message=""
+  local title="Terminal"
+
+  # parse flags
+  while getopts "m:t:" opt; do
+    case "$opt" in
+      m) message="$OPTARG" ;;
+      t) title="$OPTARG" ;;
+    esac
+  done
+
+  if [ -z "$message" ]; then
+    echo "Usage: notify -m \"message\" [-t \"title\"]"
+    return 1
+  fi
+
+  osascript <<EOF
+display notification "${message}" with title "${title}"
+tell application "System Events" to beep
+EOF
+}
