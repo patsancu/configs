@@ -46,6 +46,8 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'sheerun/vim-polyglot'
 Plug 'NoahTheDuke/vim-just'
 Plug 'godlygeek/tabular'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Generate a nice airline tmux line theme
 " nice ones are generated via:
