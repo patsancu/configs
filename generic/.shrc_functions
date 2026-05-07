@@ -529,3 +529,22 @@ function worktree-delete() {
         ;;
     esac
   }
+
+function file-get() {
+    if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+      git ls-files
+    else
+        find . -type f \
+          -not -path "*/node_modules/*" \
+          -not -path "*/.git/*"
+    fi | fzf --preview 'cat {}'
+}
+
+function file-open() {
+    FILE_TO_OPEN="$(file-get)"
+    if [ -z "$FILE_TO_OPEN" ]; then
+        echo "Won't open anything, no file selected"
+    else
+        vim "$FILE_TO_OPEN"
+    fi
+}
