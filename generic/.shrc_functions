@@ -320,11 +320,23 @@ function record-ffmpeg () {
     fi
 }
 
-function pollama() {
-    MODEL=$(ollama ls | grep -v "^NAME" | tr '\t' ' ' | cut -d ' ' -f 1 | fzf)
-    echo "Your chosen model is $MODEL"
-    ollama run "$MODEL"
+function pollama(){
+    MODEL=$(
+      ollama list | sed 1d | \
+      awk '{printf "%-35s %s %s\n", $1, $3, $4}' | \
+      fzf --height=50% \
+          --layout=reverse \
+          --border=rounded \
+          --prompt="Ollama Model > " \
+          --preview='ollama show {1}' \
+          --preview-window=right:70%:wrap
+    )
+
+    MODEL=$(echo "$MODEL" | awk '{print $1}')
+    [ -n "$MODEL" ] && echo "Your chosen model is $MODEL" || echo "You didn't chose any model"
+    [ -n "$MODEL" ] && ollama run "$MODEL"
 }
+
 
 function clone-cd() {
     URL="$1"
