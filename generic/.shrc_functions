@@ -540,7 +540,34 @@ function worktree-delete() {
         echo "Cancelled"
         ;;
     esac
-  }
+}
+
+function worktree-choose() {
+  local DIR
+
+  DIR=$(
+    find "$WORKTREES_FOLDER" \
+      -mindepth 1 -maxdepth 1 -type d | \
+    while read -r path; do
+      printf "%s\t%s\n" "${path##*/}" "$path"
+    done | \
+    fzf \
+      --delimiter=$'\t' \
+      --with-nth=1 \
+      --height=60% \
+      --layout=reverse \
+      --border=rounded \
+      --prompt="Worktree > "
+  )
+
+  [ -z "$DIR" ] && return
+
+  DIR="${DIR#*$'\t'}"
+
+  cd "$DIR" || return
+  idea .
+}
+
 
 function file-get() {
   if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
