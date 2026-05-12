@@ -585,3 +585,20 @@ function file-open() {
         vim "$FILE_TO_OPEN"
     fi
 }
+
+function diff-fzf(){
+    (git diff --name-only && git ls-files --others --exclude-standard) \
+        | sort -u \
+        | fzf --multi --preview 'if git ls-files --error-unmatch {} >/dev/null 2>&1; then git diff --color=always -- {}; else cat {}; fi' --preview-window=right:60%
+}
+
+function staged-fzf(){
+    git diff --cached --name-only \
+        | fzf --multi --preview 'git diff --cached --color=always -- {}' --preview-window=right:70%
+}
+
+
+function log-fzf() {
+    git log --oneline --color=always --decorate \
+        | fzf --ansi --preview 'git show --color=always {1}' --preview-window=right:70%
+}
