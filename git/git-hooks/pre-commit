@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -e
+
+git diff --cached --name-only --diff-filter=ACM | while read -r file; do
+    [ -f "$file" ] || continue
+    [ -s "$file" ] || continue
+
+    # Skip binaries
+    if git diff --numstat -- "$file" | grep -q '^-'; then
+        continue
+    fi
+
+    # Remove trailing whitespace (cross-platform)
+    if sed --version >/dev/null 2>&1; then
+        # GNU sed (Linux)
+        sed -i 's/[[:space:]]\+$//' "$file"
+    else
+        # BSD sed (macOS)
+        sed -i '' -E 's/[[:space:]]+$//' "$file"
+    fi
+
+    # Add trailing newline if missing
+    if [ -n "$(tail -c 1 "$file")" ]; then
+        printf '\n' >> "$file"
+    fi
+
+    # Stage the modified file
+    git add "$file"
+done
