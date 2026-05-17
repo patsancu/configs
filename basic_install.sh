@@ -4,38 +4,33 @@ CONFIG_FOLDER=$HOME/configs
 
 mkdir -p ~/scripts
 
-# EXTRACT THESE TWO TO A FUNCTION
-echo "Will link $CONFIG_FILE to $ZSHRC_DESTINATION if it doesn't exist"
 echo "-------------------"
-if [ ! -f $ZSHRC_DESTINATION ]; then
-    ZSHRC_DESTINATION=$HOME/.zshrc
-    echo "********************"
-    if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
-        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+echo "zsh config"
+echo "-------------------"
+ZSHRC_DESTINATION=$HOME/.zshrc
+echo "********************"
+if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-        KEY_REPEAT_CONFIG_FILE="~/configs/macos/key_repeat_config.sh"
-        echo "Loading key repeat config from ${KEY_REPEAT_CONFIG_FILE}"
-        [ -f $KEY_REPEAT_CONFIG_FILE ] && source $KEY_REPEAT_CONFIG_FILE
+    KEY_REPEAT_CONFIG_FILE="$CONFIG_FOLDER/macos/key_repeat_config.sh"
+    echo "Loading key repeat config from ${KEY_REPEAT_CONFIG_FILE}"
+    [ -f $KEY_REPEAT_CONFIG_FILE ] && source $KEY_REPEAT_CONFIG_FILE
 
-        CONFIG_FILE="$CONFIG_FOLDER/.zshrc_macos"
-        echo "$OSTYPE" >> "$HOME/os_patrick.txt"
-    else
-        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-            CONFIG_FILE="$CONFIG_FOLDER/.zshrc_linux"
-            echo "$OSTYPE" >> "$HOME/os_patrick.txt"
-        fi
-    fi
-
-
-    if [ ! -z "$CONFIG_FILE" ]; then
-        ln -s $CONFIG_FILE $ZSHRC_DESTINATION
-    else
-        echo "Config file is empty"
-    fi
-	echo "file created"
+    CONFIG_FILE="$CONFIG_FOLDER/.zshrc_macos"
 else
-	echo "file already exists"
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        CONFIG_FILE="$CONFIG_FOLDER/.zshrc_linux"
+    fi
 fi
+
+
+if [ ! -z "$CONFIG_FILE" ]; then
+    ln -s $CONFIG_FILE $ZSHRC_DESTINATION
+    echo "file created"
+else
+    echo "Config file is empty"
+fi
+
 echo "********************"
 echo ""
 
