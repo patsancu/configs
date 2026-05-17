@@ -28,15 +28,15 @@ unsetopt INC_APPEND_HISTORY
 
 # Completion
 #
+autoload -Uz compinit
+compinit -d ~/.zcompdump
 ### Autocompletion
 # AWS autocomplete
 #which aws_completer > /dev/null && source /usr/local/bin/aws_zsh_completer.sh
 # Enable kubernetes autocompletion, if installed
 #which kubectl > /dev/null &&  source /usr/local/share/zsh/site-functions/kubectl
-zstyle :compinstall filename '/home/patrick/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
-autoload -Uz compinit
-compinit -d ~/.zcompdump
 
 
 # Put this **before** the fuzzy finder autocompletion
@@ -65,5 +65,9 @@ if [ "$TERM" = "urxvt" ] || [ "$TERM" = "rxvt-unicode" ]; then
 fi
 
 
-source ~/configs/zsh/.zsh_antigen
-source ~/configs/zsh/.zshrc_aliases
+ # Starship prompt
+ eval "$(starship init zsh)"
+
+
+ # Inline calculator
+ calc() { bc -l <<< "$*"; }

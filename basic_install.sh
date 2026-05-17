@@ -14,7 +14,7 @@ if [ "${OSTYPE//[0-9.]/}" == "darwin" ]; then
 
     KEY_REPEAT_CONFIG_FILE="$CONFIG_FOLDER/macos/key_repeat_config.sh"
     echo "Loading key repeat config from ${KEY_REPEAT_CONFIG_FILE}"
-    [ -f $KEY_REPEAT_CONFIG_FILE ] && source $KEY_REPEAT_CONFIG_FILE
+    [ -f $KEY_REPEAT_CONFIG_FILE ] && source $KEY_REPEAT_CONFIG_FILE # This should be moved to zsh macos
 
     CONFIG_FILE="$CONFIG_FOLDER/.zshrc_macos"
 else
@@ -25,8 +25,10 @@ fi
 
 
 if [ ! -z "$CONFIG_FILE" ]; then
-    ln -s $CONFIG_FILE $ZSHRC_DESTINATION
-    echo "file created"
+    if [ ! -f $VIMRC_DESTINATION ]; then
+        ln -s $CONFIG_FILE $ZSHRC_DESTINATION
+        echo "file created"
+    fi
 else
     echo "Config file is empty"
 fi
@@ -100,7 +102,7 @@ echo "********************"
 echo "ghostty stuff"
 echo "-------------------"
 GHOSTTY_CONFIG_DESTINATION=$HOME/.config/ghostty/config
-if [ ! -f $TMUX_CONFIG_DESTINATION ]; then
+if [ ! -f $GHOSTTY_CONFIG_DESTINATION ]; then
     ln -s $CONFIG_FOLDER/ghostty/config $GHOSTTY_CONFIG_DESTINATION
     echo "file created"
 else
@@ -111,17 +113,28 @@ echo "********************"
 
 echo ""
 
+echo ""
 echo "********************"
-echo "antigen installation..."
+echo "starship installation..."
 echo "-------------------"
-ANTIGEN_FILE=$HOME/antigen.zsh
-if [ -f "$ANTIGEN_FILE" ] &&  [ -n "$(find "$ANTIGEN_FILE" -prune -size +100 )" ]; then
-    echo "OK"
+if command -v starship &> /dev/null; then
+    echo "starship already installed"
 else
-    curl -L git.io/antigen > $ANTIGEN_FILE
+    curl -sS https://starship.rs/install.sh | sh -s -- -y
+fi
+
+STARSHIP_CONFIG_DEST=$HOME/.config/starship.toml
+if [ ! -f "$STARSHIP_CONFIG_DEST" ]; then
+    mkdir -p "$HOME/.config"
+    ln -s "$CONFIG_FOLDER/zsh/starship.toml" "$STARSHIP_CONFIG_DEST"
+    echo "starship.toml symlink created"
+else
+    echo "starship.toml already exists"
 fi
 echo "********************"
 echo ""
+
+
 
 
 echo "To install useful stuff, run:"
