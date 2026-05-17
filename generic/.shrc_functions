@@ -4,6 +4,7 @@
 # Config
 # =========
 CITY_EN=Cologne
+OPENCODE_IMAGE_NAME=my-opencode
 
 # =========
 # Functions
@@ -601,4 +602,97 @@ function staged-fzf(){
 function log-fzf() {
     git log --oneline --color=always --decorate \
         | fzf --ansi --preview 'git show --color=always {1}' --preview-window=right:70%
+}
+
+function opencode() {
+    local local_bin="$HOME/.opencode/bin/opencode"
+    local workdir="$(pwd)"
+    OPENCODE_CONFIG_MOUNT="$HOME/.config/opencode/:/root/.config/opencode"
+    OPENCODE_AUTH_MOUNT="$HOME/.local/share/opencode/:/root/.local/share/opencode"
+
+    local mode=""
+    local args=()
+
+    # Parse launcher flags
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --docker)
+                mode="docker"
+                shift
+                ;;
+            --docker-with-auth)
+                mode="docker-auth"
+                shift
+                ;;
+            --local)
+                mode="local"
+                shift
+                ;;
+            *)
+                args+=("$1")
+                shift
+                ;;
+        esac
+    done
+
+    # Interactive selection if no mode specified
+    if [[ -z "$mode" ]]; then
+        command -v fzf >/dev/null 2>&1 || {
+            echo "Error: fzf is not installed"
+            return 1
+        }
+
+        mode=$(
+            printf "%s\n" \
+                "docker" \
+                "docker-auth" \
+                "local" |
+            fzf \
+                --prompt="Run opencode via > " \
+                --height=10 \
+                --layout=reverse \
+                --border
+        )
+    fi
+
+    case "$mode" in
+        docker)
+            echo "Will run in docker, no credentials"
+            sleep 1
+            docker run -it --rm \
+                -v "$workdir:/workspace" \
+                -v "$OPENCODE_CONFIG_MOUNT" \
+                "$OPENCODE_IMAGE_NAME" \
+                opencode /workspace "${args[@]}"
+            ;;
+        docker-auth)
+            echo "Will run in docker WITH credentials"
+            sleep 1
+
+            docker run -it --rm \
+                -v "$workdir:/workspace" \
+                -v "$OPENCODE_CONFIG_MOUNT" \
+                -v "$OPENCODE_AUTH_MOUNT" \
+                "$OPENCODE_IMAGE_NAME" \
+                opencode /workspace "${args[@]}"
+            ;;
+        local)
+            [ -x "$local_bin" ] || {
+                echo "Error: local opencode binary not found:"
+                echo "  $local_bin"
+                return 1
+            }
+
+            (
+                echo "Will run native installed opencode"
+                sleep 1
+                cd "$workdir" || return 1
+                "$local_bin" . "${args[@]}"
+            )
+            ;;
+        *)
+            echo "No mode selected"
+            return 1
+            ;;
+    esac
 }
