@@ -3,7 +3,7 @@ $time in ${custom.full_dir} on $git_branch$git_status $python$nodejs$rust$golang
 $character"""
 
 [custom.full_dir]
-command = "pwd | sed 's|$HOME|~|'"
+command = 'pwd | sed "s|$HOME|~|"'
 when = true
 style = "bold cyan"
 format = "[$output]($style)"
