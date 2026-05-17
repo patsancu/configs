@@ -132,8 +132,14 @@ else
     echo "starship.toml already exists"
 fi
 echo "********************"
-echo ""
-
+echo "zsh-syntax-highlighting..."
+echo "-------------------"
+if [ -d ~/.zsh-syntax-highlighting ]; then
+    echo "already installed"
+else
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-syntax-highlighting
+fi
+echo "********************"
 
 
 
