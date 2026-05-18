@@ -22,7 +22,6 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
-Plug 'jiangmiao/auto-pairs'
 Plug 'jpalardy/vim-slime'
 Plug 'ludovicchabant/vim-lawrencium' "Mercurial
 Plug 'majutsushi/tagbar'
