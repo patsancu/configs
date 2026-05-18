@@ -1,6 +1,10 @@
 format = """
 $time in ${custom.full_dir} on $git_branch$git_status $python$nodejs$rust$golang $status $fill$cmd_duration $battery
 $character"""
+# format = '''
+# [┌──$time──────────────](bold yellow)
+# [│](bold green)$directory$rust$package
+# [└─>](bold green) '''
 
 [custom.full_dir]
 command = 'pwd | sed "s|$HOME|~|"'
@@ -10,8 +14,8 @@ format = "[$output]($style)"
 
 [time]
 disabled = false
-use_12hr = true
-time_format = "%I:%M:%S %p"
+use_12hr = false
+time_format = "%H:%M:%S"
 style = "bold green"
 format = "[$time]($style)"
 
@@ -35,7 +39,7 @@ deleted = "✕${count}"
 
 [status]
 disabled = false
-format = "[$symbol$status]($style)"
+format = "[$symbol $status]($style)"
 style = "bold red"
 
 [cmd_duration]
@@ -77,5 +81,5 @@ display = [
 
 [character]
 success_symbol = "[->](bold green)"
-error_symbol = "[->](bold red)"
+error_symbol = "[X](bold red)"
 format = "$symbol "
