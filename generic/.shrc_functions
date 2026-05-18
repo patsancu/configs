@@ -587,15 +587,18 @@ function file-open() {
     fi
 }
 
+
 function diff-fzf(){
-    (git diff --name-only && git ls-files --others --exclude-standard) \
+    local root=$(git rev-parse --show-toplevel)
+    (git -c "$root" diff --name-only && git -c "$root" ls-files --others --exclude-standard) \
         | sort -u \
-        | fzf --multi --preview 'if git ls-files --error-unmatch {} >/dev/null 2>&1; then git diff --color=always -- {}; else cat {}; fi' --preview-window=right:60%
+        | fzf --multi --preview "if git -c '$root' ls-files --error-unmatch {} >/dev/null 2>&1; then git -c '$root' diff -- color=always -- {}; else cat '$root/{}'; fi" --preview-window=right:60%
 }
 
 function staged-fzf(){
-    git diff --cached --name-only \
-        | fzf --multi --preview 'git diff --cached --color=always -- {}' --preview-window=right:70%
+    local root=$(git rev-parse --show-toplevel)
+    git -c "$root" diff --cached --name-only \
+        | fzf --multi --preview "git -c '$root' diff --cached --color=always -- {}" --preview-window=right:70%
 }
 
 
