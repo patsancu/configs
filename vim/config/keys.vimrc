@@ -9,7 +9,7 @@ let g:tmux_navigator_no_mappings = 1
 "copy paste
 nnoremap <C-y> "+y
 vnoremap <C-y> "+y
-nnoremap <C-p> "+gP
+nnoremap <C-p> :Files<CR>
 vnoremap <C-p> "+gP
 " Change buffers
 nnoremap <Leader>k :bprev<CR>
