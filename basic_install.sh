@@ -101,7 +101,10 @@ echo "********************"
 echo "********************"
 echo "ghostty stuff"
 echo "-------------------"
-GHOSTTY_CONFIG_DESTINATION=$HOME/.config/ghostty/config
+
+XDG_CONFIG_HOME=$HOME/.config
+
+GHOSTTY_CONFIG_DESTINATION=$XDG_CONFIG_HOME/ghostty/config.ghostty
 if [ ! -f $GHOSTTY_CONFIG_DESTINATION ]; then
     ln -s $CONFIG_FOLDER/ghostty/config $GHOSTTY_CONFIG_DESTINATION
     echo "file created"
