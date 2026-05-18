@@ -1,10 +1,6 @@
 format = """
-$time in ${custom.full_dir} on $git_branch$git_status $python$nodejs$rust$golang $status $fill$cmd_duration $battery
+$time ${custom.full_dir} $git_branch $git_status $python$nodejs$rust$golang$java $status $fill$cmd_duration $battery
 $character"""
-# format = '''
-# [┌──$time──────────────](bold yellow)
-# [│](bold green)$directory$rust$package
-# [└─>](bold green) '''
 
 [custom.full_dir]
 command = 'pwd | sed "s|$HOME|~|"'
@@ -16,13 +12,13 @@ format = "[$output]($style)"
 disabled = false
 use_12hr = false
 time_format = "%H:%M:%S"
-style = "bold green"
+style = "bold yellow"
 format = "[$time]($style)"
 
 [git_branch]
 format = "[$symbol$branch]($style)"
 symbol = " "
-style = "bold yellow"
+style = "bold purple"
 
 [git_status]
 conflicted = "🏳"
@@ -51,17 +47,22 @@ style = "bold yellow"
 [python]
 symbol = "🐍 "
 style = "bold yellow"
-format = "via [$symbol$version]($style)"
+format = "[$symbol$version]($style)"
+
+[java]
+symbol = "☕ "
+style = "bold red"
+format = "[$symbol$version]($style)"
 
 [nodejs]
 symbol = "⬡ "
 style = "bold green"
-format = "via [$symbol$version]($style)"
+format = "[$symbol$version]($style)"
 
 [rust]
 symbol = "🦀 "
 style = "bold red"
-format = "via [$symbol$version]($style)"
+format = "[$symbol$version]($style)"
 
 [golang]
 symbol = "🐹 "
@@ -71,7 +72,7 @@ format = "via [$symbol$version]($style)"
 disabled = false
 full_symbol = "🔋"
 charging_symbol = "⚡🔋"
-discharging_symbol = "⇣🔋"
+discharging_symbol = "󰂃 "
 display = [
   { threshold = 0, style = "bold red" },
   { threshold = 35, style = "bold red" },
