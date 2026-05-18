@@ -1,7 +1,6 @@
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
 
 " Keep backup stuff organized
-set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
@@ -78,7 +77,7 @@ if has('persistent_undo')
     let myUndoDir = expand(vimDir . '/undodir')
     " Create dirs
     silent call system('mkdir ' . vimDir)
-    call system('mkdir ' . myUndoDir)
+    silent call system('mkdir ' . myUndoDir)
     let &undodir = myUndoDir
     set undofile
 endif
@@ -100,12 +99,6 @@ call matchadd('ColorColumn', '\%81v', 100)
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor\ --hidden
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag --hidden %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 
   " search for the provided text and open a “quickfix”
   command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
