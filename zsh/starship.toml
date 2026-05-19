@@ -1,5 +1,5 @@
 format = """
-$time ${custom.full_dir} $git_branch $git_status $python$nodejs$rust$golang$java $status $fill$cmd_duration $battery
+$os$hostname $time ${custom.full_dir} $git_branch $git_status $python$nodejs$rust$golang$java $status $fill$cmd_duration $battery
 $character"""
 
 [custom.full_dir]
@@ -14,6 +14,9 @@ use_12hr = false
 time_format = "%H:%M:%S"
 style = "bold yellow"
 format = "[$time]($style)"
+
+[os]
+disabled = false
 
 [git_branch]
 format = "[$symbol$branch]($style)"
@@ -84,3 +87,8 @@ display = [
 success_symbol = "[->](bold green)"
 error_symbol = "[X](bold red)"
 format = "$symbol "
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
+trim_at = '.companyname.com'
+disabled = false
