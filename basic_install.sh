@@ -144,6 +144,12 @@ else
 fi
 echo "********************"
 
+echo "For everything to work fine, create an ssh key if not existing yet"
+echo 'ssh-keygen -t ed25519 -C "your_email@example.com"'
+echo eval "$(ssh-agent -s)"
+echo ssh-add ~/.ssh/id_ed25519
+echo "Then,go ahead an paste the ssh key of the new machine here: https://github.com/settings/keys"
+echo cat ~/.ssh/id_ed25519.pub
 
 
 echo "To install useful stuff, run:"
