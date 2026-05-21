@@ -597,8 +597,8 @@ function diff-fzf () {
 
 function staged-fzf(){
     local root=$(git rev-parse --show-toplevel)
-    git -c "$root" diff --cached --name-only \
-        | fzf --multi --preview "git -c '$root' diff --cached --color=always -- {}" --preview-window=right:70%
+    git -C "$root" diff --cached --name-only \
+        | fzf --multi --preview "git -C '$root' diff --cached --color=always -- {}" --preview-window=right:70%
 }
 
 
