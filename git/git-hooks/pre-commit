@@ -2,6 +2,7 @@
 
 set -e
 
+# Get staged files
 git diff --cached --name-only --diff-filter=ACM | while read -r file; do
     [ -f "$file" ] || continue
     [ -s "$file" ] || continue
@@ -11,20 +12,27 @@ git diff --cached --name-only --diff-filter=ACM | while read -r file; do
         continue
     fi
 
-    # Remove trailing whitespace (cross-platform)
+    # Work on a temp copy to avoid touching index-first
+    tmp="$(mktemp)"
+
+    cp "$file" "$tmp"
+
+    # Remove trailing whitespace (GNU + BSD compatible)
     if sed --version >/dev/null 2>&1; then
-        # GNU sed (Linux)
-        sed -i 's/[[:space:]]\+$//' "$file"
+        sed -i 's/[[:space:]]\+$//' "$tmp"
     else
-        # BSD sed (macOS)
-        sed -i '' -E 's/[[:space:]]+$//' "$file"
+        sed -i '' -E 's/[[:space:]]+$//' "$tmp"
     fi
 
-    # Add trailing newline if missing
-    if [ -n "$(tail -c 1 "$file")" ]; then
-        printf '\n' >> "$file"
+    # Ensure trailing newline
+    if [ -n "$(tail -c 1 "$tmp")" ]; then
+        printf '\n' >> "$tmp"
     fi
 
-    # Stage the modified file
-    git add "$file"
+    # Only update working tree file
+    mv "$tmp" "$file"
+
+    # ❌ IMPORTANT: DO NOT re-add file
+    # git add "$file"   <-- removed intentionally
+
 done
