@@ -17,6 +17,9 @@ format = "[$time]($style)"
 
 [os]
 disabled = false
+[os.symbols]
+Linux = "🐧"
+Macos = ""
 
 [git_branch]
 format = "[$symbol$branch]($style)"
