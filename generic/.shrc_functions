@@ -663,6 +663,7 @@ function opencode() {
             echo "Will run in docker, no credentials"
             sleep 1
             docker run -it --rm \
+                --name "$(basename "$workdir")-$(date +%m-%d-%H-%M)" \
                 -v "$workdir:/workspace" \
                 -v "$OPENCODE_CONFIG_MOUNT" \
                 "$OPENCODE_IMAGE_NAME" \
@@ -673,6 +674,7 @@ function opencode() {
             sleep 1
 
             docker run -it --rm \
+                --name "$(basename "$workdir")-$(date +%m-%d-%H-%M)" \
                 -v "$workdir:/workspace" \
                 -v "$OPENCODE_CONFIG_MOUNT" \
                 -v "$OPENCODE_AUTH_MOUNT" \
