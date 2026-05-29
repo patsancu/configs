@@ -126,6 +126,8 @@ alias tmux-new='tmux new -s'
 alias tmux-current-folder='tmux new -s $(basename $(pwd))'
 alias t='tmux-current-folder'
 alias tt='select-tmux'
+alias tl='tmux ls'
+alias ta='tmux a'
 
 alias cdl='cd $_'
 
