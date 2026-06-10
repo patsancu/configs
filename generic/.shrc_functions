@@ -613,6 +613,10 @@ function opencode() {
     OPENCODE_CONFIG_MOUNT="$HOME/.config/opencode/:/root/.config/opencode"
     OPENCODE_AUTH_MOUNT="$HOME/.local/share/opencode/:/root/.local/share/opencode"
 
+    # These two so that it doesn't beak if folders don't exist
+    mkdir -p $HOME/.config/opencode/
+    mkdir -p $HOME/.local/share/opencode/
+
     local mode=""
     local args=()
 
